@@ -1,0 +1,1 @@
+# TODO: setup dockerfile to copy from app/lessons and start up both frontend and backend
