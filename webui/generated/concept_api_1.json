@@ -6,7 +6,7 @@
         "video_url": "www.youtube.com",
         "questions": [
             {
-                "data": "asdfsadlkfjasd;lkfj1231235sdfqwe",
+                "question": "asdfsadlkfjasd;lkfj1231235sdfqwe",
                 "hints": [
                     "sdlkfjas;ldkj23p49189234a;lfksdajf",
                     "asdlfk;jas;ldkfjas;ldkjas;ldfjsd;lafkj",
@@ -15,7 +15,7 @@
                 "answer": "asd;lkfjas;ldkfj1234k2;3l4kj"
             },
             {
-                "data": "asdfsadlkfjasd;lkfj1231235sdfqwe",
+                "question": "asdfsadlkfjasd;lkfj1231235sdfqwe",
                 "hints": [
                     "sdlkfjas;ldkj23p49189234a;lfksdajf",
                     "asdlfk;jas;ldkfjas;ldkjas;ldfjsd;lafkj",
@@ -24,7 +24,7 @@
                 "answer": "asd;lkfjas;ldkfj1234k2;3l4kj"
             },
             {
-                "data": "asdfsadlkfjasd;lkfj1231235sdfqwe",
+                "question": "asdfsadlkfjasd;lkfj1231235sdfqwe",
                 "hints": [
                     "sdlkfjas;ldkj23p49189234a;lfksdajf",
                     "asdlfk;jas;ldkfjas;ldkjas;ldfjsd;lafkj",
