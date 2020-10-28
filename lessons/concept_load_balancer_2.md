@@ -3,7 +3,7 @@
 @video_url:???
 
 @question Where can a load balancer implementation be placed in a network infrastructure?
- 
+
 @hint Consider the levels of the server infrastructure stack that handles requests. What are these regions and where does a load balancer fit in?
 
 @answer Load balancers can practically be placed throughout the entire server infrastructure stack. If the basic infrastructure stack is composed of the clients, the webservers, the application servers, and the database servers, flowing in that order, we can place load balancers between each part of the stack.

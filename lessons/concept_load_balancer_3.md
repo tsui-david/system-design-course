@@ -18,4 +18,4 @@ Software based implementations:
 - Easy to configure and scale because its entirely software dependent (consider the ease in duplicating a VM as opposed to physical machine).
 - Existing commercial off the shelf load balancers may be used or a custom one can be written to fit more specific needs.
 
-So far, we've discussed implementations that have been located solely in the infrastructure stack. Given the flexibility of the software based load balancer however, it can be placed at the client level. This can be called "smart clients" because the client must know the pool of hosts, detect host status, and select the proper one. This is arguably the cheapest form of load balancing.
+So far, we've discussed implementations that have been located solely in the infrastructure stack. Given the flexibility of the software based load balancer however, it can be placed at the client level. This can be called "smart clients" because the client must keep track of the pool of hosts, detect host status, and select the proper one. This is arguably the cheapest form of load balancing.
