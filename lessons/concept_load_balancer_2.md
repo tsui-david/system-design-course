@@ -6,9 +6,9 @@
 
 @hint Consider the levels of the server infrastructure stack that handles requests. What are these regions and where does a load balancer fit in?
 
-@answer Load balancers can practically be placed throughout the entire server infrastructure stack. If the basic infrastructure stack is composed of the clients, the webservers, the application servers, and the database servers, flowing in that order, we can place load balancers between each part of the stack.
-- Frontend layer: sits between the clients and the webservers. This allows for more requests to be handled by the system. This is the most common placement.
-- Application Layer: sits between between webservers and application servers.  Manages application server load and utilization.
+@answer Load balancers can practically be placed throughout the entire server infrastructure stack. If the basic infrastructure stack is composed of the clients, the web servers, the application servers, and the database servers, flowing in that order, we can place load balancers between each part of the stack.
+- Frontend layer: sits between the clients and the web servers. This allows for more requests to be handled by the system. This is the most common placement.
+- Application Layer: sits between between web servers and application servers.  Manages application server load and utilization.
 - Persistence Layer: sits between application and database servers.
 
 ![Load balancer location chart](./media/loadBalancingLayer.png)
