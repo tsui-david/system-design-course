@@ -2,7 +2,7 @@
 @lesson_title:Load Balancing Introduction
 @video_url:???
 
-@question_one What is load balancing? What primary problems does it solve?
+@question What is load balancing? What primary problems does it solve?
 
 @answer Load balancing is the practice of taking incoming request and distributing them evenly among multiple severs. Load balancing resolves two primary issues:
 1. Single point of failure: if a server were to fail or go offline, the service would become unavailable.
