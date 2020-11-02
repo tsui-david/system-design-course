@@ -4,8 +4,9 @@
 
 @question What is a CDN?
 
-@answer A CDN, or Content Delivery Network, is special type of cache, essentially it is an overlay network of web caches designed to deliver content (typically static media) to a client from the optimal location (i.e. geographic location).
+@answer A CDN, or Content Delivery Network, is a overlay network of geographically distributed web caches (called points of presence or PoPs) that are designed to deliver static media content to a client from an optimal location. CDNs are designed to reduce latency (the delay between a request and receiving the data) caused by physical distance between the requesting node and the hosting server. Because of distributed and powerful networks, CDNs today serve a majority of web traffic and allow for extremely fast transfer of static media.
+
 
 @question How does content get added to the CDN?
 
-@answer The user makes a request for some content, if the CDN does not have the content, it requests the content and then caches the content based on the time to live HTTP header (behaves just like a cache).
+@answer When the user makes a request for some content the CDN is first checked. If the CDN does not have the content, it requests the content and then caches the content based on the time to live HTTP header (behaves just like a cache).

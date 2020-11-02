@@ -4,6 +4,8 @@
 
 @question What is stored in a cache?
 
+@hint Caches are most optimal when they remain consistent and don't have to reach back to the persistence layer. What type of data remains consistent over time?
+
 @answer *Caching should be used when the requested data is read frequently and updated infrequently*. Therefore, certain types of content lend themselves more readily to benefit from caching. Some of this content is:
 - Logos and brand images
 - Non-rotating images in general (navigation icons, etc)
@@ -13,6 +15,7 @@
 - Media Files
 
 This type of ***static*** content is excellent for caching because it changes very infrequently.
+
 
 @question Explain the benefits of caching.
 

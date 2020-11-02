@@ -9,6 +9,8 @@
 
 @question List and explain different web caching types/layers.
 
+@hint Caches can be placed practically anywhere, think of a location it could be placed in the network stack and how it might help.
+
 @answer Although caching is widely used in all levels of computing, we will focus primarily on web content caching. Three of the main caching layers are:
 - Application: cache is placed directly on the request layer node. Enables local storage of response data, if the data is not found request will be made ot the persistence layer. Suffers when multiple nodes are added because traffic might be distributed across different nodes (say with a [Load Balancer](http://systemdesigncourse.com/lessons/load_balancer_2)), increasing cache misses.
 - Global: all nodes use a single cache space. There are two subtypes:
