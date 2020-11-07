@@ -1,5 +1,6 @@
 @lesson_id:youtube4
 @lesson_title:Design YouTube High Level Architecture
+@video_url:https://youtu.be/TXD7LgVrDi0
 
 @question
 What architectural components should we consider?
