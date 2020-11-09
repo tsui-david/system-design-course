@@ -12,7 +12,7 @@ filelist = []
 
 # finds all the markdown files and add them to a list
 for file in os.listdir(pathlib.Path().absolute()):
-    if file.endswith('concept_load_balancer_1.md'):
+    if file.endswith('.md'):
         filelist.append(file)
 
 # goes through every markdown file and parses the file
