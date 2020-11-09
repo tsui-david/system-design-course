@@ -12,7 +12,7 @@ filelist = []
 
 # finds all the markdown files and add them to a list
 for file in os.listdir(pathlib.Path().absolute()):
-    if file.endswith('.md'):
+    if file.endswith('concept_load_balancer_1.md'):
         filelist.append(file)
 
 # goes through every markdown file and parses the file
@@ -33,7 +33,7 @@ for file in filelist:
                 continue
             else:
                 data[-1].append(line.rstrip())
-
+        
         for item in data:
             if 'question' in item[0] and new_question == True:  # this adds a new question block to the json output when it encounters a new question
                 question_dict['hints'] = hints
@@ -41,15 +41,17 @@ for file in filelist:
                 question_dict = {}
                 hints = []
                 new_question = False                
-            if 'question' in item[0]:   # adds the question to the question block
+            elif 'question' in item[0]:   # adds the question to the question block
                 new_question = True
                 question_dict['question'] = ' '.join(item[1:])
-            if 'hint' in item[0]:   # appends the hints to the hint list
+            elif 'hint' in item[0]:   # appends the hints to the hint list
                 hints.append(' '.join(item[1:]))
-            if 'answer' in item[0]: # adds the answer to the question block
+            elif 'answer' in item[0]: # adds the answer to the question block
                 question_dict['answer'] = ' '.join(item[1:])   
             else:
                 json_output[item[0].replace('@', '')] = ' '.join(item[1:]) # adds the remainder annotations such as lesson id, video url, etc.
+        question_dict['hints'] = hints
+        json_output[lesson]['questions'].append(question_dict)
 
     writefile = str(pathlib.Path().absolute())+'\json'+'\\'+lesson+'.json' # file output path in json
     with open(writefile, 'w') as outfile:

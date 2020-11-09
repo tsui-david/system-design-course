@@ -1,1 +1,0 @@
-{"concept_load_balancer_3": {"questions": []}, "lesson_id": "load_balancer_3", "lesson_title": "Implementing a Load Balancer", "video_url": "???", "question": "Explain the primary ways load balancing can be implemented.", "hint": "Consider the implementation difference between a physical computer and a virtual machine."}
