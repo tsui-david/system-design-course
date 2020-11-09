@@ -1,2 +1,4 @@
-@lesson_id:networking1
-@lesson_title:Networking Introduction
+@lesson_id
+networking1
+@lesson_title
+Networking Introduction

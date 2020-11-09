@@ -1,5 +1,7 @@
-@lesson_id:message_queue
-@lesson_title:Message Queue Introduction
+@lesson_id
+message_queue
+@lesson_title
+Message Queue Introduction
 
 @question
 What is a message queue?

@@ -1,10 +1,11 @@
-@lesson_id:db1.1
-@lesson_title:Database Introduction
+@lesson_id
+db1.1
+@lesson_title
+Database Introduction
 
 @question
-Markdown stuff after annotation
-## What kind of database are you going to use?
-Requirements 
+What kind of database are you going to use?
+
 
 @hint
 database: an organized collection of data, generally stored and accessed electronically from a computer system.
@@ -33,7 +34,6 @@ All RDBMS are ACID-compliant.
     Consistency
     Isolation
     Durability
-
 
 @question
 When would you use a non-relational database?

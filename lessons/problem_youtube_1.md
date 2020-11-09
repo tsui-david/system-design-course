@@ -1,6 +1,9 @@
-@lesson_id:youtube1
-@lesson_title:Design YouTube Requirements
-@video_url:https://www.youtube.com/watch?v=WMoq7xZnffY
+@lesson_id
+youtube1
+@lesson_title
+Design YouTube Requirements
+@video_url
+https://www.youtube.com/watch?v=WMoq7xZnffY
 
 @question
 What are the requirements and goals of the system?

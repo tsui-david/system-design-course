@@ -1,6 +1,9 @@
-@lesson_id:youtube3
-@lesson_title:Design YouTube High Level API
-@video_url:https://youtu.be/rykxT92rKEg
+@lesson_id
+youtube3
+@lesson_title
+Design YouTube High Level API
+@video_url
+https://youtu.be/rykxT92rKEg
 
 @question
 What API endpoints should the server have?

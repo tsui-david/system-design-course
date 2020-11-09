@@ -1,12 +1,18 @@
-@lesson_id:load_balancer_3
-@lesson_title:Implementing a Load Balancer
-@video_url:???
+@lesson_id
+load_balancer_3
+@lesson_title
+Implementing a Load Balancer
+@video_url
+???
 
-@question Explain the primary ways load balancing can be implemented.
+@question
+Explain the primary ways load balancing can be implemented.
 
-@hint Consider the implementation difference between a physical computer and a virtual machine.
+@hint
+Consider the implementation difference between a physical computer and a virtual machine.
 
-@answer There are two primary types of load balancer implementations: hardware based and software based.
+@answer
+There are two primary types of load balancer implementations: hardware based and software based.
 
 Hardware based implementations:
 - These are physical devices built to achieve optimum performance. They are the generally the optimal solution due to their speed and flexibility handling different load balancing types and scales.

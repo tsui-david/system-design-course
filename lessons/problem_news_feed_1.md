@@ -1,6 +1,9 @@
-@lesson_id:news_feed_1
-@lesson_title:Designing a News Feed: Requirements
-@video_url:???
+@lesson_id
+news_feed_1
+@lesson_title
+Designing a News Feed: Requirements
+@video_url
+???
 
 @question
 What are the requirements and goals of the system?
