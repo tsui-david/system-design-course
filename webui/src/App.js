@@ -1,7 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
 
+const fs = require('fs');
+
+const NOTES_DIR = '../generated/json';
+// Reads all the json files from directory and return as object mapping filename to json
+function getNotesFromDir(directory) {
+  console.log('>>>', fs);
+  fs.readdir(directory, (err, files) => {
+    files.forEach(file => {
+      console.log(file);
+    })
+  })
+}
+
 function App() {
+  getNotesFromDir(NOTES_DIR);
+
   return (
     <div className="App">
       <header className="App-header">

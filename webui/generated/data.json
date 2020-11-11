@@ -1,0 +1,563 @@
+{
+    "concept_api_1": {
+        "lesson_id": "api1",
+        "lesson_title": "API Introduction",
+        "questions": [
+            {
+                "answer": "DNS acts like a phone book for ip addresses of different machines. It translates the ip address to a human readable domain name. A client making a request, to do anything, must need either the domain name of the host or the ip address. Once the user searches the domain name www.facebook.com, the domain name is queried by the DNS and a specific ip address is returned. From there the request gets sent to the ip address and Facebook responds with html/css/javascript for the user\u2019s browser to render the app.",
+                "hints": [
+                    "IP addresses are unique address identifiers for every machine. In order to communicate with one another, ip addresses are registered on a web of different pockets of network which communicates with one another.",
+                    "DNS (domain name service) is a registrar of different ip addresses that translates an ip address to a domain name such as www.google.com. How might knowing the domain name help with the request/response in a client to host communication?"
+                ],
+                "question": "What happens when a user searches \u201cwww.facebook.com\u201d? Explain how the request gets resolved and how the user arrives at facebook web app."
+            },
+            {
+                "answer": "First, the user\u2019s computer searches its own web cache for existing mapping of domain to ip. If this does not exist, the query goes to the user\u2019s ISP (internet service provider) or the dns resolver. If the resolver solver still cannot find the mapping, it passes the request further along up the dns hierarchy, known as the dns root server. The dns root server will tell the ISP the ip address of the top level domain name server (TLD) to query against. The TLD is in charge of mapping all the ip addresses of the authoritative nameserver for the given top level domain name (.org, .com, .io, etc). Once the ISP has the authoritative nameserver\u2019s ip, the ISP queries the authoritative nameserver for the domain name\u2019s ip address. Now the ISP cache\u2019s the domain name so the next time another user queries it, the ISP will hold the mapping.",
+                "hints": [],
+                "question": "Once the ip address is returned from the DNS, what happens afterwards? How does knowing the ip address help the user reach Facebook\u2019s website?"
+            },
+            {
+                "answer": "HTTP is a protocol built to handle communication sessions over the network while APIs use HTTP to transfer data in an interfaced organized way with business logic in mind. We will talk more about HTTP requests in the next module.",
+                "hints": [
+                    "Hint 1:  Assume that the client already resolved the ip address through DNS. In the previous lesson, we know that once the client has the ip address, the client can directly talk with the server. What communication protocol is used in talking with the web server?"
+                ],
+                "question": "What is the difference between HTTP vs APIs?"
+            },
+            {
+                "answer": "The 5 relevant methods to REST API are: POST, GET, PUT, PATCH, DELETE. POST creates entries, GET reads, PUT updates, PATCH updates, DELETE deletes. These methods are closely related to how RestApi is designed as the  RestAPI utilizes the HTTP constructs and URL to construct stateless communication between client and server.",
+                "hints": [
+                    "Some HTTP methods are based off of verbs used for creating, reading  updating, deleting (CRUD) against a service"
+                ],
+                "question": "What are some methods of HTTP requests and what are the use cases for each?"
+            },
+            {
+                "answer": "Status codes are divided into 5 ranges of numbers: 1xx -> Informational, 2xx -> Success, 3xx -> Redirection, 4xx -> Client Error, 5xx -> Server Error. From Mozilla, specific example codes (These codes are the more frequent/relevant codes that should be remembered): 100 Continue: informational status response code indicates that everything so far is OK and that the client should continue with the request or ignore it if it is already finished. 200 OK: Request has succeeded. For GET it means the resource has been successfully fetched For PUT/POST it means the server properly accepted the input, could also be 201 301 Moved Permanently: The url of the request has been moved and the response includes the new URL 400: Bad Request: Some sort of syntax issues from the client request 401: Unauthorized: The request was not authenticated 403: Forbidden: The request was authenticated but not authorized. Follow Up: What\u2019s the difference between authentication vs authorization? Authentication = we know who you say you are Authorization = you have permission to do what you wish to do 404: Not Found: Server cannot find the requested resource, often meaning the client requested incorrect endpoint 405: Method Not Allowed: The request method is known by the server but not allowed, such as deleting users or specific resources. 500: Internal Server Error: General server side error indicating the server doesn\u2019t know what to do 501: Not Implemented: The requested HTTP method is not implemented. Example: The server is READ only so no post or put methods. 502: Bad Gateway: The server acting as a gateway was not able to get a response needed to handle the request. This is usually a network issue with the gateway load balancer that accepted the request and the actual server. For more information on gateways, look up load balancer",
+                "hints": [
+                    "What are some use cases of these status codes? Status codes can indicate success, failure, and others.",
+                    "For each 5 HTTP methods, the same status codes can apply."
+                ],
+                "question": "In addition to the requested data, the server also returns HTTP status codes. What are some examples of these status codes? What are the purposes of these status codes?"
+            },
+            {
+                "hints": [
+                    "What operations can exist regarding CRUD on Spotify playlist? Create: Create new playlist Read: Read songs from playlist, read all playlist Update: Change playlist name, add playlist song Delete: Remove playlist, remove song from playlist",
+                    "What HTTP methods can be used regarding CRUD on Spotify playlist? Create: POST new playlist Read: GET playlist, GET songs Update: PATCH playlist song, PUT playlist song Delete: DELETE playlist, DELETE song",
+                    "REST API interacts through urls. This means the api will start with spotify\u2019s domain: www.spotify.com/api. In addition, apis utilize versions. As a result, what is an example of a starting url for REST api? www.spotify.com/api/v1/<nouns>",
+                    "REST APIs involve nouns to dictate what object to interact with. As a result multiple HTTP methods can be associated with the same REST API endpoint. What are some of these url endpoints? www.spotify.com/api/v1/{user_id}/playlists -> GET: get all playlist (name, number of songs, user, follower, etc) POST: create playlist www.spotify.com/api/v1/{user_id}/playlists/{playlist_id} -> PATCH: change playlist name by id DELETE: delete playlist by id GET: get playlist property by id PUT: update the playlist and replace it www.spotify.com/api/v1/{user_id}/{playlist_id}/tracks -> GET: get playlist songs POST or PUT: create / replace song to playlist DELETE: delete song PATCH: change playlist song order",
+                    "In Post/Put/Patch the request sent will contain a body. These are additional parameters that are associated with the request. What are some examples of items you would need to add for POST, DELETE, PUT, PATCH? POST-> post new playlist. Rest API body is in JSON: www.spotify.com/api/v1/{user_id}/playlists {  name: \u201cMyEveningPlaylist,  songs: [{name: \u201cNever Say Never\u201d, artist: [\u201cJustin Bieber\u201d, \u201cJaden Smith\u201d],  album: \u201cNever Say Never - The Remixes\u201d}] } PATCH ->  update playlist name www.spotify.com/api/v1/{user_id}/{playlist_id} {   name: \u201cMyMorningPlaylist\u201d } PUT -> replace whole playlist www.spotify.com/api/v1/{user_id}/playlists {  name: \u201cMyMorningPlaylist\u201d,  songs: [{name: \u201cNever Say Never\u201d, artist: [\u201cJustin Bieber\u201d, \u201cJaden Smith\u201d],  album: \u201cNever Say Never - The Remixes\u201d}] }",
+                    "What are the responses the server should give? Give some examples for spotify playlist api POST-> post new playlist. Rest API body is in JSON: www.spotify.com/api/v1/{user_id}/playlists 200 OK {  playlist_id: 123playlist1,  date_created: 1602945257,  date_updated: 1602945257,  name: \u201cMyEveningPlaylist,  songs: [{name: \u201cNever Say Never\u201d, artist: [\u201cJustin Bieber\u201d, \u201cJaden Smith\u201d],  album: \u201cNever Say Never - The Remixes\u201d}] }"
+                ]
+            }
+        ]
+    },
+    "concept_caching_1": {
+        "lesson_id": "caching_1",
+        "lesson_title": "Caching Introduction",
+        "questions": [
+            {
+                "answer": "Caching takes advantage of the Locality of Reference Principle which states that recently requested data is likely to be requested again. Therefore, caching is the act of storing reusable data responses in order to make subsequent requests faster. When a request is made, caches are checked for the requested data along the way to the origin location of the data.",
+                "hints": [],
+                "question": "Define caching using the Locality of Reference Principle."
+            },
+            {
+                "answer": "Although caching is widely used in all levels of computing, we will focus primarily on web content caching. Three of the main caching layers are: - Application: cache is placed directly on the request layer node. Enables local storage of response data, if the data is not found request will be made ot the persistence layer. Suffers when multiple nodes are added because traffic might be distributed across different nodes (say with a [Load Balancer](http://systemdesigncourse.com/lessons/load_balancer_2)), increasing cache misses. - Global: all nodes use a single cache space. There are two subtypes:     - The nodes hit the global cache, on a miss the global cache is responsible for retrieving the missing data from the persistence layer.     - The nodes retrieve data not found in cache. This type is less common.     This type of cache solves the issue with application caching when there are multiple nodes; however the global cache itself can become a bottleneck if the cache is unable to handle the number of requests. - Distributed: cached data is spread out on different nodes. On a request, a lookup up is made to determine which node has the data which is then retrieved. If no node has the data, a request is made to the persistence layer. This type of cache is easy to expand because the number of caching nodes can simply be increased. This, however, caries all the intricacies/complexity of a distributed system and difficult to maintain.",
+                "hints": [
+                    "Caches can be placed practically anywhere, think of a location it could be placed in the network stack and how it might help."
+                ]
+            }
+        ],
+        "video_url": "???"
+    },
+    "concept_caching_2": {
+        "lesson_id": "caching_2",
+        "lesson_title": "Advantages of Caching",
+        "questions": [
+            {
+                "answer": "*Caching should be used when the requested data is read frequently and updated infrequently*. Therefore, certain types of content lend themselves more readily to benefit from caching. Some of this content is: - Logos and brand images - Non-rotating images in general (navigation icons, etc) - Style sheets - General Javascript files - Downloadable Content - Media Files This type of ***static*** content is excellent for caching because it changes very infrequently.",
+                "hints": [
+                    "Caches are most optimal when they remain consistent and don't have to reach back to the persistence layer. What type of data remains consistent over time?"
+                ],
+                "question": "What is stored in a cache?"
+            },
+            {
+                "answer": "Some of the primary benefits of caching are: - Decreased network costs: caches along the network path between the request node and content node mean that if the cache holds the data, additional network activity to reach the content node will be unnecessary. - Improved responsiveness: caching reduces or eliminates network round trips which allows content to be retrieved faster, with some requests feeling instantaneous depending on it's \"distance\" to the user (e.g. browser cache is almost instant). - Increased server performance: the server where content originates can benefit greatly because certain types of content loads and requests can be offloaded to caching servers, freeing up the origin server to do other work. - Availability of content during network interruptions: although dependent on caching policies, caching can be used to serve content to end users even when it may be unavailable for short periods of time from the origin servers.",
+                "hints": []
+            }
+        ],
+        "video_url": "???"
+    },
+    "concept_caching_3": {
+        "lesson_id": "caching_3",
+        "lesson_title": "Cache Invalidation and It's Friends",
+        "questions": [
+            {
+                "answer": "The major considerations to take into account are: - Invalidation: the cache can become outdated and must rely on the source of truth (data store, recomputed values, etc). This is particularly an issue on a larger scale (see CDNs). - Eviction: caches can only hold a portion of the data, therefore once the cache is full, data that is no longer useful must be discarded. - Expiration: data in that cache that has not been accessed for an extended period of time violates the Locality of Reference Principle and most likely means that it should be removed from the cache.",
+                "hints": [
+                    "Caches are limited, what happens when they reach their limit?"
+                ],
+                "question": "What are some considerations to take into account when caching?"
+            },
+            {
+                "answer": "Because caches can only hold a part of the data, data that is no longer useful must be discarded. These six cache eviction policies provide some examples how: - Least Recently Used (LRU) - Least Frequently Used (LFU) - Most Recently Used (MRU) - First In First Out (FIFO) - Last In First Out (LIFO) - Random Replacement (RR)",
+                "hints": [
+                    "Given a cache and database that you must write to, think of the different order you might share data between the two.",
+                    "Think of data structures and their methods of removing elements."
+                ],
+                "question": "List and explain the most popular cache eviction policies."
+            }
+        ],
+        "video_url": "???"
+    },
+    "concept_cdn_1": {
+        "lesson_id": "cdn1",
+        "lesson_title": "Content Delivery Network Introduction",
+        "questions": [
+            {
+                "answer": "A CDN, or Content Delivery Network, is a overlay network of geographically distributed web caches (called points of presence or PoPs) that are designed to deliver static media content to a client from an optimal location. CDNs are designed to reduce latency (the delay between a request and receiving the data) caused by physical distance between the requesting node and the hosting server. Because of distributed and powerful networks, CDNs today serve a majority of web traffic and allow for extremely fast transfer of static media.",
+                "hints": [],
+                "question": "What is a CDN?"
+            },
+            {
+                "answer": "When the user makes a request for some content the CDN is first checked. If the CDN does not have the content, it requests the content and then caches the content based on the time to live HTTP header (behaves just like a cache).",
+                "hints": []
+            }
+        ],
+        "video_url": "???"
+    },
+    "concept_cdn_2": {
+        "lesson_id": "cdn_2",
+        "lesson_title": "CDN Benefits and Considerations",
+        "questions": [
+            {
+                "answer": "Although this is highly dependent on the needs of a site (as we will later see) the main benefits of a CDN are: - Improved website load times - Reducing bandwidth costs - Increasing content availability and redundancy - Improving website security You might notice virtually all of these are similar to the benefits offered by the generic definition of a cache.",
+                "hints": [
+                    "Remember a CDN is simply a special implementation of a cache."
+                ],
+                "question": "Name some benefits of using a CDN?"
+            },
+            {
+                "answer": "1. Cost: CDNs are typically run by a third party that will charge you for data transfers in and out of the CDN. of use with respect to nature of data requested 2. Content expiration time: if content takes too long to expire it will be outdated; if it expires to quickly then content will be repeated loaded from the origin servers 3. CDN outage: clients should be able to detect CDN outages and request data from the origin 4. File invalidation: files can be invalidated in a CDN in two ways     1. CDN API calls provided by CDN vendor     2. Object versioning (e.g. image.png?v=2)",
+                "hints": []
+            }
+        ],
+        "video_url": "???"
+    },
+    "concept_cdn_3": {
+        "lesson_id": "cdn_3",
+        "lesson_title": "CDNs IRL",
+        "questions": [
+            {
+                "answer": "CDNs should really only be used by websites with high traffic and websites that have global reach. This is because CDNs can protect the host server from large surges in traffic which are instead handled by the CDN and because users from other parts of the globe will have a similar experience to users that are closer to the host server with CDNs. Websites that don't experience either of these issues would not reap the benefits provided by CDNs.",
+                "hints": [
+                    "Remember the cost of CDNs and how they work (geographically)."
+                ],
+                "question": "When would you use a CDN?"
+            },
+            {
+                "answer": "If Netflix were about to release a highly anticipated movie, ensuring that their servers are not bogged down with requests that could degrade the user experience would be a priority. Therefore, Netflix could pre-load the movie to CDNs in order to distribute the load of serving all the requests once the movie is made available. Furthermore, users in other countries would also benefit by having the film buffer at a similar speed to other users rather than more slowly due to being distant from Netflix's primary host servers.",
+                "hints": []
+            }
+        ],
+        "video_url": "???"
+    },
+    "concept_db_1": {
+        "lesson_id": "db1.1",
+        "lesson_title": "Database Introduction",
+        "questions": [
+            {
+                "answer": "Try to define the data model early, this will help clarify how data will flow among different components. One should be able to identify various entities of the system, how they interact with each other, and different aspect of data management like storage, transportation, encryption. Think relational and non-relational.",
+                "hints": [
+                    "database: an organized collection of data, generally stored and accessed electronically from a computer system."
+                ],
+                "question": "What kind of database are you going to use?"
+            },
+            {
+                "answer": "If you're working with a schema that allows data to be organized into tables with columns and rows. RDBMS are very traditional and have been around the longest, thus they have the biggest support and resources, people likely more familiar. Data integrity is a particular concern in relational databases, RDMS use a number of constraints to ensure that the data contained in your tables is reliable and accurate. All RDBMS are ACID-compliant.     Atomicity     Consistency     Isolation     Durability",
+                "hints": [
+                    "relational database: are also called relational database management system (RDBMS) or SQL database *some popular RDBMS are MySQL, Oracle DB, PostgresSQL"
+                ],
+                "question": "When would one use a relational database?"
+            },
+            {
+                "answer": "Key-value stores: (Redis, Amazon DynamoDB) simple DBMS that store only key-value pairs and provide basic functionality for retrieving the value associated with a known key Wide column stores: (Cassandra, Scylla, HBase) schema-agnostic systems that enable users to store data in column families or tables, a single row of which can be thought as a record -- a multi-dimensional key-value store Document stores: (MongoDB, Couchbase) schema-free systems that store data in the form of JSON documents. Document stores are similar to key-value or wide column stores, but the document name is the key and the contents of the document, whatever they are, are the value. Graph Database: (Neo4j, Datastax Enterprise Graph) represent data as a network of related nodes or objects in order to facilitate data visualizations and graph analytics Search Engines: (Elasticsearch, Spluk, Solr) store data using schema-free JSON documents. Similar to document stores, but with greater emphasis on making your unstructured or semi",
+                "hints": [],
+                "question": "What are types of non-relational database?"
+            }
+        ]
+    },
+    "concept_load_balancer_1": {
+        "lesson_id": "load_balancer_1",
+        "lesson_title": "Load Balancing Introduction",
+        "questions": [
+            {
+                "answer": "Load balancing is the practice of taking incoming request and distributing them evenly among multiple severs. Load balancing resolves two primary issues: 1. Single point of failure: if a server were to fail or go offline, the service would become unavailable. 2. Overloaded servers: if a server reaches it's operating capacity, it's ability to entertain additional requests ends and users will experience outages. Load balancing is necessary and must be implemented for any website or service with more than one server and a nontrivial amount of traffic.",
+                "hints": [],
+                "question": "What is load balancing? What primary problems does it solve?"
+            }
+        ],
+        "video_url": "???"
+    },
+    "concept_load_balancer_2": {
+        "lesson_id": "load_balancer_2",
+        "lesson_title": "Load Balancer Placement",
+        "questions": [
+            {
+                "answer": "Load balancers can practically be placed throughout the entire server infrastructure stack. If the basic infrastructure stack is composed of the clients, the web servers, the application servers, and the database servers, flowing in that order, we can place load balancers between each part of the stack. - Frontend layer: sits between the clients and the web servers. This allows for more requests to be handled by the system. This is the most common placement. - Application Layer: sits between between web servers and application servers.  Manages application server load and utilization. - Persistence Layer: sits between application and database servers. ![Load balancer location chart](./media/loadBalancingLayer.png) Essentially, a load balancer can sit between any of the sections of the infrastructure stack. If a cache server layer were to be added between the application and database servers, for example, load balancers could also be placed there.",
+                "hints": [
+                    "Consider the levels of the server infrastructure stack that handles requests. What are these regions and where does a load balancer fit in?"
+                ],
+                "question": "Where can a load balancer implementation be placed in a network infrastructure?"
+            }
+        ],
+        "video_url": "???"
+    },
+    "concept_load_balancer_3": {
+        "lesson_id": "load_balancer_3",
+        "lesson_title": "Implementing a Load Balancer",
+        "questions": [
+            {
+                "answer": "There are two primary types of load balancer implementations: hardware based and software based. Hardware based implementations: - These are physical devices built to achieve optimum performance. They are the generally the optimal solution due to their speed and flexibility handling different load balancing types and scales. - They are very expensive to build and configure, however, which limits their usage and scalability. - Consequently they are not very common and are mostly used at the first point of entry into the infrastructure. Software based implementations: - Run on generic hardware (can be installed on any Linux or Window machines). - Easy to configure and scale because its entirely software dependent (consider the ease in duplicating a VM as opposed to physical machine). - Existing commercial off the shelf load balancers may be used or a custom one can be written to fit more specific needs. So far, we've discussed implementations that have been located solely in the infrastructure stack. Given the flexibility of the software based load balancer however, it can be placed at the client level. This can be called \"smart clients\" because the client must keep track of the pool of hosts, detect host status, and select the proper one. This is arguably the cheapest form of load balancing.",
+                "hints": [
+                    "Consider the implementation difference between a physical computer and a virtual machine."
+                ],
+                "question": "Explain the primary ways load balancing can be implemented."
+            }
+        ],
+        "video_url": "???"
+    },
+    "concept_load_balancer_4": {
+        "lesson_id": "load_balancer_4",
+        "lesson_title": "What Load Balancing Gets Us",
+        "questions": [
+            {
+                "answer": "Very generally, load balancing distributes incoming traffic among the servers behind the balancer. Given that the servers are all performing the same tasks, the connections should be distributed evenly among the servers in such a way to achieve peak efficiency. Load balancing solves the single point of failure problem by routing requests to other servers when a server is down. Without load balancing, dealing with a downed server falls on the person making the request to find another available server. With a load balancer the user need not be aware that they are being routed to another server. Load balancing also resolves overloaded servers by evenly distributing load over all the available servers. Without a load balancer, traffic can become concentrated on a single server, causing the server to process requests more slowly or even drop requests due to overloading. With a load balancer the load on each server is managed through distribution algorithms and health checks. This ensures each server is doing an equal amount of work therefore resulting in an optimal performance across all severs.",
+                "hints": [],
+                "question": "Explain how a load balancer manages traffic. How does it solve the problems discussed in the first lesson (single point of failure and overloaded servers)?"
+            },
+            {
+                "answer": "Besides performing it's basic function, a load balancer provides three additional benefits: security, scalability, and abstraction. 1. Security: users connect to the web servers by using the load balancers IP address, not the servers IP. This improves security by making all the servers behind the load balancer private and restricting access. 2. Scalability: the load balancer allows for easy implementation of horizontal scaling to deal with increased usage. Horizontal scaling involves adding more machines to deal with greater load. Without the load balancer, efficiently scaling would be an arduous task. 3. Abstraction (separation of concerns): the load balancer removes the burden of managing extra tasks from the servers so that they can concern themselves with their main function. For example, the load balancer might perform SSL termination (decryption of SSL traffic), keeping the web server from having to perform this task itself and improving its performance.",
+                "hints": [
+                    "Think of other areas of computing."
+                ]
+            }
+        ],
+        "video_url": "???"
+    },
+    "concept_load_balancer_5": {
+        "lesson_id": "load_balancer_5",
+        "lesson_title": "Load Balancing Algorithms",
+        "questions": [
+            {
+                "answer": "Selecting a server depends on two things: the status of the server and the load balancing algorithm being used. The load balancer must consider: - The state of the servers (health checks) - The type of requests being made - The duration of the tasks and change route connections accordingly. For health checks, a load balancer will monitor connections to servers, if a server does not respond, it is removed from the pool of available servers. The type of request and duration of tasks are mostly factors taken into consideration by the load balancers routing algorithm.",
+                "hints": [
+                    "Think about the single point of failure and overloaded servers problems."
+                ],
+                "question": "How does a load balancer choose which server to route to?"
+            },
+            {
+                "answer": "Load balancing algorithms can vary substantially, ranging from \"dumb\" algorithms that blindly route traffic to algorithms that may consider a variety of factors when deciding where to route traffic. Some factors that may be considered are the type of requests and duration of tasks being performed. Load balancing algorithms include: - Hash Based: requests are distributed on hashed values (i.e. Request URL or Request IP). - Source (IP hash): client request IP is hashed, therefore the client is routed the same server. Most effective when client needs to connect to the same server through repeated connections over time. - Round Robin: cycles through a list of servers and sends each new request to the next server. It is most useful when the servers are of equal specification and there are not many persistent connections. - Least Connections: directs traffic to the server with the fewest active connections. - Least Response Time: a dummy request is sent to the servers and the load balancer keeps track of the time it takes to get a response. Requests are distributed to the server which has the least response time. - Consistent hashing: perhaps the most important load balancing algorithm. Ensures that when a hash table is resized, not all keys need to be remapped. Servers that are dealing with persistent connections often have to consider that persistent connections have no set end time and therefore there is no way of predicting when a connection will end. Therefore connections will generally result in unevenly distributed load on the servers. Using the Least Connections works to balance uneven servers.",
+                "hints": [
+                    "Load balancing algorithms depend on on the type of request. Consider different types of requests and algorithms that might correspond.",
+                    "What makes persistent connections different from others? What do we know about their connection times?"
+                ]
+            }
+        ],
+        "video_url": "???"
+    },
+    "concept_message_1": {
+        "lesson_id": "message_queue",
+        "lesson_title": "Message Queue Introduction",
+        "questions": [
+            {
+                "answer": "Queue buffer for asynchronous communication between different microservice / stateless services. Composes of 3 pieces: The producer which produces data that needs to be processed, the queue which stores these data, and the consumer which processes these data from the queue",
+                "hints": [],
+                "question": "What is a message queue?"
+            },
+            {
+                "answer": "Asynchronous processing between multiple components     Whenever there is any need to \u201cwait\u201d endlessly for a response, a message queue can be used     It is better to respond to the user that there is something not processed rather than continuously wait for that same response, latency is eliminated even though data might not have been processed Need for data persistence on tracking incoming messages / outbound consumer messages As system components scale out, more and more producer and consumers will also be scaled out. At this point, a message queue is needed to handle the dependency interconnections between the two components     It is O(1) for producer/consumer to access the data rather than wait In summary you should use a queue if:     Your request is indeterministic     Long running request by nature (complex calculation)     Resource hungry         Bad idea to have the web server serving the request do it for you. Instead queue it and have a scalable stateless server handle it.",
+                "hints": [
+                    "What is \"decoupling\"? What benefits does it bring? Decoupling = Seperating a software system\u2019s dependencies so that the components of the system are not tied closely together. This is a design pattern that brings several benefits: Separating dependencies is higher resilience. Because the components are not as dependent on one another, one component failing would not result in another component downstream failing as well. Produces better encapsulation/abstraction through more focused responsibility. This allows for easier modification/expansion of the system as there are not as much moving pieces in the system to worry about"
+                ],
+                "question": "What are some use cases for message queue? What are alternatives?"
+            },
+            {
+                "answer": "A pub/sub will not be able to handle the same use cases as message queue",
+                "hints": [
+                    "What is pub/sub system? Pub/sub or publisher subscriber system is another form of asynchronous communication often used in stateless architecture where a publisher service will publish its data and its subscriber systems will immediately receive the incoming data. In contrast, a message queue involves a separate service completely which manages the states between the publisher and subscriber and the message that is sent does not have to be immediately consumed in a message queue."
+                ],
+                "question": "What is the difference between pub/sub vs message queue?"
+            }
+        ]
+    },
+    "concept_networking_1": {
+        "lesson_id": "networking1",
+        "lesson_title": "Networking Introduction",
+        "questions": [
+            {
+                "hints": []
+            }
+        ]
+    },
+    "concept_server_1": {
+        "lesson_id": "server1",
+        "lesson_title": "Server Introduction",
+        "questions": [
+            {
+                "hints": []
+            }
+        ]
+    },
+    "message_queue_1": {
+        "lesson_id": "mq_1",
+        "lesson_title": "Message Queue Introduction",
+        "questions": [
+            {
+                "hints": []
+            }
+        ],
+        "video_url": "???"
+    },
+    "problem_crawler_1": {
+        "lesson_id": "crawler1",
+        "lesson_title": "Design A Web Crawler Introduction",
+        "questions": [
+            {
+                "hints": []
+            }
+        ]
+    },
+    "problem_messenger_1": {
+        "lesson_id": "messenger1",
+        "lesson_title": "Design A Messenger Introduction",
+        "questions": [
+            {
+                "hints": []
+            }
+        ]
+    },
+    "problem_news_feed_1": {
+        "lesson_id": "news_feed_1",
+        "lesson_title": "Designing a News Feed: Requirements",
+        "questions": [
+            {
+                "answer": "For this problem we can make at least the following considerations: 1. Users can publish to their feed 2. Users can view their feed 3. Users can edit their posts 4. Users are notified when new content is in their feed",
+                "hints": [
+                    "Consider asking the following questions: 1. What are the important features to consider? 2. What are the clients we need to support? 3. What can be built from scratch vs what can be leveraged 3rd party-wise?"
+                ],
+                "question": "What are the requirements and goals of the system?"
+            }
+        ],
+        "video_url": "???"
+    },
+    "problem_news_feed_2": {
+        "lesson_id": "news_feed_2",
+        "lesson_title": "News Feed: Capacity Estimation",
+        "questions": [
+            {
+                "answer": "In order to answer this we simply need to know the number of daily active users (DAU). Let us assume we have 10 million DAU and each DAU makes a single post, we will have 10 million posts a day.",
+                "hints": [],
+                "question": "How many posts can we expect to be made daily?"
+            },
+            {
+                "answer": "Considering that a posts can contain text, images, and video ,",
+                "hints": [],
+                "question": "How much storage will be needed to save all the posts for a single day?"
+            }
+        ],
+        "video_url": "???"
+    },
+    "problem_news_feed_3": {
+        "lesson_id": "news_feed_3",
+        "lesson_title": "News Feed: Interface",
+        "questions": [
+            {
+                "answer": "The primary endpoints will allow us to: - Get the news feed - Publish a post",
+                "hints": [
+                    "Think back to the core features of we defined in the requirements. What are some of the features a news feed should have?"
+                ],
+                "question": "What API endpoints will the server have?"
+            },
+            {
+                "answer": "Using a REST API POST request. The POST request could look like: `POST/v1/<userId>/feed` with three parameters: - content: actual value of the post - type: this is the type of media (text, image, video) - auth_token: used to authenticate API request If the type is not text, we can encode the images or video in base64 in the request body.",
+                "hints": [],
+                "question": "How could publishing a post be handled?"
+            },
+            {
+                "answer": "A database will be necessary to store content, however not all database options are optimal for a news feed. Because of the friend relationships, a graph database would be best suited.",
+                "hints": [
+                    "Think about the API CRUD methods @link:[](api1).",
+                    "How can we categorize the types of relationships in our data? How can we best describe that data?"
+                ],
+                "question": "What kind of storage option would we use for posts?"
+            },
+            {
+                "answer": "A notification that sends out push notifications to friends when new content is published.",
+                "hints": [
+                    "Recall the parameter fields for the POST query",
+                    "Remember to consider the different types of media a post can contain (text, images, video)."
+                ],
+                "question": "How are friends notified when a new post has been made to their news feeds?"
+            },
+            {
+                "answer": "The two models are: - Fanout on write (push): when a post is published, the new news feed is precomputed and written to friend's caches. This ensures that getting a news feed is very quick because the news feed is already created, however it can be very expensive if the user has many friends because every friends news feed must be computed. - Fanout on read (pull): when a user loads their news feed, new posts are pulled into the feed. This solves the issue of computing many news feeds if the user has many friends and also prevents unnecessary computation for users who rarely log on; however, loading the news feed will be slower for users because it must be computed when requested.",
+                "hints": [],
+                "question": "What are the two fanout models?"
+            },
+            {
+                "answer": "The optimal approach in this case is the hybrid approach. For most users, we can use the push approach because the negative aspects of the method do not affect users who have smaller numbers of friends. For users who have large amounts of users, such as celebrities, we can use a pull approach to prevent extreme computation overload.",
+                "hints": [
+                    "Consider the difference cases between users that have many followers and users that do not."
+                ]
+            }
+        ],
+        "video_url": "???"
+    },
+    "problem_news_feed_4": {
+        "lesson_id": "news_feed_4",
+        "lesson_title": "News Feed: Architecture/Details",
+        "questions": [
+            {
+                "answer": "There are two major architectural components. The first is the publishing architecture which generally would consist of: 1. A **load balancer** to distribute traffic from users among the web servers 2. The **web servers** which route PUT/PATCH requests to either to the post service, notification service, or fanout service 3. The **post service** connects to and stores posts in the **graph database** and appropriate content (images, video) in the **S3 instance**. 4. The **notification service** sends out notifications to users when a new post is made 5. The **fanout service** which:     1. Which pulls friends IDs and settings (muted users) from a **database**     3. Puts post and friend information in a **message queue**     2. Uses **fanout workers** to fetch from the message queue and store in the **news feed cache** The second would be the fetching architecture for getting the news feed, which would generally consist of: 1. A **load balancer** to distribute traffic from users among the web servers 2. The **web servers** route GET requests to news feed service 3. The **news feed servce** which:     1. Pulls the post ID from a **cache**     2. Hydrates the post by pulling the necessary data from other **caches, databases, and distributed object storage systems (S3)**     3. Returns the data to the client in JSON",
+                "hints": [
+                    "Think about what happens when we receive different requests.",
+                    "When we receive a publish request, what needs to take place?",
+                    "When we receive a fetch request, how do we serve the user the news feed?"
+                ],
+                "question": "What architectural components should we consider?"
+            },
+            {
+                "answer": "Although using caches inside the system helps with optimization, we can use a CDN to help take the load of serving up images and video to users.",
+                "hints": []
+            }
+        ],
+        "video_url": "???"
+    },
+    "problem_youtube_1": {
+        "lesson_id": "youtube1",
+        "lesson_title": "Design YouTube Requirements",
+        "questions": [
+            {
+                "answer": "For this problem we want to consider a minimum of: 1. Users can **upload** videos 2. Users can **share** videos 3. Users can **view** videos 4. Smooth video streaming 5. Ability to change video quality Some extra features could be: 1. Users can like/dislike 2. Users can comment and view comments",
+                "hints": [
+                    "Consider asking the following questions: 1. What are the important features to consider? 2. What are the clients we need to support? 3. What can be built from scratch vs what can be leveraged 3rd partywise?"
+                ],
+                "question": "What are the requirements and goals of the system?"
+            }
+        ],
+        "video_url": "https://www.youtube.com/watch?v=WMoq7xZnffY"
+    },
+    "problem_youtube_2": {
+        "lesson_id": "youtube2",
+        "lesson_title": "Design YouTube Capacity Estimation",
+        "questions": [
+            {
+                "answer": "Two capacity factors might be: 1. Storage capacity for the number of videos 2. Bandwidth capacity for the bytes streamed In order to estimate the capacity of the video storage, we can work backward.",
+                "hints": [
+                    "One criteria might be the storage estimate. How should we figure out how much to store?",
+                    "Another criteria could be the bandwidth estimate. How should we figure out the amount of data going through the network? Where might be the bottlenecks?"
+                ],
+                "question": "What are some of the capacities, throughput and constraints the system should handle for? i.e. Can you estimate the allocation of resources for our system?"
+            },
+            {
+                "answer": "Each video could be estimated at ~500mb (half a gigabyte) we will then have 100,000 * 500 = 50,000,000mb => 50,000gb => 50TB daily",
+                "hints": [
+                    "Remember to use easy to estimate numbers"
+                ],
+                "question": "What would be daily storage capacity needed for videos?"
+            },
+            {
+                "answer": "Since we have 50TB stored daily, that will be 50/24/60 ~> 50/25/60 ~> 2/60 ~> 1/30 ~= 0.03 TB per minute or 30 GB per minute",
+                "hints": [],
+                "question": "How much data would be uploaded a minute to our server"
+            }
+        ],
+        "video_url": "https://www.youtube.com/watch?v=TltduEuSvc4&feature=youtu.be"
+    },
+    "problem_youtube_3": {
+        "lesson_id": "youtube3",
+        "lesson_title": "Design YouTube High Level API",
+        "questions": [
+            {
+                "answer": "We should have at the minimum: 1. Uploading/Streaming videos 2. Endpoints for video metadata such as likes/dislikes, comments",
+                "hints": [
+                    "Think back to the core features of YouTube. What are some of the features YouTube should have?"
+                ],
+                "question": "What API endpoints should the server have?"
+            },
+            {
+                "answer": "The client uploader can upload videos in chunks to help with threading as well as bandwidth and video indexing. This is known as _multi part_ upload. S3 actually [has such feature built in](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingRESTAPImpUpload.html). It works by having the client initiate a request and the api responds with an upload id. The client then begins to chunk the content and send the chunk data, the hash of the data so that the server can validate the integrity of the chunk, and the chunk sequence number.",
+                "hints": [
+                    "One strategy is to directly upload the entire file to some sort of storage like Amazon S3. However some videos can be long and as a result the uploaded file can be pretty large. How should this be handled?"
+                ],
+                "question": "How do we upload the video file itself?"
+            },
+            {
+                "answer": "The response should include a json body of its metadata such as its current like, dislike, details, author, tags, category, comments There could be a separated out request for the binary video itself as that could be in chunks. These would essentially be done through another type of video protocol.",
+                "hints": [],
+                "question": "How should the GET request response look like?"
+            },
+            {
+                "answer": "We can reuse our endpoint: `https://youtube.com/<user_id>/videos/<video_id>` and do a POST with like disklike metadata to the endpoint.",
+                "hints": [
+                    "Thank back to how the video was uploaded. Similarly, we face the same problem of large file download."
+                ],
+                "question": "Finally, how should we handle the comment/like/dislike?"
+            }
+        ],
+        "video_url": "https://youtu.be/rykxT92rKEg"
+    },
+    "problem_youtube_4": {
+        "lesson_id": "youtube4",
+        "lesson_title": "Design YouTube High Level Architecture",
+        "questions": [
+            {
+                "answer": "The general architecture of YouTube would need: 1. Some sort of distributed file storage for videos. As mentioned previously, s3 is a good candidate. 2. Thumbnail images can be stored in s3 as well. But thumbnails are inherently small files where the number of thumbnails outnumber the number of videos. As a result, storing thumbnails in a key/value db like DynamoDB might be a good choice. 3. A database is needed to store the video metadata/users/video mapping/image mapping. 4. A web server to handle the requests sent to fetch videos/metadata. 5. A proxy/load balancer to handle REST traffic from clients. 6. In order to handle different qualities in videos, the webserver should _encode_ the videos into different format (720p, 1080p, HD, etc), thus a seperate encoding service",
+                "hints": [
+                    "Again, think back to what features we wish to solve in YouTube. The system should be able to handle upload, smooth viewing, and have the users able to like, dislike.",
+                    "How should we store the YouTube videos?",
+                    "How should we store the metadata associated with YouTube videos?",
+                    "How should we store the thumbnails of each video?",
+                    "When we watch YouTube at lower bandwidth, the video automatically adjusts to a lower quality video. How is this achieved?"
+                ],
+                "question": "What architectural components should we consider?"
+            },
+            {
+                "answer": "A message queue @link[](mq1) can handle the interactions between the video chunks and the different video formats. Producer will be the chunks of videos and the consumer will be the encoder to encode to specific formats. Another benefit of message queue is that should the connection drop, the chunks are still held in the queue and can be easily resumed during upload.",
+                "hints": [
+                    "There would be many chunks of videos coming in and many different formats as output. How should we store the data so that this can be managed easily?"
+                ],
+                "question": "How would the encoder work?"
+            },
+            {
+                "answer": "Since video files are quite large, we can make use of CDNs and edge nodes so that the user can stream videos faster and more cache is available. Check out @link[](cdn1) for more information.",
+                "hints": []
+            }
+        ],
+        "video_url": "https://youtu.be/TXD7LgVrDi0"
+    },
+    "problem_youtube_5": {
+        "lesson_id": "youtube5",
+        "lesson_title": "Design YouTube High Level Architecture Pt. 2",
+        "questions": [
+            {
+                "answer": "The database should compose a User table, a video table, and a separate table for image. The user table can hold the user id, the username, and any metadata such as age, height, profile image key, etc. The like/dislike is a many to many between user and video so it will be a separate table, similarly with the comments. The video table can hold metadata on details such as video upload date, user uploader, length, tags and the video key to s3. The thumbnail table can hold a key to the video id and a key to the thumbnail image.",
+                "hints": [
+                    "What are we storing in the database? Remember that we are storing users, video metadata, and image keys"
+                ],
+                "question": "What would our database look like?"
+            },
+            {
+                "answer": "Because a user who is super popular might upload many videos.",
+                "hints": [
+                    "We should shard based on something that can be equally distributed."
+                ],
+                "question": "Why can't we shard based on user id?"
+            },
+            {
+                "answer": "Since video files are quite large, we can make use of CDNs and edge nodes so that the user can stream videos faster and more cache is available. Check out @link[](cdn1) for more information.",
+                "hints": []
+            }
+        ],
+        "video_url": "https://youtu.be/H8vvNRnFs1o"
+    }
+}
