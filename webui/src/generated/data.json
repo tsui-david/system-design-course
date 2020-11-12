@@ -1,5 +1,5 @@
 {
-    "concept_api_1": {
+    "api1": {
         "lesson_id": "api1",
         "lesson_title": "API Introduction",
         "questions": [
@@ -50,7 +50,7 @@
             }
         ]
     },
-    "concept_caching_1": {
+    "caching_1": {
         "lesson_id": "caching_1",
         "lesson_title": "Caching Introduction",
         "questions": [
@@ -68,7 +68,7 @@
         ],
         "video_url": "???"
     },
-    "concept_caching_2": {
+    "caching_2": {
         "lesson_id": "caching_2",
         "lesson_title": "Advantages of Caching",
         "questions": [
@@ -86,7 +86,7 @@
         ],
         "video_url": "???"
     },
-    "concept_caching_3": {
+    "caching_3": {
         "lesson_id": "caching_3",
         "lesson_title": "Cache Invalidation and It's Friends",
         "questions": [
@@ -108,7 +108,7 @@
         ],
         "video_url": "???"
     },
-    "concept_cdn_1": {
+    "cdn1": {
         "lesson_id": "cdn1",
         "lesson_title": "Content Delivery Network Introduction",
         "questions": [
@@ -124,7 +124,7 @@
         ],
         "video_url": "???"
     },
-    "concept_cdn_2": {
+    "cdn_2": {
         "lesson_id": "cdn_2",
         "lesson_title": "CDN Benefits and Considerations",
         "questions": [
@@ -142,7 +142,7 @@
         ],
         "video_url": "???"
     },
-    "concept_cdn_3": {
+    "cdn_3": {
         "lesson_id": "cdn_3",
         "lesson_title": "CDNs IRL",
         "questions": [
@@ -160,7 +160,16 @@
         ],
         "video_url": "???"
     },
-    "concept_db_1": {
+    "crawler1": {
+        "lesson_id": "crawler1",
+        "lesson_title": "Design A Web Crawler Introduction",
+        "questions": [
+            {
+                "hints": []
+            }
+        ]
+    },
+    "db1.1": {
         "lesson_id": "db1.1",
         "lesson_title": "Database Introduction",
         "questions": [
@@ -185,7 +194,7 @@
             }
         ]
     },
-    "concept_load_balancer_1": {
+    "load_balancer_1": {
         "lesson_id": "load_balancer_1",
         "lesson_title": "Load Balancing Introduction",
         "questions": [
@@ -197,7 +206,7 @@
         ],
         "video_url": "???"
     },
-    "concept_load_balancer_2": {
+    "load_balancer_2": {
         "lesson_id": "load_balancer_2",
         "lesson_title": "Load Balancer Placement",
         "questions": [
@@ -211,7 +220,7 @@
         ],
         "video_url": "???"
     },
-    "concept_load_balancer_3": {
+    "load_balancer_3": {
         "lesson_id": "load_balancer_3",
         "lesson_title": "Implementing a Load Balancer",
         "questions": [
@@ -225,7 +234,7 @@
         ],
         "video_url": "???"
     },
-    "concept_load_balancer_4": {
+    "load_balancer_4": {
         "lesson_id": "load_balancer_4",
         "lesson_title": "What Load Balancing Gets Us",
         "questions": [
@@ -243,7 +252,7 @@
         ],
         "video_url": "???"
     },
-    "concept_load_balancer_5": {
+    "load_balancer_5": {
         "lesson_id": "load_balancer_5",
         "lesson_title": "Load Balancing Algorithms",
         "questions": [
@@ -264,7 +273,7 @@
         ],
         "video_url": "???"
     },
-    "concept_message_1": {
+    "message_queue": {
         "lesson_id": "message_queue",
         "lesson_title": "Message Queue Introduction",
         "questions": [
@@ -289,25 +298,16 @@
             }
         ]
     },
-    "concept_networking_1": {
-        "lesson_id": "networking1",
-        "lesson_title": "Networking Introduction",
+    "messenger1": {
+        "lesson_id": "messenger1",
+        "lesson_title": "Design A Messenger Introduction",
         "questions": [
             {
                 "hints": []
             }
         ]
     },
-    "concept_server_1": {
-        "lesson_id": "server1",
-        "lesson_title": "Server Introduction",
-        "questions": [
-            {
-                "hints": []
-            }
-        ]
-    },
-    "message_queue_1": {
+    "mq_1": {
         "lesson_id": "mq_1",
         "lesson_title": "Message Queue Introduction",
         "questions": [
@@ -317,25 +317,16 @@
         ],
         "video_url": "???"
     },
-    "problem_crawler_1": {
-        "lesson_id": "crawler1",
-        "lesson_title": "Design A Web Crawler Introduction",
+    "networking1": {
+        "lesson_id": "networking1",
+        "lesson_title": "Networking Introduction",
         "questions": [
             {
                 "hints": []
             }
         ]
     },
-    "problem_messenger_1": {
-        "lesson_id": "messenger1",
-        "lesson_title": "Design A Messenger Introduction",
-        "questions": [
-            {
-                "hints": []
-            }
-        ]
-    },
-    "problem_news_feed_1": {
+    "news_feed_1": {
         "lesson_id": "news_feed_1",
         "lesson_title": "Designing a News Feed: Requirements",
         "questions": [
@@ -349,7 +340,7 @@
         ],
         "video_url": "???"
     },
-    "problem_news_feed_2": {
+    "news_feed_2": {
         "lesson_id": "news_feed_2",
         "lesson_title": "News Feed: Capacity Estimation",
         "questions": [
@@ -366,7 +357,7 @@
         ],
         "video_url": "???"
     },
-    "problem_news_feed_3": {
+    "news_feed_3": {
         "lesson_id": "news_feed_3",
         "lesson_title": "News Feed: Interface",
         "questions": [
@@ -412,7 +403,7 @@
         ],
         "video_url": "???"
     },
-    "problem_news_feed_4": {
+    "news_feed_4": {
         "lesson_id": "news_feed_4",
         "lesson_title": "News Feed: Architecture/Details",
         "questions": [
@@ -432,7 +423,16 @@
         ],
         "video_url": "???"
     },
-    "problem_youtube_1": {
+    "server1": {
+        "lesson_id": "server1",
+        "lesson_title": "Server Introduction",
+        "questions": [
+            {
+                "hints": []
+            }
+        ]
+    },
+    "youtube1": {
         "lesson_id": "youtube1",
         "lesson_title": "Design YouTube Requirements",
         "questions": [
@@ -446,7 +446,7 @@
         ],
         "video_url": "https://www.youtube.com/watch?v=WMoq7xZnffY"
     },
-    "problem_youtube_2": {
+    "youtube2": {
         "lesson_id": "youtube2",
         "lesson_title": "Design YouTube Capacity Estimation",
         "questions": [
@@ -473,7 +473,7 @@
         ],
         "video_url": "https://www.youtube.com/watch?v=TltduEuSvc4&feature=youtu.be"
     },
-    "problem_youtube_3": {
+    "youtube3": {
         "lesson_id": "youtube3",
         "lesson_title": "Design YouTube High Level API",
         "questions": [
@@ -506,7 +506,7 @@
         ],
         "video_url": "https://youtu.be/rykxT92rKEg"
     },
-    "problem_youtube_4": {
+    "youtube4": {
         "lesson_id": "youtube4",
         "lesson_title": "Design YouTube High Level Architecture",
         "questions": [
@@ -535,7 +535,7 @@
         ],
         "video_url": "https://youtu.be/TXD7LgVrDi0"
     },
-    "problem_youtube_5": {
+    "youtube5": {
         "lesson_id": "youtube5",
         "lesson_title": "Design YouTube High Level Architecture Pt. 2",
         "questions": [

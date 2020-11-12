@@ -53,10 +53,10 @@ for file in filelist:
         question_dict['hints'] = hints
         current_lesson['questions'].append(question_dict)
 
-        lessons[lesson] = current_lesson
+        lessons[current_lesson['lesson_id']] = current_lesson
 
 # Using a different way to get python path because for some reason path library doesn't work
 from os.path import dirname, abspath
-d = dirname(dirname(abspath(__file__))) + '/webui/generated/data.json'
+d = dirname(dirname(abspath(__file__))) + '/webui/src/generated/data.json'
 with open(d, 'w+') as outfile:
     outfile.write(json.dumps(lessons, indent=4, sort_keys=True))

@@ -1,39 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import lessons from "./generated/data";
 
-const fs = require('fs');
+import Lesson from "./components/Lesson";
+import Home from "./components/HomePage";
+import { BrowserRouter, Route } from "react-router-dom";
 
-const NOTES_DIR = '../generated/json';
-// Reads all the json files from directory and return as object mapping filename to json
-function getNotesFromDir(directory) {
-  console.log('>>>', fs);
-  fs.readdir(directory, (err, files) => {
-    files.forEach(file => {
-      console.log(file);
-    })
-  })
+// Format the lessons into arrays to be passed to react router
+function getLessonRoutes() {
+  return Object.keys(lessons).map((lesson_id) => {
+    return {
+      path: `/lessons/${lesson_id}`,
+      data: lessons[lesson_id],
+      id: lesson_id,
+    };
+  });
 }
 
 function App() {
-  getNotesFromDir(NOTES_DIR);
+  let routes = [
+    {
+      path: "/",
+      component: Home,
+    },
+  ];
+
+  const routeComponents = routes.map(({ path, component }, key) => (
+    <Route exact path={path} component={component} key={key} />
+  ));
+  const lessonRouteComponents = getLessonRoutes().map(
+    ({ path, data, id }, key) => {
+      return (
+        <Route
+          exact
+          path={path}
+          key={key}
+          render={() => <Lesson lessonID={id} lessonData={data} />}
+        />
+      );
+    }
+  );
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {routeComponents}
+      {lessonRouteComponents}
+    </BrowserRouter>
   );
 }
 
