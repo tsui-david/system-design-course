@@ -1,9 +1,20 @@
-import "./App.css";
+import { BrowserRouter, Route } from "react-router-dom";
+
+// Data
 import lessons from "./generated/data";
 
+// Components
 import Lesson from "./components/Lesson";
 import Home from "./components/HomePage";
-import { BrowserRouter, Route } from "react-router-dom";
+import SideBarMenu from "./components/SideBarMenu";
+import { Layout } from 'antd';
+
+// CSS
+import "./App.css";
+import 'antd/dist/antd.css';
+
+const { Header, Content } = Layout;
+
 
 // Format the lessons into arrays to be passed to react router
 function getLessonRoutes() {
@@ -14,6 +25,26 @@ function getLessonRoutes() {
       id: lesson_id,
     };
   });
+}
+
+function getLessonTitles() {
+  return Object.keys(lessons).reduce((acc, cur) => {
+
+    const lessonId = cur.replace(/[^a-zA-Z]/gi, '');
+
+    if(acc.hasOwnProperty(lessonId)) {
+      return {
+        ...acc,
+        [lessonId]: [...acc[lessonId], lessons[cur]["lesson_title"]]
+      };
+    }
+    else {
+      return {
+        ...acc,
+        [lessonId]: [lessons[cur]["lesson_title"]]
+      }
+    }
+  }, {});
 }
 
 function App() {
@@ -41,10 +72,28 @@ function App() {
   );
 
   return (
-    <BrowserRouter>
-      {routeComponents}
-      {lessonRouteComponents}
-    </BrowserRouter>
+    <Layout>
+      <Header className="header">
+        <div className="logo"  ></div>
+      </Header>
+      <Layout>
+        <SideBarMenu menuData={getLessonTitles()} />
+        <Layout style={{ padding: '24px 24px 24px' }}>
+          <Content
+          style={{
+            padding: 24,
+            margin: 0,
+            minHeight: 280,
+            background: "#fff",
+          }}>
+            <BrowserRouter>
+              {routeComponents}
+              {lessonRouteComponents}
+            </BrowserRouter>
+          </Content>
+        </Layout>
+      </Layout>
+    </Layout>
   );
 }
 
