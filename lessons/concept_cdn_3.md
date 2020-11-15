@@ -2,6 +2,8 @@
 cdn_3
 @lesson_title
 CDNs IRL
+@topic
+Content Delivery Network (CDN)
 @video_url
 ???
 

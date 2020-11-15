@@ -2,6 +2,8 @@
 api1
 @lesson_title
 API Introduction
+@topic
+Application Programming Interface (API)
 
 @question 
 What happens when a user searches “www.facebook.com”? Explain how the request gets resolved and how the user arrives at facebook web app.

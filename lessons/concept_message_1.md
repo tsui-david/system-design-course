@@ -2,6 +2,8 @@
 message_queue
 @lesson_title
 Message Queue Introduction
+@topic
+Message Queue
 
 @question
 What is a message queue?

@@ -2,6 +2,8 @@
 news_feed_4
 @lesson_title
 News Feed: Architecture/Details
+@topic
+News Feed
 @video_url
 ???
 

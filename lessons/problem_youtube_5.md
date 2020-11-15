@@ -2,6 +2,8 @@
 youtube5
 @lesson_title
 Design YouTube High Level Architecture Pt. 2
+@topic
+YouTube
 @video_url
 https://youtu.be/H8vvNRnFs1o
 

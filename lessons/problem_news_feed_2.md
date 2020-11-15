@@ -2,6 +2,8 @@
 news_feed_2
 @lesson_title
 News Feed: Capacity Estimation
+@topic
+News Feed
 @video_url
 ???
 

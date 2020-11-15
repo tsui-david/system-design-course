@@ -2,6 +2,8 @@
 load_balancer_3
 @lesson_title
 Implementing a Load Balancer
+@topic
+Load Balancer
 @video_url
 ???
 
