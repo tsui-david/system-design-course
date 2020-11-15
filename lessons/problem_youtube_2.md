@@ -3,7 +3,7 @@ youtube2
 @lesson_title
 Design YouTube Capacity Estimation
 @video_url
-https://www.youtube.com/watch?v=TltduEuSvc4&feature=youtu.be
+https://youtu.be/TltduEuSvc4
 
 @question
 What are some of the capacities, throughput and constraints the system should handle for?
