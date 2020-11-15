@@ -55,7 +55,8 @@ for file in filelist:
         lessons[current_lesson['lesson_id']] = current_lesson
         print(current_lesson)
 
-Using a different way to get python path because for some reason path library doesn't work
+# Using a different way to get python path because for some reason path library doesn't work
+# it doesn't work in py2 but does in py3
 from os.path import dirname, abspath
 d = dirname(dirname(abspath(__file__))) + '/webui/src/generated/data.json'
 with open(d, 'w+') as outfile:
