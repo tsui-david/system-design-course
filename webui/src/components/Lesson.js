@@ -134,7 +134,7 @@ export default class Lesson extends React.Component {
       hintIndex: 0,
       isDisplayAnswer: false,
       isDisplayHint: false,
-      isDisplayHintButton: this.getCurrentQuestionBlock().hints.length > 0,
+      isDisplayHintButton: this.props.lessonData.questions[this.state.questionIndex + 1].hints.length > 0,
     });
   }
 
@@ -184,6 +184,7 @@ export default class Lesson extends React.Component {
   }
 
   render() {
+    console.log(this.state, this.props.lessonData);
     return (
       <div style={{ maxWidth: "1200px", minWidth: "500px" }}>
         <Video video_url={this.props.lessonData.video_url} />
