@@ -18,7 +18,7 @@ One criteria might be the storage estimate. How should we figure out how much to
 Another criteria could be the bandwidth estimate. How should we figure out the amount of data going through the network?
 
 Where might be the bottlenecks?
-    
+
 @answer
 Two capacity factors might be:
 1. Storage capacity for the number of videos

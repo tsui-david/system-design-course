@@ -26,13 +26,12 @@ for file in filelist:
         question_dict = {}  # dictionary to separate individual questions with its hints and answer
 
         for line in f:
-            line = line.rstrip()
             if line.startswith('@'):
                 data.append([line.rstrip()])
-            elif line == '':
+            elif line == '' or line == '\n':
                 continue
             else:
-                data[-1].append(line.rstrip())
+                data[-1].append(line)
         
         for item in data:
             if 'question' in item[0] and new_question == True:  # this adds a new question block to the json output when it encounters a new question
@@ -43,19 +42,20 @@ for file in filelist:
                 new_question = False                
             elif 'question' in item[0]:   # adds the question to the question block
                 new_question = True
-                question_dict['question'] = ' '.join(item[1:])
+                question_dict['question'] = ' '.join(item[1:]).replace('\n', '')
             elif 'hint' in item[0]:   # appends the hints to the hint list
-                hints.append(' '.join(item[1:]))
+                hints.append(' '.join(item[1:]).rstrip())
             elif 'answer' in item[0]: # adds the answer to the question block
-                question_dict['answer'] = ' '.join(item[1:])   
+                question_dict['answer'] = ' '.join(item[1:]).rstrip()   
             else:
-                current_lesson[item[0].replace('@', '')] = ' '.join(item[1:]) # adds the remainder annotations such as lesson id, video url, etc.
+                current_lesson[item[0].replace('@', '')] = ' '.join(item[1:]).rstrip() # adds the remainder annotations such as lesson id, video url, etc.
         question_dict['hints'] = hints
         current_lesson['questions'].append(question_dict)
 
         lessons[current_lesson['lesson_id']] = current_lesson
+        print(current_lesson)
 
-# Using a different way to get python path because for some reason path library doesn't work
+Using a different way to get python path because for some reason path library doesn't work
 from os.path import dirname, abspath
 d = dirname(dirname(abspath(__file__))) + '/webui/src/generated/data.json'
 with open(d, 'w+') as outfile:
