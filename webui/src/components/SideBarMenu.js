@@ -17,12 +17,12 @@ function SideBarMenu(props) {
     
     const menuItems = Object.keys(props.menuData).map((lesson, i) => {
         return (
-            <SubMenu key={lesson + "_" + i} title={lesson} style={{"text-transform": "capitalize"}}>
+            <SubMenu key={lesson + "_" + i} title={lesson} style={{"textTransform": "capitalize"}}>
                 {
-                    props.menuData[lesson].map((title, j) => 
+                    props.menuData[lesson]["title"].map((title, j) => 
                     {
                         return (
-                            <Menu.Item key={title + "_" + j}>{title}</Menu.Item>
+                            <Menu.Item key={title + "_" + j} onClick={() => window.location.href=`/lessons/${props.menuData[lesson]["id"][j]}`}>{title}</Menu.Item>
                         )
                     })
                 }

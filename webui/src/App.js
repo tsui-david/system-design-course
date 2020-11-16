@@ -7,7 +7,7 @@ import lessons from "./generated/data";
 import Lesson from "./components/Lesson";
 import Home from "./components/HomePage";
 import SideBarMenu from "./components/SideBarMenu";
-import { Layout } from 'antd';
+import { PageHeader, Layout } from 'antd';
 
 // CSS
 import "./App.css";
@@ -35,13 +35,20 @@ function getLessonTitles() {
     if(acc.hasOwnProperty(lessonId)) {
       return {
         ...acc,
-        [lessonId]: [...acc[lessonId], lessons[cur]["lesson_title"]]
+        [lessonId]: {
+          title: [...acc[lessonId]["title"], lessons[cur]["lesson_title"]],
+          id: [...acc[lessonId]["id"], cur]
+        }
       };
     }
     else {
+      console.log('curr: ', cur);
       return {
         ...acc,
-        [lessonId]: [lessons[cur]["lesson_title"]]
+        [lessonId]: {
+          title: [lessons[cur]["lesson_title"]],
+          id: [cur]
+        }
       }
     }
   }, {});
