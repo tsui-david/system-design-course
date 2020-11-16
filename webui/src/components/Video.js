@@ -3,7 +3,6 @@ import React from "react";
 export default class Video extends React.Component {
   getYoutubeID() {
     let regexp = /https:\/\/youtu.be\/(\w+)/;
-    console.log(this.props.video_url.match(regexp))
     const match = this.props.video_url.match(regexp)
     if (match === null)
         return;
@@ -17,7 +16,7 @@ export default class Video extends React.Component {
         return null
 
     return (
-        <div style={{maxWidth: "1000px", minWidth: "500px"}}>
+        <div style={{maxWidth: "1200px", minWidth: "500px"}}>
             <div
                 className="video"
                 style={{
@@ -35,7 +34,7 @@ export default class Video extends React.Component {
                     width: "100%",
                     height: "100%",
                 }}
-                src={`https://www.youtube.com/embed/${youtubeID}`}
+                src={`https://www.youtube.com/embed/${youtubeID}?rel=0`}
                 frameBorder="0"
                 />
             </div>
