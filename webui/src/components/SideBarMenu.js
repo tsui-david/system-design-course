@@ -3,6 +3,9 @@ import React from 'react';
 // Components
 import { Menu, Layout } from 'antd';
 
+// Routing
+import { useHistory } from "react-router-dom";
+
 //CSS
 import 'antd/dist/antd.css';
 
@@ -14,6 +17,7 @@ function SideBarMenu(props) {
 
     console.log('hello', props.menuData);
 
+    let history = useHistory();
     
     const menuItems = Object.keys(props.menuData).map((lesson, i) => {
         return (
@@ -22,7 +26,7 @@ function SideBarMenu(props) {
                     props.menuData[lesson]["title"].map((title, j) => 
                     {
                         return (
-                            <Menu.Item key={title + "_" + j} onClick={() => window.location.href=`/lessons/${props.menuData[lesson]["id"][j]}`}>{title}</Menu.Item>
+                            <Menu.Item key={title + "_" + j} onClick={() => history.push(`/lessons/${props.menuData[lesson]["id"][j]}`)}>{title}</Menu.Item>
                         )
                     })
                 }

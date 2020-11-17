@@ -79,28 +79,28 @@ function App() {
   );
 
   return (
-    <Layout>
-      <Header className="header">
-        <div className="logo"  ></div>
-      </Header>
+    <BrowserRouter>
       <Layout>
-        <SideBarMenu menuData={getLessonTitles()} />
-        <Layout style={{ padding: '24px 24px 24px' }}>
-          <Content
-          style={{
-            padding: 24,
-            margin: 0,
-            minHeight: 280,
-            background: "#fff",
-          }}>
-            <BrowserRouter>
+        <Header className="header">
+          <div className="logo"  ></div>
+        </Header>
+        <Layout>
+          <SideBarMenu menuData={getLessonTitles()} />
+          <Layout style={{ padding: '24px 24px 24px' }}>
+            <Content
+            style={{
+              padding: 24,
+              margin: 0,
+              minHeight: 280,
+              background: "#fff",
+            }}>
               {routeComponents}
               {lessonRouteComponents}
-            </BrowserRouter>
-          </Content>
+            </Content>
+          </Layout>
         </Layout>
       </Layout>
-    </Layout>
+    </BrowserRouter>
   );
 }
 
