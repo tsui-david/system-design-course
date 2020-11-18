@@ -1,7 +1,7 @@
 import React from "react";
 import Video from "./Video";
 import { Card } from "antd";
-import { Button } from "antd";
+import { PageHeader, Button } from "antd";
 import {
   CheckCircleTwoTone,
   QuestionCircleTwoTone,
@@ -186,20 +186,28 @@ export default class Lesson extends React.Component {
   render() {
     console.log(this.state, this.props.lessonData);
     return (
-      <div style={{ maxWidth: "1200px", minWidth: "500px" }}>
-        <Video video_url={this.props.lessonData.video_url} />
-        <br />
-        <Question data={this.getCurrentQuestionBlock().question} />
-        {this.constructHints()}
-        <Answer
-          data={this.getCurrentQuestionBlock().answer}
-          isDisplayAnswer={this.state.isDisplayAnswer}
-        />
-        <br />
-        {this.displayHintsNavigation()}
-        <br />
-        {this.displayQuestionNavigation()}
-      </div>
+      <>
+        <PageHeader className="site-page-header-ghost-wrapper"
+          ghost={false}
+          onBack={() => window.history.back()}
+          title={this.props.lessonData.lesson_title}
+        >
+        </PageHeader>
+        <div style={{ maxWidth: "1200px", minWidth: "500px" }}>
+          <Video video_url={this.props.lessonData.video_url} />
+          <br />
+          <Question data={this.getCurrentQuestionBlock().question} />
+          {this.constructHints()}
+          <Answer
+            data={this.getCurrentQuestionBlock().answer}
+            isDisplayAnswer={this.state.isDisplayAnswer}
+          />
+          <br />
+          {this.displayHintsNavigation()}
+          <br />
+          {this.displayQuestionNavigation()}
+        </div>
+      </>
     );
   }
 }

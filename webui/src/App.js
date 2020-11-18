@@ -7,7 +7,7 @@ import lessons from "./generated/data";
 import Lesson from "./components/Lesson";
 import Home from "./components/HomePage";
 import SideBarMenu from "./components/SideBarMenu";
-import { PageHeader, Layout } from 'antd';
+import { Layout } from 'antd';
 
 // CSS
 import "./App.css";
