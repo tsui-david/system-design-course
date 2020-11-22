@@ -2,6 +2,8 @@
 chat_system2
 @lesson_title
 How a Chat Service Work?
+@topic
+Chat System
 @video_url
 youtube.com
 

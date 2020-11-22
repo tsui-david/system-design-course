@@ -1,5 +1,5 @@
 {
-    "api1": {
+    "concept_api_1": {
         "lesson_id": "api1",
         "lesson_title": "API Introduction",
         "questions": [
@@ -51,7 +51,7 @@
         ],
         "topic": "Application Programming Interface (API)"
     },
-    "caching_1": {
+    "concept_caching_1": {
         "lesson_id": "caching_1",
         "lesson_title": "Caching Introduction",
         "questions": [
@@ -70,7 +70,7 @@
         "topic": "Caching",
         "video_url": "???"
     },
-    "caching_2": {
+    "concept_caching_2": {
         "lesson_id": "caching_2",
         "lesson_title": "Advantages of Caching",
         "questions": [
@@ -89,7 +89,7 @@
         "topic": "Caching",
         "video_url": "???"
     },
-    "caching_3": {
+    "concept_caching_3": {
         "lesson_id": "caching_3",
         "lesson_title": "Cache Invalidation and It's Friends",
         "questions": [
@@ -112,7 +112,7 @@
         "topic": "Caching",
         "video_url": "???"
     },
-    "cdn1": {
+    "concept_cdn_1": {
         "lesson_id": "cdn1",
         "lesson_title": "Content Delivery Network Introduction",
         "questions": [
@@ -129,7 +129,7 @@
         "topic": "Content Delivery Network (CDN)",
         "video_url": "???"
     },
-    "cdn_2": {
+    "concept_cdn_2": {
         "lesson_id": "cdn_2",
         "lesson_title": "CDN Benefits and Considerations",
         "questions": [
@@ -148,7 +148,7 @@
         "topic": "Content Delivery Network (CDN)",
         "video_url": "???"
     },
-    "cdn_3": {
+    "concept_cdn_3": {
         "lesson_id": "cdn_3",
         "lesson_title": "CDNs IRL",
         "questions": [
@@ -167,7 +167,143 @@
         "topic": "Content Delivery Network (CDN)",
         "video_url": "???"
     },
-    "chat_system": {
+    "concept_db_1": {
+        "lesson_id": "db1.1",
+        "lesson_title": "Database Introduction",
+        "questions": [
+            {
+                "answer": "Try to define the data model early, this will help clarify how data will flow among different components. One should be able to identify various entities of the system, how they interact with each other, and different aspect of data management like storage, transportation, encryption. Think relational and non-relational.",
+                "hints": [
+                    "database: an organized collection of data, generally stored and accessed electronically from a computer system."
+                ],
+                "question": "What kind of database are you going to use?"
+            },
+            {
+                "answer": "If you're working with a schema that allows data to be organized into tables with columns and rows. \n RDBMS are very traditional and have been around the longest, thus they have the biggest support and resources, people likely more familiar. \n Data integrity is a particular concern in relational databases, RDMS use a number of constraints to ensure that the data contained in your tables is reliable and accurate.\n All RDBMS are ACID-compliant.\n     Atomicity\n     Consistency\n     Isolation\n     Durability",
+                "hints": [
+                    "relational database: are also called relational database management system (RDBMS) or SQL database *some popular RDBMS are MySQL, Oracle DB, PostgresSQL"
+                ],
+                "question": "When would one use a relational database?"
+            },
+            {
+                "answer": "Key-value stores: (Redis, Amazon DynamoDB) simple DBMS that store only key-value pairs and provide basic functionality for retrieving the value associated with a known key\n Wide column stores: (Cassandra, Scylla, HBase) schema-agnostic systems that enable users to store data in column families or tables, a single row of which can be thought as a record -- a multi-dimensional key-value store\n Document stores: (MongoDB, Couchbase) schema-free systems that store data in the form of JSON documents. Document stores are similar to key-value or wide column stores, but the document name is the key and the contents of the document, whatever they are, are the value.\n Graph Database: (Neo4j, Datastax Enterprise Graph) represent data as a network of related nodes or objects in order to facilitate data visualizations and graph analytics\n Search Engines: (Elasticsearch, Spluk, Solr) store data using schema-free JSON documents. Similar to document stores, but with greater emphasis on making your unstructured or semi",
+                "hints": [],
+                "question": "What are types of non-relational database?"
+            }
+        ],
+        "topic": "Database"
+    },
+    "concept_load_balancer_1": {
+        "lesson_id": "load_balancer_1",
+        "lesson_title": "Load Balancing Introduction",
+        "questions": [
+            {
+                "answer": "Load balancing is the practice of taking incoming request and distributing them evenly among multiple severs. Load balancing resolves two primary issues:\n 1. Single point of failure: if a server were to fail or go offline, the service would become unavailable.\n 2. Overloaded servers: if a server reaches it's operating capacity, it's ability to entertain additional requests ends and users will experience outages.\n Load balancing is necessary and must be implemented for any website or service with more than one server and a nontrivial amount of traffic.",
+                "hints": [],
+                "question": "What is load balancing? What primary problems does it solve?"
+            }
+        ],
+        "topic": "Load Balancer",
+        "video_url": "???"
+    },
+    "concept_load_balancer_2": {
+        "lesson_id": "load_balancer_2",
+        "lesson_title": "Load Balancer Placement",
+        "questions": [
+            {
+                "answer": "Load balancers can practically be placed throughout the entire server infrastructure stack. If the basic infrastructure stack is composed of the clients, the web servers, the application servers, and the database servers, flowing in that order, we can place load balancers between each part of the stack.\n - Frontend layer: sits between the clients and the web servers. This allows for more requests to be handled by the system. This is the most common placement.\n - Application Layer: sits between between web servers and application servers.  Manages application server load and utilization.\n - Persistence Layer: sits between application and database servers.\n ![Load balancer location chart](./media/loadBalancingLayer.png)\n Essentially, a load balancer can sit between any of the sections of the infrastructure stack. If a cache server layer were to be added between the application and database servers, for example, load balancers could also be placed there.",
+                "hints": [
+                    "Consider the levels of the server infrastructure stack that handles requests. What are these regions and where does a load balancer fit in?"
+                ],
+                "question": "Where can a load balancer implementation be placed in a network infrastructure?"
+            }
+        ],
+        "topic": "Load Balancer",
+        "video_url": "???"
+    },
+    "concept_load_balancer_3": {
+        "lesson_id": "load_balancer_3",
+        "lesson_title": "Implementing a Load Balancer",
+        "questions": [
+            {
+                "answer": "There are two primary types of load balancer implementations: hardware based and software based.\n Hardware based implementations:\n - These are physical devices built to achieve optimum performance. They are the generally the optimal solution due to their speed and flexibility handling different load balancing types and scales.\n - They are very expensive to build and configure, however, which limits their usage and scalability.\n - Consequently they are not very common and are mostly used at the first point of entry into the infrastructure.\n Software based implementations:\n - Run on generic hardware (can be installed on any Linux or Window machines).\n - Easy to configure and scale because its entirely software dependent (consider the ease in duplicating a VM as opposed to physical machine).\n - Existing commercial off the shelf load balancers may be used or a custom one can be written to fit more specific needs.\n So far, we've discussed implementations that have been located solely in the infrastructure stack. Given the flexibility of the software based load balancer however, it can be placed at the client level. This can be called \"smart clients\" because the client must keep track of the pool of hosts, detect host status, and select the proper one. This is arguably the cheapest form of load balancing.",
+                "hints": [
+                    "Consider the implementation difference between a physical computer and a virtual machine."
+                ],
+                "question": "Explain the primary ways load balancing can be implemented."
+            }
+        ],
+        "topic": "Load Balancer",
+        "video_url": "???"
+    },
+    "concept_load_balancer_4": {
+        "lesson_id": "load_balancer_4",
+        "lesson_title": "What Load Balancing Gets Us",
+        "questions": [
+            {
+                "answer": "Very generally, load balancing distributes incoming traffic among the servers behind the balancer. Given that the servers are all performing the same tasks, the connections should be distributed evenly among the servers in such a way to achieve peak efficiency.\n Load balancing solves the single point of failure problem by routing requests to other servers when a server is down. Without load balancing, dealing with a downed server falls on the person making the request to find another available server. With a load balancer the user need not be aware that they are being routed to another server.\n Load balancing also resolves overloaded servers by evenly distributing load over all the available servers. Without a load balancer, traffic can become concentrated on a single server, causing the server to process requests more slowly or even drop requests due to overloading. With a load balancer the load on each server is managed through distribution algorithms and health checks. This ensures each server is doing an equal amount of work therefore resulting in an optimal performance across all severs.",
+                "hints": [],
+                "question": "Explain how a load balancer manages traffic. How does it solve the problems discussed in the first lesson (single point of failure and overloaded servers)?"
+            },
+            {
+                "answer": "Besides performing it's basic function, a load balancer provides three additional benefits: security, scalability, and abstraction.\n 1. Security: users connect to the web servers by using the load balancers IP address, not the servers IP. This improves security by making all the servers behind the load balancer private and restricting access.\n 2. Scalability: the load balancer allows for easy implementation of horizontal scaling to deal with increased usage. Horizontal scaling involves adding more machines to deal with greater load. Without the load balancer, efficiently scaling would be an arduous task.\n 3. Abstraction (separation of concerns): the load balancer removes the burden of managing extra tasks from the servers so that they can concern themselves with their main function. For example, the load balancer might perform SSL termination (decryption of SSL traffic), keeping the web server from having to perform this task itself and improving its performance.",
+                "hints": [
+                    "Think of other areas of computing."
+                ]
+            }
+        ],
+        "topic": "Load Balancer",
+        "video_url": "???"
+    },
+    "concept_load_balancer_5": {
+        "lesson_id": "load_balancer_5",
+        "lesson_title": "Load Balancing Algorithms",
+        "questions": [
+            {
+                "answer": "Selecting a server depends on two things: the status of the server and the load balancing algorithm being used.\n The load balancer must consider:\n - The state of the servers (health checks)\n - The type of requests being made \n - The duration of the tasks\n and change route connections accordingly. For health checks, a load balancer will monitor connections to servers, if a server does not respond, it is removed from the pool of available servers. The type of request and duration of tasks are mostly factors taken into consideration by the load balancers routing algorithm.",
+                "hints": [
+                    "Think about the single point of failure and overloaded servers problems."
+                ],
+                "question": "How does a load balancer choose which server to route to?"
+            },
+            {
+                "answer": "Load balancing algorithms can vary substantially, ranging from \"dumb\" algorithms that blindly route traffic to algorithms that may consider a variety of factors when deciding where to route traffic. Some factors that may be considered are the type of requests and duration of tasks being performed. Load balancing algorithms include:\n - Hash Based: requests are distributed on hashed values (i.e. Request URL or Request IP).\n - Source (IP hash): client request IP is hashed, therefore the client is routed the same server. Most effective when client needs to connect to the same server through repeated connections over time.\n - Round Robin: cycles through a list of servers and sends each new request to the next server. It is most useful when the servers are of equal specification and there are not many persistent connections.\n - Least Connections: directs traffic to the server with the fewest active connections.\n - Least Response Time: a dummy request is sent to the servers and the load balancer keeps track of the time it takes to get a response. Requests are distributed to the server which has the least response time.\n - Consistent hashing: perhaps the most important load balancing algorithm. Ensures that when a hash table is resized, not all keys need to be remapped.\n Servers that are dealing with persistent connections often have to consider that persistent connections have no set end time and therefore there is no way of predicting when a connection will end. Therefore connections will generally result in unevenly distributed load on the servers. Using the Least Connections works to balance uneven servers.",
+                "hints": [
+                    "Load balancing algorithms depend on on the type of request. Consider different types of requests and algorithms that might correspond.",
+                    "What makes persistent connections different from others? What do we know about their connection times?"
+                ]
+            }
+        ],
+        "topic": "Load Balancer",
+        "video_url": "???"
+    },
+    "concept_message_1": {
+        "lesson_id": "message_queue",
+        "lesson_title": "Message Queue Introduction",
+        "questions": [
+            {
+                "answer": "Queue buffer for asynchronous communication between different microservice / stateless services.\n Composes of 3 pieces: The producer which produces data that needs to be processed, the queue which stores these data, and the consumer which processes these data from the queue",
+                "hints": [],
+                "question": "What is a message queue?"
+            },
+            {
+                "answer": "Asynchronous processing between multiple components\n     Whenever there is any need to \u201cwait\u201d endlessly for a response, a message queue can be used\n     It is better to respond to the user that there is something not processed rather than continuously wait for that same response, latency is eliminated even though data might not have been processed\n Need for data persistence on tracking incoming messages / outbound consumer messages\n As system components scale out, more and more producer and consumers will also be scaled out. At this point, a message queue is needed to handle the dependency interconnections between the two components\n     It is O(1) for producer/consumer to access the data rather than wait\n In summary you should use a queue if:\n     Your request is indeterministic\n     Long running request by nature (complex calculation)\n     Resource hungry\n         Bad idea to have the web server serving the request do it for you. Instead queue it and have a scalable stateless server handle it.",
+                "hints": [
+                    "What is \"decoupling\"? What benefits does it bring?\n Decoupling = \n Seperating a software system\u2019s dependencies so that the components of the system are not tied closely together. \n This is a design pattern that brings several benefits:\n Separating dependencies is higher resilience. Because the components are not as dependent on one another, one component failing would not result in another component downstream failing as well.\n Produces better encapsulation/abstraction through more focused responsibility. This allows for easier modification/expansion of the system as there are not as much moving pieces in the system to worry about"
+                ],
+                "question": "What are some use cases for message queue? What are alternatives?"
+            },
+            {
+                "answer": "A pub/sub will not be able to handle the same use cases as message queue",
+                "hints": [
+                    "What is pub/sub system?\n Pub/sub or publisher subscriber system is another form of asynchronous communication often used in stateless architecture where a publisher service will publish its data and its subscriber systems will immediately receive the incoming data. In contrast, a message queue involves a separate service completely which manages the states between the publisher and subscriber and the message that is sent does not have to be immediately consumed in a message queue."
+                ],
+                "question": "What is the difference between pub/sub vs message queue?"
+            }
+        ],
+        "topic": "Message Queue"
+    },
+    "problem_chat_1": {
         "lesson_id": "chat_system",
         "lesson_title": "Design A Chat System Requirements",
         "questions": [
@@ -179,9 +315,10 @@
                 "question": "What are the requirements and goals of the system?"
             }
         ],
+        "topic": "Chat System",
         "video_url": "youtube.com"
     },
-    "chat_system2": {
+    "problem_chat_2": {
         "lesson_id": "chat_system2",
         "lesson_title": "How a Chat Service Work?",
         "questions": [
@@ -209,9 +346,10 @@
                 "hints": []
             }
         ],
+        "topic": "Chat System",
         "video_url": "youtube.com"
     },
-    "chat_system3": {
+    "problem_chat_3": {
         "lesson_id": "chat_system3",
         "lesson_title": "Design Chat System High Level Architecture",
         "questions": [
@@ -236,145 +374,10 @@
                 ]
             }
         ],
+        "topic": "Chat System",
         "video_url": "youtube.com"
     },
-    "db1.1": {
-        "lesson_id": "db1.1",
-        "lesson_title": "Database Introduction",
-        "questions": [
-            {
-                "answer": "Try to define the data model early, this will help clarify how data will flow among different components. One should be able to identify various entities of the system, how they interact with each other, and different aspect of data management like storage, transportation, encryption. Think relational and non-relational.",
-                "hints": [
-                    "database: an organized collection of data, generally stored and accessed electronically from a computer system."
-                ],
-                "question": "What kind of database are you going to use?"
-            },
-            {
-                "answer": "If you're working with a schema that allows data to be organized into tables with columns and rows. \n RDBMS are very traditional and have been around the longest, thus they have the biggest support and resources, people likely more familiar. \n Data integrity is a particular concern in relational databases, RDMS use a number of constraints to ensure that the data contained in your tables is reliable and accurate.\n All RDBMS are ACID-compliant.\n     Atomicity\n     Consistency\n     Isolation\n     Durability",
-                "hints": [
-                    "relational database: are also called relational database management system (RDBMS) or SQL database *some popular RDBMS are MySQL, Oracle DB, PostgresSQL"
-                ],
-                "question": "When would one use a relational database?"
-            },
-            {
-                "answer": "Key-value stores: (Redis, Amazon DynamoDB) simple DBMS that store only key-value pairs and provide basic functionality for retrieving the value associated with a known key\n Wide column stores: (Cassandra, Scylla, HBase) schema-agnostic systems that enable users to store data in column families or tables, a single row of which can be thought as a record -- a multi-dimensional key-value store\n Document stores: (MongoDB, Couchbase) schema-free systems that store data in the form of JSON documents. Document stores are similar to key-value or wide column stores, but the document name is the key and the contents of the document, whatever they are, are the value.\n Graph Database: (Neo4j, Datastax Enterprise Graph) represent data as a network of related nodes or objects in order to facilitate data visualizations and graph analytics\n Search Engines: (Elasticsearch, Spluk, Solr) store data using schema-free JSON documents. Similar to document stores, but with greater emphasis on making your unstructured or semi",
-                "hints": [],
-                "question": "What are types of non-relational database?"
-            }
-        ],
-        "topic": "Database"
-    },
-    "load_balancer_1": {
-        "lesson_id": "load_balancer_1",
-        "lesson_title": "Load Balancing Introduction",
-        "questions": [
-            {
-                "answer": "Load balancing is the practice of taking incoming request and distributing them evenly among multiple severs. Load balancing resolves two primary issues:\n 1. Single point of failure: if a server were to fail or go offline, the service would become unavailable.\n 2. Overloaded servers: if a server reaches it's operating capacity, it's ability to entertain additional requests ends and users will experience outages.\n Load balancing is necessary and must be implemented for any website or service with more than one server and a nontrivial amount of traffic.",
-                "hints": [],
-                "question": "What is load balancing? What primary problems does it solve?"
-            }
-        ],
-        "topic": "Load Balancer",
-        "video_url": "???"
-    },
-    "load_balancer_2": {
-        "lesson_id": "load_balancer_2",
-        "lesson_title": "Load Balancer Placement",
-        "questions": [
-            {
-                "answer": "Load balancers can practically be placed throughout the entire server infrastructure stack. If the basic infrastructure stack is composed of the clients, the web servers, the application servers, and the database servers, flowing in that order, we can place load balancers between each part of the stack.\n - Frontend layer: sits between the clients and the web servers. This allows for more requests to be handled by the system. This is the most common placement.\n - Application Layer: sits between between web servers and application servers.  Manages application server load and utilization.\n - Persistence Layer: sits between application and database servers.\n ![Load balancer location chart](./media/loadBalancingLayer.png)\n Essentially, a load balancer can sit between any of the sections of the infrastructure stack. If a cache server layer were to be added between the application and database servers, for example, load balancers could also be placed there.",
-                "hints": [
-                    "Consider the levels of the server infrastructure stack that handles requests. What are these regions and where does a load balancer fit in?"
-                ],
-                "question": "Where can a load balancer implementation be placed in a network infrastructure?"
-            }
-        ],
-        "topic": "Load Balancer",
-        "video_url": "???"
-    },
-    "load_balancer_3": {
-        "lesson_id": "load_balancer_3",
-        "lesson_title": "Implementing a Load Balancer",
-        "questions": [
-            {
-                "answer": "There are two primary types of load balancer implementations: hardware based and software based.\n Hardware based implementations:\n - These are physical devices built to achieve optimum performance. They are the generally the optimal solution due to their speed and flexibility handling different load balancing types and scales.\n - They are very expensive to build and configure, however, which limits their usage and scalability.\n - Consequently they are not very common and are mostly used at the first point of entry into the infrastructure.\n Software based implementations:\n - Run on generic hardware (can be installed on any Linux or Window machines).\n - Easy to configure and scale because its entirely software dependent (consider the ease in duplicating a VM as opposed to physical machine).\n - Existing commercial off the shelf load balancers may be used or a custom one can be written to fit more specific needs.\n So far, we've discussed implementations that have been located solely in the infrastructure stack. Given the flexibility of the software based load balancer however, it can be placed at the client level. This can be called \"smart clients\" because the client must keep track of the pool of hosts, detect host status, and select the proper one. This is arguably the cheapest form of load balancing.",
-                "hints": [
-                    "Consider the implementation difference between a physical computer and a virtual machine."
-                ],
-                "question": "Explain the primary ways load balancing can be implemented."
-            }
-        ],
-        "topic": "Load Balancer",
-        "video_url": "???"
-    },
-    "load_balancer_4": {
-        "lesson_id": "load_balancer_4",
-        "lesson_title": "What Load Balancing Gets Us",
-        "questions": [
-            {
-                "answer": "Very generally, load balancing distributes incoming traffic among the servers behind the balancer. Given that the servers are all performing the same tasks, the connections should be distributed evenly among the servers in such a way to achieve peak efficiency.\n Load balancing solves the single point of failure problem by routing requests to other servers when a server is down. Without load balancing, dealing with a downed server falls on the person making the request to find another available server. With a load balancer the user need not be aware that they are being routed to another server.\n Load balancing also resolves overloaded servers by evenly distributing load over all the available servers. Without a load balancer, traffic can become concentrated on a single server, causing the server to process requests more slowly or even drop requests due to overloading. With a load balancer the load on each server is managed through distribution algorithms and health checks. This ensures each server is doing an equal amount of work therefore resulting in an optimal performance across all severs.",
-                "hints": [],
-                "question": "Explain how a load balancer manages traffic. How does it solve the problems discussed in the first lesson (single point of failure and overloaded servers)?"
-            },
-            {
-                "answer": "Besides performing it's basic function, a load balancer provides three additional benefits: security, scalability, and abstraction.\n 1. Security: users connect to the web servers by using the load balancers IP address, not the servers IP. This improves security by making all the servers behind the load balancer private and restricting access.\n 2. Scalability: the load balancer allows for easy implementation of horizontal scaling to deal with increased usage. Horizontal scaling involves adding more machines to deal with greater load. Without the load balancer, efficiently scaling would be an arduous task.\n 3. Abstraction (separation of concerns): the load balancer removes the burden of managing extra tasks from the servers so that they can concern themselves with their main function. For example, the load balancer might perform SSL termination (decryption of SSL traffic), keeping the web server from having to perform this task itself and improving its performance.",
-                "hints": [
-                    "Think of other areas of computing."
-                ]
-            }
-        ],
-        "topic": "Load Balancer",
-        "video_url": "???"
-    },
-    "load_balancer_5": {
-        "lesson_id": "load_balancer_5",
-        "lesson_title": "Load Balancing Algorithms",
-        "questions": [
-            {
-                "answer": "Selecting a server depends on two things: the status of the server and the load balancing algorithm being used.\n The load balancer must consider:\n - The state of the servers (health checks)\n - The type of requests being made \n - The duration of the tasks\n and change route connections accordingly. For health checks, a load balancer will monitor connections to servers, if a server does not respond, it is removed from the pool of available servers. The type of request and duration of tasks are mostly factors taken into consideration by the load balancers routing algorithm.",
-                "hints": [
-                    "Think about the single point of failure and overloaded servers problems."
-                ],
-                "question": "How does a load balancer choose which server to route to?"
-            },
-            {
-                "answer": "Load balancing algorithms can vary substantially, ranging from \"dumb\" algorithms that blindly route traffic to algorithms that may consider a variety of factors when deciding where to route traffic. Some factors that may be considered are the type of requests and duration of tasks being performed. Load balancing algorithms include:\n - Hash Based: requests are distributed on hashed values (i.e. Request URL or Request IP).\n - Source (IP hash): client request IP is hashed, therefore the client is routed the same server. Most effective when client needs to connect to the same server through repeated connections over time.\n - Round Robin: cycles through a list of servers and sends each new request to the next server. It is most useful when the servers are of equal specification and there are not many persistent connections.\n - Least Connections: directs traffic to the server with the fewest active connections.\n - Least Response Time: a dummy request is sent to the servers and the load balancer keeps track of the time it takes to get a response. Requests are distributed to the server which has the least response time.\n - Consistent hashing: perhaps the most important load balancing algorithm. Ensures that when a hash table is resized, not all keys need to be remapped.\n Servers that are dealing with persistent connections often have to consider that persistent connections have no set end time and therefore there is no way of predicting when a connection will end. Therefore connections will generally result in unevenly distributed load on the servers. Using the Least Connections works to balance uneven servers.",
-                "hints": [
-                    "Load balancing algorithms depend on on the type of request. Consider different types of requests and algorithms that might correspond.",
-                    "What makes persistent connections different from others? What do we know about their connection times?"
-                ]
-            }
-        ],
-        "topic": "Load Balancer",
-        "video_url": "???"
-    },
-    "message_queue": {
-        "lesson_id": "message_queue",
-        "lesson_title": "Message Queue Introduction",
-        "questions": [
-            {
-                "answer": "Queue buffer for asynchronous communication between different microservice / stateless services.\n Composes of 3 pieces: The producer which produces data that needs to be processed, the queue which stores these data, and the consumer which processes these data from the queue",
-                "hints": [],
-                "question": "What is a message queue?"
-            },
-            {
-                "answer": "Asynchronous processing between multiple components\n     Whenever there is any need to \u201cwait\u201d endlessly for a response, a message queue can be used\n     It is better to respond to the user that there is something not processed rather than continuously wait for that same response, latency is eliminated even though data might not have been processed\n Need for data persistence on tracking incoming messages / outbound consumer messages\n As system components scale out, more and more producer and consumers will also be scaled out. At this point, a message queue is needed to handle the dependency interconnections between the two components\n     It is O(1) for producer/consumer to access the data rather than wait\n In summary you should use a queue if:\n     Your request is indeterministic\n     Long running request by nature (complex calculation)\n     Resource hungry\n         Bad idea to have the web server serving the request do it for you. Instead queue it and have a scalable stateless server handle it.",
-                "hints": [
-                    "What is \"decoupling\"? What benefits does it bring?\n Decoupling = \n Seperating a software system\u2019s dependencies so that the components of the system are not tied closely together. \n This is a design pattern that brings several benefits:\n Separating dependencies is higher resilience. Because the components are not as dependent on one another, one component failing would not result in another component downstream failing as well.\n Produces better encapsulation/abstraction through more focused responsibility. This allows for easier modification/expansion of the system as there are not as much moving pieces in the system to worry about"
-                ],
-                "question": "What are some use cases for message queue? What are alternatives?"
-            },
-            {
-                "answer": "A pub/sub will not be able to handle the same use cases as message queue",
-                "hints": [
-                    "What is pub/sub system?\n Pub/sub or publisher subscriber system is another form of asynchronous communication often used in stateless architecture where a publisher service will publish its data and its subscriber systems will immediately receive the incoming data. In contrast, a message queue involves a separate service completely which manages the states between the publisher and subscriber and the message that is sent does not have to be immediately consumed in a message queue."
-                ],
-                "question": "What is the difference between pub/sub vs message queue?"
-            }
-        ],
-        "topic": "Message Queue"
-    },
-    "news_feed_1": {
+    "problem_news_feed_1": {
         "lesson_id": "news_feed_1",
         "lesson_title": "Designing a News Feed: Requirements",
         "questions": [
@@ -389,7 +392,7 @@
         "topic": "News Feed",
         "video_url": "???"
     },
-    "news_feed_2": {
+    "problem_news_feed_2": {
         "lesson_id": "news_feed_2",
         "lesson_title": "News Feed: Capacity Estimation",
         "questions": [
@@ -407,7 +410,7 @@
         "topic": "News Feed",
         "video_url": "???"
     },
-    "news_feed_3": {
+    "problem_news_feed_3": {
         "lesson_id": "news_feed_3",
         "lesson_title": "News Feed: Interface",
         "questions": [
@@ -454,7 +457,7 @@
         "topic": "News Feed",
         "video_url": "???"
     },
-    "news_feed_4": {
+    "problem_news_feed_4": {
         "lesson_id": "news_feed_4",
         "lesson_title": "News Feed: Architecture/Details",
         "questions": [
@@ -475,7 +478,7 @@
         "topic": "News Feed",
         "video_url": "???"
     },
-    "youtube1": {
+    "problem_youtube_1": {
         "lesson_id": "youtube1",
         "lesson_title": "Design YouTube Requirements",
         "questions": [
@@ -490,7 +493,7 @@
         "topic": "YouTube",
         "video_url": "https://youtu.be/WMoq7xZnffY"
     },
-    "youtube2": {
+    "problem_youtube_2": {
         "lesson_id": "youtube2",
         "lesson_title": "Design YouTube Capacity Estimation",
         "questions": [
@@ -518,7 +521,7 @@
         "topic": "YouTube",
         "video_url": "https://youtu.be/TltduEuSvc4"
     },
-    "youtube3": {
+    "problem_youtube_3": {
         "lesson_id": "youtube3",
         "lesson_title": "Design YouTube High Level API",
         "questions": [
@@ -552,7 +555,7 @@
         "topic": "YouTube",
         "video_url": "https://youtu.be/rykxT92rKEg"
     },
-    "youtube4": {
+    "problem_youtube_4": {
         "lesson_id": "youtube4",
         "lesson_title": "Design YouTube High Level Architecture",
         "questions": [
@@ -582,7 +585,7 @@
         "topic": "YouTube",
         "video_url": "https://youtu.be/TXD7LgVrDi0"
     },
-    "youtube5": {
+    "problem_youtube_5": {
         "lesson_id": "youtube5",
         "lesson_title": "Design YouTube High Level Architecture Pt. 2",
         "questions": [

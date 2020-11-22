@@ -35,7 +35,7 @@ function SideBarMenu(props) {
     });
 
     return (
-        <Sider width={300}>
+        <Sider width={300} >
             <Menu
             mode="inline"
             defaultSelectedKeys={['1']}

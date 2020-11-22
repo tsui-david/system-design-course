@@ -52,7 +52,7 @@ for file in filelist:
         question_dict['hints'] = hints
         current_lesson['questions'].append(question_dict)
 
-        lessons[current_lesson['lesson_id']] = current_lesson
+        lessons[lesson] = current_lesson
         print(current_lesson)
 
 # Using a different way to get python path because for some reason path library doesn't work

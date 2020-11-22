@@ -28,9 +28,10 @@ function getLessonRoutes() {
 }
 
 function getLessonTitles() {
+
   return Object.keys(lessons).reduce((acc, cur) => {
 
-    const lessonId = cur.replace(/[^a-zA-Z]/gi, '');
+    const lessonId = lessons[cur]["topic"];
 
     if(acc.hasOwnProperty(lessonId)) {
       return {
