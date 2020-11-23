@@ -2,7 +2,7 @@ import React from "react";
 
 export default class Video extends React.Component {
   getYoutubeID() {
-    let regexp = /https:\/\/youtu.be\/(\w+)/;
+    let regexp = /https:\/\/youtu.be\/(.*)/;
     const match = this.props.video_url.match(regexp)
     if (match === null)
         return;
@@ -16,28 +16,26 @@ export default class Video extends React.Component {
         return null
 
     return (
-        <div style={{maxWidth: "1200px", minWidth: "500px"}}>
-            <div
-                className="video"
-                style={{
-                position: "relative",
-                paddingBottom: "56.25%" /* 16:9 */,
-                paddingTop: 25,
-                height: 0,
-                }}
-            >
-                <iframe
-                style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                }}
-                src={`https://www.youtube.com/embed/${youtubeID}?rel=0`}
-                frameBorder="0"
-                />
-            </div>
+        <div
+            className="video"
+            style={{
+            position: "relative",
+            paddingBottom: "56.25%" /* 16:9 */,
+            paddingTop: 25,
+            height: 0,
+            }}
+        >
+            <iframe
+            style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+            }}
+            src={`https://www.youtube.com/embed/${youtubeID}?rel=0`}
+            frameBorder="0"
+            />
         </div>
     );
   }

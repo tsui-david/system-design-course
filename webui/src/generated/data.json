@@ -15,41 +15,64 @@
                 "answer": "First, the user\u2019s computer searches its own web cache for existing mapping of domain to ip. If this does not exist, the query goes to the user\u2019s ISP (internet service provider) or the dns resolver. If the resolver solver still cannot find the mapping, it passes the request further along up the dns hierarchy, known as the dns root server. The dns root server will tell the ISP the ip address of the top level domain name server (TLD) to query against. The TLD is in charge of mapping all the ip addresses of the authoritative nameserver for the given top level domain name (.org, .com, .io, etc). Once the ISP has the authoritative nameserver\u2019s ip, the ISP queries the authoritative nameserver for the domain name\u2019s ip address. Now the ISP cache\u2019s the domain name so the next time another user queries it, the ISP will hold the mapping.",
                 "hints": [],
                 "question": "Once the ip address is returned from the DNS, what happens afterwards? How does knowing the ip address help the user reach Facebook\u2019s website?"
-            },
+            }
+        ],
+        "topic": "API",
+        "video_url": "https://youtu.be/OdYflAHc-1o"
+    },
+    "concept_api_2": {
+        "lesson_id": "api2",
+        "lesson_title": "HTTP & REST",
+        "questions": [
             {
-                "answer": "HTTP is a protocol built to handle communication sessions over the network while APIs use HTTP to transfer data in an interfaced organized way with business logic in mind. We will talk more about HTTP requests in the next module.",
+                "answer": "HTTP stands for hyper text transfer protocol. It sits on top of TCP and transfers html pages, javascript, and css components to the client. Once these components are realized on the client, the web components allow the client to continue to interact with the host server through apis. API (application protocol interface) is not something specifically restricted to the web domain but to any server to server communication. It is a set of interface concepts that is agreed upon to further transmit structured data with business meaning between client and host.",
                 "hints": [
                     "Hint 1:  Assume that the client already resolved the ip address through DNS. In the previous lesson, we know that once the client has the ip address, the client can directly talk with the server. What communication protocol is used in talking with the web server?"
                 ],
-                "question": "What is the difference between HTTP vs APIs?"
+                "question": "In a typical web application, how does a server and client continue to communicate/transfer data? Explain what HTTP and API is."
             },
             {
-                "answer": "The 5 relevant methods to REST API are: POST, GET, PUT, PATCH, DELETE. POST creates entries, GET reads, PUT updates, PATCH updates, DELETE deletes. These methods are closely related to how RestApi is designed as the  RestAPI utilizes the HTTP constructs and URL to construct stateless communication between client and server.",
+                "answer": "Representational State Transfer (REST) focuses on stateless data communication. What this means is that different users should be able to get the same result without any session data associated in the request. REST handles this by having the requests built into the url. HTTP has 4 different methods for communication: PUT, POST, GET, DELETE. Rest builds on top of these methods for interacting with the host by using the URL for each of the 4 methods. A GET request for all the users from Facebook.com might simply be GET http://www.facebook.com/users Other examples of real rest api can be visited here: Twitter, Instagram, Spotify.\n REST should be used if you wish to communicate with JSON. It is popular because of how easy it is to integrate different services as the api is done through the url itself. Don\u2019t worry if these don\u2019t seem clear, we will explore on Rest API and get a chance to practice on designing apis next!",
+                "hints": [],
+                "question": "What are some examples of different API protocols, whether they are web/server to server?"
+            },
+            {
+                "answer": "POST is used for creating new entries against the server. An example of a POST use case is to register a new user to a service, such as signing up for Reddit.\n PUT is used to replace an existing entry with a new entry. An example of a PUT use case is to replace a news article with a new article.\n PATCH is used to update a property of an existing entry. An example of  PATCH use case is to change the author field of a news article.",
                 "hints": [
                     "Some HTTP methods are based off of verbs used for creating, reading  updating, deleting (CRUD) against a service"
                 ],
-                "question": "What are some methods of HTTP requests and what are the use cases for each? "
+                "question": "When do you use POST vs PUT vs PATCH?"
             },
             {
-                "answer": "Status codes are divided into 5 ranges of numbers: 1xx -> Informational, 2xx -> Success, 3xx -> Redirection, 4xx -> Client Error, 5xx -> Server Error.\n From Mozilla, specific example codes (These codes are the more frequent/relevant codes that should be remembered):\n 100 Continue: informational status response code indicates that everything so far is OK and that the client should continue with the request or ignore it if it is already finished.\n 200 OK: Request has succeeded.\n For GET it means the resource has been successfully fetched\n For PUT/POST it means the server properly accepted the input, could also be 201\n 301 Moved Permanently: The url of the request has been moved and the response includes the new URL\n 400: Bad Request: Some sort of syntax issues from the client request\n 401: Unauthorized: The request was not authenticated\n 403: Forbidden: The request was authenticated but not authorized.\n Follow Up: What\u2019s the difference between authentication vs authorization?\n Authentication = we know who you say you are\n Authorization = you have permission to do what you wish to do\n 404: Not Found: Server cannot find the requested resource, often meaning the client requested incorrect endpoint\n 405: Method Not Allowed: The request method is known by the server but not allowed, such as deleting users or specific resources.\n 500: Internal Server Error: General server side error indicating the server doesn\u2019t know what to do\n 501: Not Implemented: The requested HTTP method is not implemented. Example: The server is READ only so no post or put methods.\n 502: Bad Gateway: The server acting as a gateway was not able to get a response needed to handle the request. This is usually a network issue with the gateway load balancer that accepted the request and the actual server.\n For more information on gateways, look up load balancer",
+                "answer": "Authentication = we know who you say you are\n Authorization = you have permission to do what you wish to do",
                 "hints": [
                     "What are some use cases of these status codes? Status codes can indicate success, failure, and others.",
                     "For each 5 HTTP methods, the same status codes can apply."
                 ],
-                "question": "In addition to the requested data, the server also returns HTTP status codes. What are some examples of these status codes? What are the purposes of these status codes?"
-            },
-            {
-                "hints": [
-                    "What operations can exist regarding CRUD on Spotify playlist?\n Create: Create new playlist\n Read: Read songs from playlist, read all playlist\n Update: Change playlist name, add playlist song\n Delete: Remove playlist, remove song from playlist",
-                    "What HTTP methods can be used regarding CRUD on Spotify playlist? \n Create: POST new playlist\n Read: GET playlist, GET songs\n Update: PATCH playlist song, PUT playlist song\n Delete: DELETE playlist, DELETE song",
-                    "REST API interacts through urls. This means the api will start with spotify\u2019s domain: www.spotify.com/api. In addition, apis utilize versions. As a result, what is an example of a starting url for REST api?\n www.spotify.com/api/v1/<nouns>",
-                    "REST APIs involve nouns to dictate what object to interact with. As a result multiple HTTP methods can be associated with the same REST API endpoint. What are some of these url endpoints?\n www.spotify.com/api/v1/{user_id}/playlists -> \n GET: get all playlist (name, number of songs, user, follower, etc)\n POST: create playlist\n www.spotify.com/api/v1/{user_id}/playlists/{playlist_id} ->\n PATCH: change playlist name by id\n DELETE: delete playlist by id\n GET: get playlist property by id\n PUT: update the playlist and replace it\n www.spotify.com/api/v1/{user_id}/{playlist_id}/tracks ->\n GET: get playlist songs\n POST or PUT: create / replace song to playlist\n DELETE: delete song\n PATCH: change playlist song order",
-                    "In Post/Put/Patch the request sent will contain a body. These are additional parameters that are associated with the request. What are some examples of items you would need to add for POST, DELETE, PUT, PATCH?\n POST-> post new playlist. Rest API body is in JSON:\n www.spotify.com/api/v1/{user_id}/playlists\n {\n  name: \u201cMyEveningPlaylist,\n  songs: [{name: \u201cNever Say Never\u201d, artist: [\u201cJustin Bieber\u201d, \u201cJaden Smith\u201d],  album: \u201cNever Say Never - The Remixes\u201d}]\n }\n PATCH ->  update playlist name\n www.spotify.com/api/v1/{user_id}/{playlist_id}\n {\n   name: \u201cMyMorningPlaylist\u201d\n }\n PUT -> replace whole playlist\n www.spotify.com/api/v1/{user_id}/playlists\n {\n  name: \u201cMyMorningPlaylist\u201d,\n  songs: [{name: \u201cNever Say Never\u201d, artist: [\u201cJustin Bieber\u201d, \u201cJaden Smith\u201d],  album: \u201cNever Say Never - The Remixes\u201d}]\n }",
-                    "What are the responses the server should give? Give some examples for spotify playlist api\n POST-> post new playlist. Rest API body is in JSON:\n www.spotify.com/api/v1/{user_id}/playlists\n 200 OK\n {\n  playlist_id: 123playlist1,\n  date_created: 1602945257,\n  date_updated: 1602945257,\n  name: \u201cMyEveningPlaylist,\n  songs: [{name: \u201cNever Say Never\u201d, artist: [\u201cJustin Bieber\u201d, \u201cJaden Smith\u201d],  album: \u201cNever Say Never - The Remixes\u201d}]\n }"
-                ]
+                "question": "Follow Up: What\u2019s the difference between authentication vs authorization?"
             }
         ],
-        "topic": "Application Programming Interface (API)"
+        "topic": "API",
+        "video_url": "https://youtu.be/cK2k_4rD-mQ"
+    },
+    "concept_api_3": {
+        "lesson_id": "api3",
+        "lesson_title": "REST Endpoints",
+        "questions": [
+            {
+                "hints": [
+                    "What operations can exist regarding CRUD on Spotify playlist?\n `Create`: Create new playlist\n `Read`: Read songs from playlist, read all playlist\n `Update`: Change playlist name, add playlist song\n `Delete`: Remove playlist, remove song from playlist",
+                    "What HTTP methods can be used regarding CRUD on Spotify playlist? \n `Create`: POST new playlist\n `Read`: GET playlist, GET songs\n `Update`: PATCH playlist song, PUT playlist song\n `Delete`: DELETE playlist, DELETE song",
+                    "REST API interacts through urls. This means the api will start with spotify\u2019s domain: www.spotify.com/api. In addition, apis utilize versions. As a result, what is an example of a starting url for REST api?\n www.spotify.com/api/v1/<nouns>",
+                    "REST APIs involve nouns to dictate what object to interact with. As a result multiple HTTP methods can be associated with the same REST API endpoint. What are some of these url endpoints?\n www.spotify.com/api/v1/{user_id}/playlists -> \n `GET`: get all playlist (name, number of songs, user, follower, etc)\n `POST`: create playlist\n www.spotify.com/api/v1/{user_id}/playlists/{playlist_id} ->\n PATCH: change playlist name by id\n DELETE: delete playlist by id\n GET: get playlist property by id\n PUT: update the playlist and replace it\n www.spotify.com/api/v1/{user_id}/{playlist_id}/tracks ->\n GET: get playlist songs\n POST or PUT: create / replace song to playlist\n DELETE: delete song\n PATCH: change playlist song order",
+                    "In Post/Put/Patch the request sent will contain a body. These are additional parameters that are associated with the request. What are some examples of items you would need to add for POST, DELETE, PUT, PATCH?\n POST-> post new playlist. Rest API body is in JSON:\n www.spotify.com/api/v1/{user_id}/playlists\n {\n  name: \u201cMyEveningPlaylist,\n  songs: [{name: \u201cNever Say Never\u201d, artist: [\u201cJustin Bieber\u201d, \u201cJaden Smith\u201d],  album: \u201cNever Say Never - The Remixes\u201d}]\n }\n PATCH ->  update playlist name\n www.spotify.com/api/v1/{user_id}/{playlist_id}\n {\n   name: \u201cMyMorningPlaylist\u201d\n }\n PUT -> replace whole playlist\n www.spotify.com/api/v1/{user_id}/playlists\n {\n  name: \u201cMyMorningPlaylist\u201d,\n  songs: [{name: \u201cNever Say Never\u201d, artist: [\u201cJustin Bieber\u201d, \u201cJaden Smith\u201d],  album: \u201cNever Say Never - The Remixes\u201d}]\n }",
+                    "What are the responses the server should give? Give some examples for spotify playlist api\n POST-> post new playlist. Rest API body is in JSON:\n www.spotify.com/api/v1/{user_id}/playlists\n 200 OK\n {\n  playlist_id: 123playlist1,\n  date_created: 1602945257,\n  date_updated: 1602945257,\n  name: \u201cMyEveningPlaylist,\n  songs: [{name: \u201cNever Say Never\u201d, artist: [\u201cJustin Bieber\u201d, \u201cJaden Smith\u201d],  album: \u201cNever Say Never - The Remixes\u201d}]\n }"
+                ],
+                "question": "What operations can exist regarding CRUD on Spotify playlist?"
+            }
+        ],
+        "topic": "API",
+        "video_url": "https://youtu.be/iWSJm5h9-TM"
     },
     "concept_caching_1": {
         "lesson_id": "caching_1",
