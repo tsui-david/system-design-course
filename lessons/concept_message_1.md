@@ -1,9 +1,11 @@
 @lesson_id
-message_queue
+mq1
 @lesson_title
 Message Queue Introduction
 @topic
 Message Queue
+@video_url
+https://youtu.be/Hp3xLhogpGU
 
 @question
 What is a message queue?
