@@ -13,7 +13,7 @@ import { Layout } from 'antd';
 import "./App.css";
 import 'antd/dist/antd.css';
 
-const { Header, Content } = Layout;
+const { Header, Footer, Content } = Layout;
 
 
 // Format the lessons into arrays to be passed to react router
@@ -90,7 +90,7 @@ function App() {
           <Layout style={{ padding: '24px 24px 24px' }}>
             <Content
             style={{
-              padding: 24,
+              padding: "24px",
               margin: 0,
               minHeight: 280,
               background: "#fff",
@@ -98,6 +98,7 @@ function App() {
               {routeComponents}
               {lessonRouteComponents}
             </Content>
+            <Footer style={{ textAlign: 'center', "padding-bottom": "0px" }}>Pol Design ©2020 Created by Pol</Footer>
           </Layout>
         </Layout>
       </Layout>
