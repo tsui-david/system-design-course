@@ -26,7 +26,7 @@ function SideBarMenu(props) {
                     props.menuData[lesson]["title"].map((title, j) => 
                     {
                         return (
-                            <Menu.Item key={title + "_" + j} onClick={() => history.push(`/lessons/${props.menuData[lesson]["id"][j]}`)}>{title}</Menu.Item>
+                            <Menu.Item key={title + "_" + i + "_" + j} onClick={() => history.push(`/lessons/${props.menuData[lesson]["id"][j]}`)}>{title}</Menu.Item>
                         )
                     })
                 }

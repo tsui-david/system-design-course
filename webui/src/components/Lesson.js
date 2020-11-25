@@ -119,7 +119,7 @@ export default class Lesson extends React.Component {
   constructHints() {
     return this.getCurrentQuestionBlock().hints.map((data, index) => {
       if (index <= this.state.hintIndex) {
-        return <Hint data={data} isDisplayHint={this.state.isDisplayHint} />;
+        return <Hint key={"hints_" + index} data={data} isDisplayHint={this.state.isDisplayHint} />;
       }
     });
   }

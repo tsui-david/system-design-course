@@ -81,7 +81,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Layout>
+      <Layout style={{minHeight: "100vh", overflow: "auto"}}>
         <Header className="header">
           <div className="logo"  ></div>
         </Header>
