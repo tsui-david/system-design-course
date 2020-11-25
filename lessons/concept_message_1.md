@@ -3,7 +3,7 @@ mq1
 @lesson_title
 Message Queue Introduction
 @topic
-Message Queue
+mq
 @video_url
 https://youtu.be/Hp3xLhogpGU
 

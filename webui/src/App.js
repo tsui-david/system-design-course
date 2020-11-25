@@ -2,55 +2,72 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 // Data
 import lessons from "./generated/data";
+import syllabus from "./generated/syllabus.json";
 
 // Components
 import Lesson from "./components/Lesson";
 import Home from "./components/HomePage";
 import SideBarMenu from "./components/SideBarMenu";
-import { Layout } from 'antd';
+import { Layout, Affix } from "antd";
 
 // CSS
 import "./App.css";
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
 
-const { Header, Content } = Layout;
-
+const { Header, Content, Footer } = Layout;
 
 // Format the lessons into arrays to be passed to react router
 function getLessonRoutes() {
   return Object.keys(lessons).map((lesson_id) => {
     return {
-      path: `/lessons/${lesson_id}`,
+      path: `/lessons/${lessons[lesson_id]["topic"]}/${lesson_id}`,
       data: lessons[lesson_id],
       id: lesson_id,
     };
   });
 }
 
+function getConceptTitles(lessonTitles) {
+  return syllabus["concepts"].map((lesson) => {
+    return {
+      subMenu: lessonTitles[lesson["topic"]],
+      topicTitle: lesson["title"],
+    };
+  });
+}
+
+function getProblemTitles(lessonTitles) {
+  return syllabus["problems"].map((lesson) => {
+    return {
+      subMenu: lessonTitles[lesson["topic"]],
+      topicTitle: lesson["title"],
+      difficulty: lesson["difficulty"],
+    };
+  });
+}
+
 function getLessonTitles() {
-
   return Object.keys(lessons).reduce((acc, cur) => {
-
     const lessonId = lessons[cur]["topic"];
 
-    if(acc.hasOwnProperty(lessonId)) {
+    if (acc.hasOwnProperty(lessonId)) {
       return {
         ...acc,
         [lessonId]: {
           title: [...acc[lessonId]["title"], lessons[cur]["lesson_title"]],
-          id: [...acc[lessonId]["id"], cur]
-        }
+          id: [...acc[lessonId]["id"], cur],
+          topic: lessonId,
+        },
       };
-    }
-    else {
-      console.log('curr: ', cur);
+    } else {
       return {
         ...acc,
         [lessonId]: {
           title: [lessons[cur]["lesson_title"]],
-          id: [cur]
-        }
-      }
+          id: [cur],
+          topic: lessonId,
+        },
+      };
     }
   }, {});
 }
@@ -66,6 +83,7 @@ function App() {
   const routeComponents = routes.map(({ path, component }, key) => (
     <Route exact path={path} component={component} key={key} />
   ));
+
   const lessonRouteComponents = getLessonRoutes().map(
     ({ path, data, id }, key) => {
       return (
@@ -79,22 +97,30 @@ function App() {
     }
   );
 
+  const lessonTitles = getLessonTitles();
   return (
     <BrowserRouter>
       <Layout>
         <Header className="header">
-          <div className="logo"  ></div>
+          <div className="logo"></div>
         </Header>
-        <Layout>
-          <SideBarMenu menuData={getLessonTitles()} />
-          <Layout style={{ padding: '24px 24px 24px' }}>
+
+        <Layout style={{backgroundColor: "white"}}>
+          <Affix offsetTop={0}>
+            <SideBarMenu
+              menuConcepts={getConceptTitles(lessonTitles)}
+              menuProblems={getProblemTitles(lessonTitles)}
+            />
+          </Affix>
+
+          <Layout style={{ minHeight: 1200, marginLeft: 0 }}>
             <Content
-            style={{
-              padding: 24,
-              margin: 0,
-              minHeight: 280,
-              background: "#fff",
-            }}>
+              style={{
+                padding: 24,
+                margin: 0,
+                background: "#fff",
+              }}
+            >
               {routeComponents}
               {lessonRouteComponents}
             </Content>

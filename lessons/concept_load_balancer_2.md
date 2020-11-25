@@ -3,7 +3,7 @@ load_balancer_2
 @lesson_title
 Load Balancer Placement
 @topic
-Load Balancer
+lb
 @video_url
 ???
 

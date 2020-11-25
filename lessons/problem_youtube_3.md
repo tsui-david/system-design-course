@@ -3,7 +3,7 @@ youtube3
 @lesson_title
 Design YouTube High Level API
 @topic
-YouTube
+youtube
 @video_url
 https://youtu.be/rykxT92rKEg
 

@@ -3,7 +3,7 @@ news_feed_3
 @lesson_title
 News Feed: Interface
 @topic
-News Feed
+news
 @video_url
 ???
 

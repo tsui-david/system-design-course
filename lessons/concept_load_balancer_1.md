@@ -3,7 +3,7 @@ load_balancer_1
 @lesson_title
 Load Balancing Introduction
 @topic
-Load Balancer
+lb
 @video_url
 ???
 

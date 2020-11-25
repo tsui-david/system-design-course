@@ -1,51 +1,94 @@
-import React from 'react';
+import React from "react";
 
 // Components
-import { Menu, Layout } from 'antd';
+import { Menu, Layout } from "antd";
 
 // Routing
-import { useHistory } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
+
 
 //CSS
-import 'antd/dist/antd.css';
+import "antd/dist/antd.css";
 
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 
+class SideBarMenu extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedItems: ["1"],
+      selectedSubMenus: ["1"],
+    }
+  }
 
-function SideBarMenu(props) {
-
-    console.log('hello', props.menuData);
-
-    let history = useHistory();
-    
-    const menuItems = Object.keys(props.menuData).map((lesson, i) => {
-        return (
-            <SubMenu key={lesson + "_" + i} title={lesson} style={{"textTransform": "capitalize"}}>
-                {
-                    props.menuData[lesson]["title"].map((title, j) => 
-                    {
-                        return (
-                            <Menu.Item key={title + "_" + j} onClick={() => history.push(`/lessons/${props.menuData[lesson]["id"][j]}`)}>{title}</Menu.Item>
-                        )
-                    })
-                }
-            </SubMenu>
-        )
+  componentWillMount(){
+    this.props.history.listen((event)=>{
+        const pathname = event.pathname.split("/");
+        if(pathname != null){
+          this.setState({ 
+            selectedSubMenus: [pathname[2]],
+            selectedItems: [pathname[3]]
+          });
+        }
     });
+  }
+
+  getSubMenuComponent(history, props) {
+    return props.map((lesson, i) => {
+      const lessonSubmenu = lesson["subMenu"];
+      return (
+        <SubMenu
+          key={lessonSubmenu["topic"]}
+          title={lesson["topicTitle"]}
+          style={{ textTransform: "capitalize" }}
+          onTitleClick={(menu) => {
+            this.setState({selectedSubMenus: [menu["key"]]})
+          }}
+        >
+          {lessonSubmenu["title"].map((title, j) => {
+            return (
+              <Menu.Item
+                key={lessonSubmenu["id"][j]}
+                onClick={() => {
+                  history.push(`/lessons/${lessonSubmenu["topic"]}/${lessonSubmenu["id"][j]}`);
+                }}
+              >
+                {title}
+              </Menu.Item>
+            );
+          })}
+        </SubMenu>
+      );
+    });
+  }
+
+  render() {
+    const conceptItems = this.getSubMenuComponent(this.props.history, this.props.menuConcepts);
+    const problemItems = this.getSubMenuComponent(this.props.history, this.props.menuProblems);
 
     return (
-        <Sider width={300} >
-            <Menu
-            mode="inline"
-            defaultSelectedKeys={['1']}
-            defaultOpenKeys={['sub1']}
-            style={{ height: '100%', borderRight: 0 }}
-            >
-                {menuItems}
-            </Menu>
-        </Sider>
+      <Sider
+        width={350}
+      >
+        <Menu
+          mode="inline"
+          defaultSelectedKeys={["1"]}
+          defaultOpenKeys={["sub1"]}
+          style={{ height: "100%", borderRight: 0 }}
+          selectedKeys={this.state.selectedItems}
+          openKeys={this.state.selectedSubMenus}
+        >
+          <Menu.ItemGroup key="g1" title="CONCEPTS">
+            {conceptItems}
+          </Menu.ItemGroup>
+          <Menu.ItemGroup key="g2" title="PROBLEMS">
+            {problemItems}
+          </Menu.ItemGroup>
+        </Menu>
+      </Sider>
     );
-};
+  }
+}
 
-export default SideBarMenu;
+export default withRouter(SideBarMenu);

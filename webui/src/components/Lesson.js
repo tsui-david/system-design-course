@@ -134,7 +134,9 @@ export default class Lesson extends React.Component {
       hintIndex: 0,
       isDisplayAnswer: false,
       isDisplayHint: false,
-      isDisplayHintButton: this.props.lessonData.questions[this.state.questionIndex + 1].hints.length > 0,
+      isDisplayHintButton:
+        this.props.lessonData.questions[this.state.questionIndex + 1].hints
+          .length > 0,
     });
   }
 
@@ -170,7 +172,10 @@ export default class Lesson extends React.Component {
   }
 
   displayQuestionNavigation() {
-    if (this.state.isDisplayAnswer && this.state.questionIndex + 1 < this.props.lessonData.questions.length) {
+    if (
+      this.state.isDisplayAnswer &&
+      this.state.questionIndex + 1 < this.props.lessonData.questions.length
+    ) {
       return (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Button onClick={() => this.onClickNextQuestion()} shape="round">
@@ -179,35 +184,32 @@ export default class Lesson extends React.Component {
         </div>
       );
     } else {
-      return (null);
+      return null;
     }
   }
 
   render() {
-    console.log(this.state, this.props.lessonData);
     return (
-      <>
-        <PageHeader className="site-page-header-ghost-wrapper"
+      <div style={{ maxWidth: "1200px", minWidth: "500px" }}>
+        <PageHeader
+          className="site-page-header-ghost-wrapper"
           ghost={false}
           onBack={() => window.history.back()}
           title={this.props.lessonData.lesson_title}
-        >
-        </PageHeader>
-        <div style={{ maxWidth: "1200px", minWidth: "500px" }}>
-          <Video video_url={this.props.lessonData.video_url} />
-          <br />
-          <Question data={this.getCurrentQuestionBlock().question} />
-          {this.constructHints()}
-          <Answer
-            data={this.getCurrentQuestionBlock().answer}
-            isDisplayAnswer={this.state.isDisplayAnswer}
-          />
-          <br />
-          {this.displayHintsNavigation()}
-          <br />
-          {this.displayQuestionNavigation()}
-        </div>
-      </>
+        ></PageHeader>
+        <Video video_url={this.props.lessonData.video_url} />
+        <br />
+        <Question data={this.getCurrentQuestionBlock().question} />
+        {this.constructHints()}
+        <Answer
+          data={this.getCurrentQuestionBlock().answer}
+          isDisplayAnswer={this.state.isDisplayAnswer}
+        />
+        <br />
+        {this.displayHintsNavigation()}
+        <br />
+        {this.displayQuestionNavigation()}
+      </div>
     );
   }
 }

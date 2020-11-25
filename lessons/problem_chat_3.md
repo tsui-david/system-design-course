@@ -3,7 +3,7 @@ chat_system3
 @lesson_title
 Design Chat System High Level Architecture
 @topic
-Chat System
+chat
 @video_url
 youtube.com
 

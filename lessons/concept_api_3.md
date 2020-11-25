@@ -3,7 +3,7 @@ api3
 @lesson_title
 REST Endpoints
 @topic
-API
+api
 @video_url
 https://youtu.be/iWSJm5h9-TM
 

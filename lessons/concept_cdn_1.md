@@ -3,7 +3,7 @@ cdn1
 @lesson_title
 Content Delivery Network Introduction
 @topic
-Content Delivery Network (CDN)
+cdn
 @video_url
 ???
 
