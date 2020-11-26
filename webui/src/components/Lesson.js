@@ -2,12 +2,15 @@ import React from "react";
 import Video from "./Video";
 import { Card } from "antd";
 import { PageHeader, Button } from "antd";
-import {
+import Icon, {
   CheckCircleTwoTone,
   QuestionCircleTwoTone,
   RightCircleTwoTone,
+  ArrowLeftOutlined,
+  ArrowRightOutlined,
 } from "@ant-design/icons";
 import ReactMarkdown from "react-markdown";
+import { withRouter } from "react-router-dom";
 
 function Answer(props) {
   if (props.isDisplayAnswer) {
@@ -70,7 +73,7 @@ function Question(props) {
   );
 }
 
-export default class Lesson extends React.Component {
+class Lesson extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -188,7 +191,13 @@ export default class Lesson extends React.Component {
     }
   }
 
+  goToNextOrPreviousLesson(topic, id) {
+    this.props.history.push(`/lessons/${topic}/${id}`);
+  }
+
   render() {
+    console.log(this.props);
+    console.log(typeof this.props.previousTopic, typeof this.props.previousTopic === "undefined", this.props.nextTopic, this.props.nextTopic == null)
     return (
       <div style={{ maxWidth: "1200px", minWidth: "500px" }}>
         <PageHeader
@@ -209,7 +218,37 @@ export default class Lesson extends React.Component {
         {this.displayHintsNavigation()}
         <br />
         {this.displayQuestionNavigation()}
+        <br />
+        <br />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Button
+            type="link"
+            disabled={typeof this.props.previousTopic === "undefined"}
+            onClick={() =>
+              this.goToNextOrPreviousLesson(
+                this.props.previousTopic,
+                this.props.previousID
+              )
+            }
+          >
+            <ArrowLeftOutlined /> Previous Lesson
+          </Button>
+          <Button
+            type="link"
+            disabled={typeof this.props.nextTopic === "undefined"}
+            onClick={() =>
+              this.goToNextOrPreviousLesson(
+                this.props.nextTopic,
+                this.props.nextID
+              )
+            }
+          >
+            Next Lesson <ArrowRightOutlined />
+          </Button>
+        </div>
       </div>
     );
   }
 }
+
+export default withRouter(Lesson);

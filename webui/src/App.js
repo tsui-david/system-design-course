@@ -17,12 +17,16 @@ import "antd/dist/antd.css";
 const { Header, Content, Footer } = Layout;
 
 // Format the lessons into arrays to be passed to react router
-function getLessonRoutes() {
+function getLessonRoutes(lessonMap) {
   return Object.keys(lessons).map((lesson_id) => {
     return {
       path: `/lessons/${lessons[lesson_id]["topic"]}/${lesson_id}`,
       data: lessons[lesson_id],
       id: lesson_id,
+      previousTopic: lessonMap.get(lesson_id)["previousTopic"],
+      previousID: lessonMap.get(lesson_id)["previousID"],
+      nextTopic: lessonMap.get(lesson_id)["nextTopic"],
+      nextID: lessonMap.get(lesson_id)["nextID"],
     };
   });
 }
@@ -72,6 +76,41 @@ function getLessonTitles() {
   }, {});
 }
 
+// Get a map of key: lesson id and value: (previous lesson, and next lesson)
+function getPreviousNextLessonMap(lessonTitles) {
+  const combinedSyllabus = getConceptTitles(lessonTitles).concat(
+    getProblemTitles(lessonTitles)
+  );
+  let currentTopic;
+  let previousID;
+  let previousTopic;
+
+  const m = new Map();
+
+  for (const lessonGroup of combinedSyllabus) {
+    const lessonDetails = lessonGroup["subMenu"];
+    currentTopic = lessonDetails["topic"];
+
+    for (const currentID of lessonDetails["id"]) {
+      if (previousID != null) {
+        m.set(previousID, {
+          ...m.get(previousID),
+          nextID: currentID,
+          nextTopic: currentTopic,
+        });
+      }
+      m.set(currentID, {
+        previousID: previousID,
+        previousTopic: previousTopic,
+      });
+      previousID = currentID;
+      previousTopic = currentTopic;
+    }
+  }
+
+  return m;
+}
+
 function App() {
   let routes = [
     {
@@ -79,25 +118,34 @@ function App() {
       component: Home,
     },
   ];
-
+  const lessonTitles = getLessonTitles();
+  const lessonMap = getPreviousNextLessonMap(lessonTitles);
   const routeComponents = routes.map(({ path, component }, key) => (
     <Route exact path={path} component={component} key={key} />
   ));
 
-  const lessonRouteComponents = getLessonRoutes().map(
-    ({ path, data, id }, key) => {
+  const lessonRouteComponents = getLessonRoutes(lessonMap).map(
+    ({ path, data, id, previousTopic, previousID, nextTopic, nextID }, key) => {
       return (
         <Route
           exact
           path={path}
           key={key}
-          render={() => <Lesson lessonID={id} lessonData={data} />}
+          render={() => (
+            <Lesson
+              lessonID={id}
+              lessonData={data}
+              previousTopic={previousTopic}
+              previousID={previousID}
+              nextTopic={nextTopic}
+              nextID={nextID}
+            />
+          )}
         />
       );
     }
   );
 
-  const lessonTitles = getLessonTitles();
   return (
     <BrowserRouter>
       <Layout>
@@ -105,7 +153,7 @@ function App() {
           <div className="logo"></div>
         </Header>
 
-        <Layout style={{backgroundColor: "white"}}>
+        <Layout style={{ backgroundColor: "white" }}>
           <Affix offsetTop={0}>
             <SideBarMenu
               menuConcepts={getConceptTitles(lessonTitles)}
