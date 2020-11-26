@@ -1,7 +1,7 @@
 import React from "react";
 
 // Components
-import { Menu, Layout } from "antd";
+import { Menu, Layout, Tag } from "antd";
 
 // Routing
 import { useHistory, withRouter } from "react-router-dom";
@@ -34,6 +34,30 @@ class SideBarMenu extends React.Component {
     });
   }
 
+  getDifficultyBadge(lesson) {
+    if(lesson.hasOwnProperty('difficulty')) {
+      console.log(lesson['difficulty'])
+      switch(lesson['difficulty']) {
+        case "Easy":
+          return (
+            <Tag color="green">1</Tag>
+          )
+          break;
+        case "Medium":
+          return(
+            <Tag color="orange">2</Tag>
+          )
+          break;
+        case "Hard":
+          return(
+            <Tag color="red">3</Tag>
+          )
+          break;
+      }
+    }
+
+  }
+
   getSubMenuComponent(history, props) {
     return props.map((lesson, i) => {
       const lessonSubmenu = lesson["subMenu"];
@@ -45,6 +69,7 @@ class SideBarMenu extends React.Component {
           onTitleClick={(menu) => {
             this.setState({selectedSubMenus: [menu["key"]]})
           }}
+          icon={this.getDifficultyBadge(lesson)}
         >
           {lessonSubmenu["title"].map((title, j) => {
             return (

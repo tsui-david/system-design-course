@@ -2,27 +2,33 @@
     "concepts": [
         {
             "title": "API",
-            "topic": "api"
+            "topic": "api",
+            "difficulty": "Easy"
         },
         {
             "title": "Caching",
-            "topic": "caching"
+            "topic": "caching",
+            "difficulty": "Easy"
         },
         {
             "title": "Content Delivery Network (CDN)",
-            "topic": "cdn"
+            "topic": "cdn",
+            "difficulty": "Medium"
         },
         {
             "title": "Load Balancer",
-            "topic": "lb"
+            "topic": "lb",
+            "difficulty": "Medium"
         },
         {
             "title": "Database",
-            "topic": "db"
+            "topic": "db",
+            "difficulty": "Hard"
         },
         {
             "title": "Message Queue",
-            "topic": "mq"
+            "topic": "mq",
+            "difficulty": "Hard"
         }        
     ],
     "problems": [
