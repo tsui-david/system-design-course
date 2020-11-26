@@ -1,4 +1,5 @@
 import { BrowserRouter, Route } from "react-router-dom";
+import banner from "./banner_logo.png";
 
 // Data
 import lessons from "./generated/data";
@@ -150,7 +151,9 @@ function App() {
     <BrowserRouter>
       <Layout>
         <Header className="header">
-          <div className="logo"></div>
+          <div className="logo">
+            <img src={banner} style={{"objectFit": "cover", "width": "300px", "marginLeft": "100px"}}/>
+          </div>
         </Header>
 
         <Layout style={{ backgroundColor: "white" }}>
