@@ -1,5 +1,4 @@
 import { BrowserRouter, Route } from "react-router-dom";
-import banner from "./banner_logo.png";
 
 // Data
 import lessons from "./generated/data";
@@ -9,13 +8,14 @@ import syllabus from "./generated/syllabus.json";
 import Lesson from "./components/Lesson";
 import Home from "./components/HomePage";
 import SideBarMenu from "./components/SideBarMenu";
+import Head from "./components/Head";
 import { Layout, Affix } from "antd";
 
 // CSS
 import "./App.css";
 import "antd/dist/antd.css";
 
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
 
 // Format the lessons into arrays to be passed to react router
 function getLessonRoutes(lessonMap) {
@@ -150,12 +150,7 @@ function App() {
   return (
     <BrowserRouter>
       <Layout>
-        <Header className="header">
-          <div className="logo">
-            <img src={banner} style={{"objectFit": "cover", "width": "300px", "marginLeft": "100px"}}/>
-          </div>
-        </Header>
-
+        <Head />
         <Layout style={{ backgroundColor: "white" }}>
           <Affix offsetTop={0}>
             <SideBarMenu
