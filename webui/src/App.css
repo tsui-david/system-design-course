@@ -58,3 +58,15 @@ ant stuff goes here, should move to another file
   padding: 16px;
   margin-bottom: 16px;
 }
+
+.row-formation {
+  display: flex;
+  flex-direction: row;
+}
+
+.column-formation {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-top: 25px;
+}

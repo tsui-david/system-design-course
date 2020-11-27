@@ -170,7 +170,7 @@ function App() {
               {routeComponents}
               {lessonRouteComponents}
             </Content>
-            <Footer style={{ textAlign: 'center', "padding-bottom": "0px" }}>Pol Design ©2020 Created by Pol</Footer>
+            <Footer style={{ textAlign: 'center'}}>L33T Design ©2020 Created by L33T C0D3 Group</Footer>
           </Layout>
         </Layout>
       </Layout>
