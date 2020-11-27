@@ -149,28 +149,29 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Layout style={{minHeight: "100vh", overflow: "auto"}}>
+      <Layout style={{maxHeight: "100vh", overflow: "auto"}}>
         <Head />
         <Layout style={{ backgroundColor: "white" }}>
-          <Affix offsetTop={0}>
             <SideBarMenu
               menuConcepts={getConceptTitles(lessonTitles)}
               menuProblems={getProblemTitles(lessonTitles)}
             />
-          </Affix>
 
-          <Layout style={{ minHeight: 1200, marginLeft: 0 }}>
+          <Layout style={{ marginLeft: 0,  "overflowY": "auto",  "backgroundColor": "white" }}>
             <Content
               style={{
                 padding: 24,
                 margin: 0,
                 background: "#fff",
+                "maxHeight": "100vh",
               }}
             >
               {routeComponents}
               {lessonRouteComponents}
             </Content>
-            <Footer style={{ textAlign: 'center'}}>L33T Design ©2020 Created by L33T C0D3 Group</Footer>
+            <Affix offsetBottom={1}>
+              <Footer style={{ textAlign: 'center', padding: "10px"}}>L33T Design ©2020 Created by L33T C0D3 Group</Footer>
+            </Affix>
           </Layout>
         </Layout>
       </Layout>

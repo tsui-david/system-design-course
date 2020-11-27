@@ -3,17 +3,17 @@ import React from 'react';
 export default class Home extends React.Component {
     render() {
       return (
-        <div style={{"text-align": "center", maxWidth: "1200px"}}>
-          <h1 style={{"color": "Black", "font-size": "50px"}}>WELCOME</h1>
-          <div style={{"padding-bottom": "15px"}}>
+        <div style={{textAlign: "center", maxWidth: "1200px"}}>
+          <h1 style={{color: "Black", fontSize: "50px"}}>WELCOME</h1>
+          <div style={{paddingBottom: "15px"}}>
             Welcome to System Design School! This is a resource created to help engineers study system design concepts and the problems that would appear on most higher level software engineering interviews.
           </div>
           <div className="row-formation">
-            <img src="http://localhost:3000/images/image1.jpg" style={{"width":"500px"}}/>
+            <img src="http://localhost:3000/images/image1.jpg" style={{width:"500px"}}/>
             <div className="column-formation">
               <h2>How to Best Use this Resource</h2>
-              <div style={{"padding-bottom": "12px"}}>This application is divided into two sections:</div>
-                <ul style={{"paddingLeft": "18px", "paddingBottom": "15px"}}>
+              <div style={{paddingBottom: "12px"}}>This application is divided into two sections:</div>
+                <ul style={{paddingLeft: "18px", paddingBottom: "15px"}}>
                   <li>
                     Core Concepts: these are the building blocks of system design, by better understanding these concepts you'll know when and how to apply them when doing the problems
                   </li>
