@@ -1,0 +1,51 @@
+{
+    "concepts": [
+        {
+            "title": "API",
+            "topic": "api",
+            "difficulty": "Easy"
+        },
+        {
+            "title": "Caching",
+            "topic": "caching",
+            "difficulty": "Easy"
+        },
+        {
+            "title": "Content Delivery Network (CDN)",
+            "topic": "cdn",
+            "difficulty": "Medium"
+        },
+        {
+            "title": "Load Balancer",
+            "topic": "lb",
+            "difficulty": "Medium"
+        },
+        {
+            "title": "Database",
+            "topic": "db",
+            "difficulty": "Hard"
+        },
+        {
+            "title": "Message Queue",
+            "topic": "mq",
+            "difficulty": "Hard"
+        }        
+    ],
+    "problems": [
+        {
+            "title": "News Feed",
+            "difficulty": "Medium",
+            "topic": "news"
+        },
+        {
+            "title": "YouTube",
+            "difficulty": "Medium",
+            "topic": "youtube"
+        },
+        {
+            "title": "Chat System",
+            "difficulty": "Hard",
+            "topic": "chat"
+        }
+    ]
+}

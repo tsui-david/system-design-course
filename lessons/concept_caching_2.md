@@ -3,7 +3,7 @@ caching_2
 @lesson_title
 Advantages of Caching
 @topic
-Caching
+caching
 @video_url
 ???
 

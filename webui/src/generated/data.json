@@ -17,7 +17,7 @@
                 "question": "Once the ip address is returned from the DNS, what happens afterwards? How does knowing the ip address help the user reach Facebook\u2019s website?"
             }
         ],
-        "topic": "API",
+        "topic": "api",
         "video_url": "https://youtu.be/OdYflAHc-1o"
     },
     "concept_api_2": {
@@ -52,7 +52,7 @@
                 "question": "Follow Up: What\u2019s the difference between authentication vs authorization?"
             }
         ],
-        "topic": "API",
+        "topic": "api",
         "video_url": "https://youtu.be/cK2k_4rD-mQ"
     },
     "concept_api_3": {
@@ -71,7 +71,7 @@
                 "question": "What operations can exist regarding CRUD on Spotify playlist?"
             }
         ],
-        "topic": "API",
+        "topic": "api",
         "video_url": "https://youtu.be/iWSJm5h9-TM"
     },
     "concept_caching_1": {
@@ -90,7 +90,7 @@
                 ]
             }
         ],
-        "topic": "Caching",
+        "topic": "caching",
         "video_url": "???"
     },
     "concept_caching_2": {
@@ -109,7 +109,7 @@
                 "hints": []
             }
         ],
-        "topic": "Caching",
+        "topic": "caching",
         "video_url": "???"
     },
     "concept_caching_3": {
@@ -132,7 +132,7 @@
                 "question": "List and explain the most popular cache eviction policies."
             }
         ],
-        "topic": "Caching",
+        "topic": "caching",
         "video_url": "???"
     },
     "concept_cdn_1": {
@@ -149,7 +149,7 @@
                 "hints": []
             }
         ],
-        "topic": "Content Delivery Network (CDN)",
+        "topic": "cdn",
         "video_url": "???"
     },
     "concept_cdn_2": {
@@ -168,7 +168,7 @@
                 "hints": []
             }
         ],
-        "topic": "Content Delivery Network (CDN)",
+        "topic": "cdn",
         "video_url": "???"
     },
     "concept_cdn_3": {
@@ -187,7 +187,7 @@
                 "hints": []
             }
         ],
-        "topic": "Content Delivery Network (CDN)",
+        "topic": "cdn",
         "video_url": "???"
     },
     "concept_db_1": {
@@ -214,7 +214,7 @@
                 "question": "What are types of non-relational database?"
             }
         ],
-        "topic": "Database"
+        "topic": "db"
     },
     "concept_load_balancer_1": {
         "lesson_id": "load_balancer_1",
@@ -226,7 +226,7 @@
                 "question": "What is load balancing? What primary problems does it solve?"
             }
         ],
-        "topic": "Load Balancer",
+        "topic": "lb",
         "video_url": "???"
     },
     "concept_load_balancer_2": {
@@ -241,7 +241,7 @@
                 "question": "Where can a load balancer implementation be placed in a network infrastructure?"
             }
         ],
-        "topic": "Load Balancer",
+        "topic": "lb",
         "video_url": "???"
     },
     "concept_load_balancer_3": {
@@ -256,7 +256,7 @@
                 "question": "Explain the primary ways load balancing can be implemented."
             }
         ],
-        "topic": "Load Balancer",
+        "topic": "lb",
         "video_url": "???"
     },
     "concept_load_balancer_4": {
@@ -275,7 +275,7 @@
                 ]
             }
         ],
-        "topic": "Load Balancer",
+        "topic": "lb",
         "video_url": "???"
     },
     "concept_load_balancer_5": {
@@ -297,11 +297,11 @@
                 ]
             }
         ],
-        "topic": "Load Balancer",
+        "topic": "lb",
         "video_url": "???"
     },
     "concept_message_1": {
-        "lesson_id": "message_queue",
+        "lesson_id": "mq1",
         "lesson_title": "Message Queue Introduction",
         "questions": [
             {
@@ -324,7 +324,8 @@
                 "question": "What is the difference between pub/sub vs message queue?"
             }
         ],
-        "topic": "Message Queue"
+        "topic": "mq",
+        "video_url": "https://youtu.be/Hp3xLhogpGU"
     },
     "problem_chat_1": {
         "lesson_id": "chat_system",
@@ -338,7 +339,7 @@
                 "question": "What are the requirements and goals of the system?"
             }
         ],
-        "topic": "Chat System",
+        "topic": "chat",
         "video_url": "youtube.com"
     },
     "problem_chat_2": {
@@ -369,7 +370,7 @@
                 "hints": []
             }
         ],
-        "topic": "Chat System",
+        "topic": "chat",
         "video_url": "youtube.com"
     },
     "problem_chat_3": {
@@ -397,7 +398,7 @@
                 ]
             }
         ],
-        "topic": "Chat System",
+        "topic": "chat",
         "video_url": "youtube.com"
     },
     "problem_news_feed_1": {
@@ -412,7 +413,7 @@
                 "question": "What are the requirements and goals of the system?"
             }
         ],
-        "topic": "News Feed",
+        "topic": "news",
         "video_url": "???"
     },
     "problem_news_feed_2": {
@@ -430,7 +431,7 @@
                 "question": "How much storage will be needed to save all the posts for a single day?"
             }
         ],
-        "topic": "News Feed",
+        "topic": "news",
         "video_url": "???"
     },
     "problem_news_feed_3": {
@@ -477,7 +478,7 @@
                 ]
             }
         ],
-        "topic": "News Feed",
+        "topic": "news",
         "video_url": "???"
     },
     "problem_news_feed_4": {
@@ -498,7 +499,7 @@
                 "hints": []
             }
         ],
-        "topic": "News Feed",
+        "topic": "news",
         "video_url": "???"
     },
     "problem_youtube_1": {
@@ -513,7 +514,7 @@
                 "question": "What are the requirements and goals of the system?"
             }
         ],
-        "topic": "YouTube",
+        "topic": "youtube",
         "video_url": "https://youtu.be/WMoq7xZnffY"
     },
     "problem_youtube_2": {
@@ -541,7 +542,7 @@
                 "question": "How much data would be uploaded a minute to our server"
             }
         ],
-        "topic": "YouTube",
+        "topic": "youtube",
         "video_url": "https://youtu.be/TltduEuSvc4"
     },
     "problem_youtube_3": {
@@ -575,7 +576,7 @@
                 "question": "Finally, how should we handle the comment/like/dislike?"
             }
         ],
-        "topic": "YouTube",
+        "topic": "youtube",
         "video_url": "https://youtu.be/rykxT92rKEg"
     },
     "problem_youtube_4": {
@@ -605,7 +606,7 @@
                 "hints": []
             }
         ],
-        "topic": "YouTube",
+        "topic": "youtube",
         "video_url": "https://youtu.be/TXD7LgVrDi0"
     },
     "problem_youtube_5": {
@@ -631,7 +632,7 @@
                 "hints": []
             }
         ],
-        "topic": "YouTube",
+        "topic": "youtube",
         "video_url": "https://youtu.be/H8vvNRnFs1o"
     }
 }

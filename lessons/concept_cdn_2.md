@@ -3,7 +3,7 @@ cdn_2
 @lesson_title
 CDN Benefits and Considerations
 @topic
-Content Delivery Network (CDN)
+cdn
 @video_url
 ???
 

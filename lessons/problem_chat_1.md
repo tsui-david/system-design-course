@@ -3,7 +3,7 @@ chat_system
 @lesson_title
 Design A Chat System Requirements
 @topic
-Chat System
+chat
 @video_url
 youtube.com
 

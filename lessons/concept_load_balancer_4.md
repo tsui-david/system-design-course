@@ -3,7 +3,7 @@ load_balancer_4
 @lesson_title
 What Load Balancing Gets Us
 @topic
-Load Balancer
+lb
 @video_url
 ???
 

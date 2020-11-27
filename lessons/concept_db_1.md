@@ -3,7 +3,7 @@ db1.1
 @lesson_title
 Database Introduction
 @topic
-Database
+db
 
 @question
 What kind of database are you going to use?

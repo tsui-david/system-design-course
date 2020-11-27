@@ -3,7 +3,7 @@ news_feed_1
 @lesson_title
 Designing a News Feed: Requirements
 @topic
-News Feed
+news
 @video_url
 ???
 

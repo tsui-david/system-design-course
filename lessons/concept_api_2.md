@@ -3,7 +3,7 @@ api2
 @lesson_title
 HTTP & REST
 @topic
-API
+api
 @video_url
 https://youtu.be/cK2k_4rD-mQ
 
