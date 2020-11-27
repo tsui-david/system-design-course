@@ -150,7 +150,6 @@ function App() {
   return (
     <BrowserRouter>
       <Layout style={{minHeight: "100vh", overflow: "auto"}}>
-      <Affix offsetTop={0}>
         <Head />
         <Layout style={{ backgroundColor: "white" }}>
           <Affix offsetTop={0}>
