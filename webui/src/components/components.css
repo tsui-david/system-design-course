@@ -1,0 +1,22 @@
+.grid-left {
+  display: grid;
+  grid-template-columns: 300px 50px auto;
+}
+
+.grid-right {
+  display: grid;
+  grid-template-columns: auto 50px 200px;
+}
+
+.center-text-left {
+  display: flex;
+  align-items: center;
+  grid-column-start: 3;
+}
+
+.center-text-right {
+  display: flex;
+  align-items: center;
+  grid-column-start: 1;
+  font-size: 20px;
+}

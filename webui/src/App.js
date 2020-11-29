@@ -169,9 +169,6 @@ function App() {
               {routeComponents}
               {lessonRouteComponents}
             </Content>
-            <Affix offsetBottom={1}>
-              <Footer style={{ textAlign: 'center', padding: "10px"}}>L33T Design ©2020 Created by L33T C0D3 Group</Footer>
-            </Affix>
           </Layout>
         </Layout>
       </Layout>
