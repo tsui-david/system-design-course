@@ -340,7 +340,7 @@
             }
         ],
         "topic": "chat",
-        "video_url": "youtube.com"
+        "video_url": "https://youtu.be/KUmMXQhT-DU"
     },
     "problem_chat_2": {
         "lesson_id": "chat_system2",
@@ -371,7 +371,7 @@
             }
         ],
         "topic": "chat",
-        "video_url": "youtube.com"
+        "video_url": "https://youtu.be/5LfBcUTJJ2s"
     },
     "problem_chat_3": {
         "lesson_id": "chat_system3",
@@ -399,7 +399,63 @@
             }
         ],
         "topic": "chat",
-        "video_url": "youtube.com"
+        "video_url": "https://youtu.be/IihQ4OpxWFU"
+    },
+    "problem_chat_4": {
+        "lesson_id": "chat_system4",
+        "lesson_title": "Design Chat System Data Layer",
+        "questions": [
+            {
+                "answer": "Read/write patterns. In our case:\n 1. Possibly billions of messages a day\n 2. Most frequently accessed are recent chats.\n 3. Take account for random access data such as search.",
+                "hints": [
+                    "Think of the application and what type of data and how the data is accessed."
+                ],
+                "question": "What factors affect our choice for a database?"
+            },
+            {
+                "answer": "The data that we're storing would be chat history, which require frequent read/write access. Users could potentially search for chats. With these in mind, we recommend using key-value stores due to:\n 1. Key-value stores allows for easy horizontal scaling.\n 2. Key-value stores have fast access to data.\n 3. Relational databases do not handle large indexes of data well.",
+                "hints": [
+                    "Relational or non-relational database. Think of the data and data model that we're working with."
+                ]
+            }
+        ],
+        "topic": "chat",
+        "video_url": "https://youtu.be/8cfUmeSpXbo"
+    },
+    "problem_chat_5": {
+        "lesson_id": "chat_system4",
+        "lesson_title": "Design Chat System Architecture Continued",
+        "questions": [
+            {
+                "answer": "Users' statuses change when they:\n 1. login\n 2. logout\n 3. disconnect",
+                "hints": [
+                    "Think of a situation where your would appear online/offline."
+                ],
+                "question": "What triggers an online status change for a user?"
+            },
+            {
+                "answer": "It copies the messages it receives to the message queues of each user.",
+                "hints": [
+                    "Its a method that sends a signal periodically. (thump thump)"
+                ],
+                "question": "How does a chat server send messages to multiple people in a chat?"
+            },
+            {
+                "answer": "A variable such as cur_max_message_id, which you can use to compare the message that's stored in the database with the ones on the devices.",
+                "hints": [
+                    "Something needs to keep track of most recent messages."
+                ],
+                "question": "What variable notifies the chat server if a device needs to be updated with a new message?"
+            },
+            {
+                "answer": "Throw more money at it. Find areas of single points of failure and horizontally scale them. Such as:\n 1. load balancer\n 2. api servers\n 3. databases\n 4. service discovery\n 5. chat servers",
+                "hints": [
+                    "What can cause the service to fail?"
+                ]
+            }
+        ],
+        "topic": "chat",
+        "video_url": "https://youtu.be/VCcHZFp2g4Y"
     },
     "problem_news_feed_1": {
         "lesson_id": "news_feed_1",
