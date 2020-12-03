@@ -5,7 +5,7 @@ Implementing a Load Balancer
 @topic
 lb
 @video_url
-???
+https://youtu.be/LH9kspySCrU
 
 @question
 Explain the primary ways load balancing can be implemented.

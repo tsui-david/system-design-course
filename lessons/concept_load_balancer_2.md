@@ -5,7 +5,7 @@ Load Balancer Placement
 @topic
 lb
 @video_url
-???
+https://youtu.be/CauGp2N5i4w
 
 @question
 Where can a load balancer implementation be placed in a network infrastructure?

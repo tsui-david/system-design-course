@@ -5,7 +5,7 @@ What Load Balancing Gets Us
 @topic
 lb
 @video_url
-???
+https://www.youtube.com/watch?v=1usRAn7al4Y
 
 @question
 Explain how a load balancer manages traffic. How does it solve the problems discussed in the first lesson (single point of failure and overloaded servers)?

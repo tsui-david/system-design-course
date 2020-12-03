@@ -5,7 +5,7 @@ Load Balancing Algorithms
 @topic
 lb
 @video_url
-???
+https://youtu.be/dPFhd6T0-a8
 
 @question
 How does a load balancer choose which server to route to?

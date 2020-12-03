@@ -5,7 +5,7 @@ Load Balancing Introduction
 @topic
 lb
 @video_url
-???
+https://youtu.be/U73eiSlsG7E
 
 @question
 What is load balancing? What primary problems does it solve?
