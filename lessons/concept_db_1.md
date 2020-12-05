@@ -4,16 +4,17 @@ db1.1
 Database Introduction
 @topic
 db
+@video_url
+https://youtu.be/OVqAdFq4198
 
 @question
-What kind of database are you going to use?
-
+What should you do before choosing a database?
 
 @hint
 database: an organized collection of data, generally stored and accessed electronically from a computer system.
 
 @answer
-Try to define the data model early, this will help clarify how data will flow among different components. One should be able to identify various entities of the system, how they interact with each other, and different aspect of data management like storage, transportation, encryption. Think relational and non-relational. 
+Try to define the data model early, this will help clarify how data will flow among different components. One should be able to identify various entities of the system, how they interact with each other, and different aspect of data management like storage, transportation, encryption.  
 
 @question
 What are the two main types of databases?
