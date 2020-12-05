@@ -91,7 +91,7 @@ export default class Home extends React.Component {
             </div>
           </div>
           <span style={{ gridColumnStart: 3 }}>
-            <Image src="/images/hintsAnswersRundown1.PNG" preview={false} />
+            <Image src="/images/hintsAnswersRundown1.png" preview={false} />
           </span>
         </Row>
         <div style={{padding: "20px"}}></div>

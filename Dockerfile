@@ -4,12 +4,12 @@ FROM node:10
 RUN mkdir -p /webui
 WORKDIR /webui
 
-COPY ./webui/package.json .
-COPY ./webui/package-lock.json .
-
-RUN npm install
-RUN npm install react-scripts@4.0.0 -g --silent
-
 COPY ./webui .
+RUN npm run build --production
+RUN npm install -g serve
+CMD serve -s build
+
+EXPOSE 3000
+
 
 CMD ["npm", "start"]
