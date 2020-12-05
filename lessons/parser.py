@@ -53,7 +53,6 @@ for file in filelist:
         current_lesson['questions'].append(question_dict)
 
         lessons[lesson] = current_lesson
-        print(current_lesson)
 
 # Using a different way to get python path because for some reason path library doesn't work
 # it doesn't work in py2 but does in py3

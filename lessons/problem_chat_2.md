@@ -5,7 +5,7 @@ How a Chat Service Work?
 @topic
 chat
 @video_url
-youtube.com
+https://youtu.be/5LfBcUTJJ2s
 
 @question
 What are basic functions that a chat service must support?

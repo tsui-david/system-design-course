@@ -5,7 +5,7 @@ Design Chat System High Level Architecture
 @topic
 chat
 @video_url
-youtube.com
+https://youtu.be/IihQ4OpxWFU
 
 @question
 What are the high level components that we have to consider for the architecture? 
