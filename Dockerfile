@@ -1,15 +1,13 @@
-# TODO: setup dockerfile to copy from app/lessons and start up both frontend and backend
-FROM node:10
+# build env
+FROM node:13.12.0-alpine as build
+WORKDIR /app
+COPY ./webui/package*.json ./
+RUN npm ci
+COPY ./webui ./
+RUN npm run build
 
-RUN mkdir -p /webui
-WORKDIR /webui
-
-COPY ./webui .
-RUN npm run build --production
-RUN npm install -g serve
-CMD serve -s build
-
-EXPOSE 3000
-ENV HOST 0.0.0.0
-
+# production env
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

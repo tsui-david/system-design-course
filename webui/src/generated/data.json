@@ -14,6 +14,11 @@
             {
                 "answer": "First, the user\u2019s computer searches its own web cache for existing mapping of domain to ip. If this does not exist, the query goes to the user\u2019s ISP (internet service provider) or the dns resolver. If the resolver solver still cannot find the mapping, it passes the request further along up the dns hierarchy, known as the dns root server. The dns root server will tell the ISP the ip address of the top level domain name server (TLD) to query against. The TLD is in charge of mapping all the ip addresses of the authoritative nameserver for the given top level domain name (.org, .com, .io, etc). Once the ISP has the authoritative nameserver\u2019s ip, the ISP queries the authoritative nameserver for the domain name\u2019s ip address. Now the ISP cache\u2019s the domain name so the next time another user queries it, the ISP will hold the mapping.",
                 "hints": [],
+                "question": "How do domain names gets resolved by the DNS, ie how does a DNS query work?"
+            },
+            {
+                "answer": "First, the user\u2019s computer searches its own web cache for existing mapping of domain to ip. If this does not exist, the query goes to the user\u2019s ISP (internet service provider) or the dns resolver. If the resolver solver still cannot find the mapping, it passes the request further along up the dns hierarchy, known as the dns root server. The dns root server will tell the ISP the ip address of the top level domain name server (TLD) to query against. The TLD is in charge of mapping all the ip addresses of the authoritative nameserver for the given top level domain name (.org, .com, .io, etc). Once the ISP has the authoritative nameserver\u2019s ip, the ISP queries the authoritative nameserver for the domain name\u2019s ip address. Now the ISP cache\u2019s the domain name so the next time another user queries it, the ISP will hold the mapping.",
+                "hints": [],
                 "question": "Once the ip address is returned from the DNS, what happens afterwards? How does knowing the ip address help the user reach Facebook\u2019s website?"
             }
         ],
@@ -32,28 +37,43 @@
                 "question": "In a typical web application, how does a server and client continue to communicate/transfer data? Explain what HTTP and API is."
             },
             {
+                "answer": "HTTP is a protocol built to handle communication sessions over the network while APIs use HTTP to transfer data in an interfaced organized way with business logic in mind. We will talk more about HTTP requests in the next module.",
+                "hints": [],
+                "question": "What is the difference between HTTP vs APIs?"
+            },
+            {
                 "answer": "Representational State Transfer (REST) focuses on stateless data communication. What this means is that different users should be able to get the same result without any session data associated in the request. REST handles this by having the requests built into the url. HTTP has 4 different methods for communication: PUT, POST, GET, DELETE. Rest builds on top of these methods for interacting with the host by using the URL for each of the 4 methods. A GET request for all the users from Facebook.com might simply be GET http://www.facebook.com/users Other examples of real rest api can be visited here: Twitter, Instagram, Spotify.\n REST should be used if you wish to communicate with JSON. It is popular because of how easy it is to integrate different services as the api is done through the url itself. Don\u2019t worry if these don\u2019t seem clear, we will explore on Rest API and get a chance to practice on designing apis next!",
                 "hints": [],
                 "question": "What are some examples of different API protocols, whether they are web/server to server?"
             },
             {
-                "answer": "POST is used for creating new entries against the server. An example of a POST use case is to register a new user to a service, such as signing up for Reddit.\n PUT is used to replace an existing entry with a new entry. An example of a PUT use case is to replace a news article with a new article.\n PATCH is used to update a property of an existing entry. An example of  PATCH use case is to change the author field of a news article.",
+                "answer": "The 5 relevant methods to REST API are: POST, GET, PUT, PATCH, DELETE. POST creates entries, GET reads, PUT updates, PATCH updates, DELETE deletes. These methods are closely related to how RestApi is designed as the  RestAPI utilizes the HTTP constructs and URL to construct stateless communication between client and server.",
                 "hints": [
                     "Some HTTP methods are based off of verbs used for creating, reading  updating, deleting (CRUD) against a service"
                 ],
+                "question": "What are some methods of HTTP requests and what are the use cases for each? "
+            },
+            {
+                "answer": "POST is used for creating new entries against the server. An example of a POST use case is to register a new user to a service, such as signing up for Reddit.\n PUT is used to replace an existing entry with a new entry. An example of a PUT use case is to replace a news article with a new article.\n PATCH is used to update a property of an existing entry. An example of  PATCH use case is to change the author field of a news article.",
+                "hints": [],
                 "question": "When do you use POST vs PUT vs PATCH?"
             },
             {
-                "answer": "Authentication = we know who you say you are\n Authorization = you have permission to do what you wish to do",
+                "answer": "Status codes are divided into 5 ranges of numbers: `1xx` -> `Informational`, `2xx` -> `Success`, `3xx` -> `Redirection`, `4xx` -> `Client Error`, `5xx` -> `Server Error`.\n From Mozilla, specific example codes (These codes are the more frequent/relevant codes that should be remembered):\n `100 Continue`: informational status response code indicates that everything so far is OK and that the client should continue with the request or ignore it if it is already finished.\n `200 OK`: Request has succeeded.\n For GET it means the resource has been successfully fetched\n For PUT/POST it means the server properly accepted the input, could also be 201\n `301 Moved Permanently`: The url of the request has been moved and the response includes the new URL\n `400: Bad Request`: Some sort of syntax issues from the client request\n `401: Unauthorized`: The request was not authenticated\n `403: Forbidden`: The request was authenticated but not authorized.\n `404: Not Found`: Server cannot find the requested resource, often meaning the client requested incorrect endpoint\n `405: Method Not Allowed`: The request method is known by the server but not allowed, such as deleting users or specific resources.\n `500: Internal Server Error`: General server side error indicating the server doesn\u2019t know what to do\n `501: Not Implemented`: The requested HTTP method is not implemented. Example: The server is READ only so no post or put methods.\n `502: Bad Gateway`: The server acting as a gateway was not able to get a response needed to handle the request. This is usually a network issue with the gateway load balancer that accepted the request and the actual server.\n For more information on gateways, look up load balancer",
                 "hints": [
                     "What are some use cases of these status codes? Status codes can indicate success, failure, and others.",
                     "For each 5 HTTP methods, the same status codes can apply."
                 ],
+                "question": "In addition to the requested data, the server also returns HTTP status codes. What are some examples of these status codes? What are the purposes of these status codes?"
+            },
+            {
+                "answer": "Authentication = we know who you say you are\n Authorization = you have permission to do what you wish to do",
+                "hints": [],
                 "question": "Follow Up: What\u2019s the difference between authentication vs authorization?"
             }
         ],
         "topic": "api",
-        "video_url": "https://youtu.be/cK2k_4rD-mQ"
+        "video_url": "https://youtu.be/G9CFesaKw9g"
     },
     "concept_api_3": {
         "lesson_id": "api3",
@@ -87,7 +107,8 @@
                 "answer": "Although caching is widely used in all levels of computing, we will focus primarily on web content caching. Three of the main caching layers are:\n - Application: cache is placed directly on the request layer node. Enables local storage of response data, if the data is not found request will be made ot the persistence layer. Suffers when multiple nodes are added because traffic might be distributed across different nodes (say with a [Load Balancer](http://systemdesigncourse.com/lessons/load_balancer_2)), increasing cache misses.\n - Global: all nodes use a single cache space. There are two subtypes:\n     - The nodes hit the global cache, on a miss the global cache is responsible for retrieving the missing data from the persistence layer.\n     - The nodes retrieve data not found in cache. This type is less common.\n     This type of cache solves the issue with application caching when there are multiple nodes; however the global cache itself can become a bottleneck if the cache is unable to handle the number of requests.\n - Distributed: cached data is spread out on different nodes. On a request, a lookup up is made to determine which node has the data which is then retrieved. If no node has the data, a request is made to the persistence layer. This type of cache is easy to expand because the number of caching nodes can simply be increased. This, however, caries all the intricacies/complexity of a distributed system and difficult to maintain.",
                 "hints": [
                     "Caches can be placed practically anywhere, think of a location it could be placed in the network stack and how it might help."
-                ]
+                ],
+                "question": "List and explain different web caching types/layers."
             }
         ],
         "topic": "caching",
@@ -106,7 +127,8 @@
             },
             {
                 "answer": "Some of the primary benefits of caching are:\n - Decreased network costs: caches along the network path between the request node and content node mean that if the cache holds the data, additional network activity to reach the content node will be unnecessary. \n - Improved responsiveness: caching reduces or eliminates network round trips which allows content to be retrieved faster, with some requests feeling instantaneous depending on it's \"distance\" to the user (e.g. browser cache is almost instant).\n - Increased server performance: the server where content originates can benefit greatly because certain types of content loads and requests can be offloaded to caching servers, freeing up the origin server to do other work.\n - Availability of content during network interruptions: although dependent on caching policies, caching can be used to serve content to end users even when it may be unavailable for short periods of time from the origin servers.",
-                "hints": []
+                "hints": [],
+                "question": "Explain the benefits of caching."
             }
         ],
         "topic": "caching",
@@ -124,9 +146,15 @@
                 "question": "What are some considerations to take into account when caching?"
             },
             {
+                "answer": "When data is modified in the database, it is invalidated in the cache. Some schemes for dealing with the invalidated cache are:\n - Write through: data is written into the database through the cache, with the operation only succeeding if both writes are successful. Although this results in excellent data consistency between the cache and database, it is very taxing for systems that have many writes because every write operation must occur twice. Therefore this is optimal for systems that are read heavy.\n - Write around: data is written directly to the database, bypassing the cache. This prevents the costly double write operations from the write through cache but means that a request for recently updated information will result in a cache miss and require an expensive look up in the database. Therefore this is optimal for systems that do not read frequently.\n - Write back: data is written only to the cache and confirmed to the client. Writing the data back to the database occurs asynchronously at a later time or under certain conditions. This results in low latency and high throughput for write operations however there is a severe risk of data loss in case of cache failure. This can be minimized by replicating the cache across multiple nodes. Therefore this is optimal for write intensive applications.",
+                "hints": [
+                    "Given a cache and database that you must write to, think of the different order you might share data between the two."
+                ],
+                "question": "List and explain cache invalidation schemes."
+            },
+            {
                 "answer": "Because caches can only hold a part of the data, data that is no longer useful must be discarded. These six cache eviction policies provide some examples how:\n - Least Recently Used (LRU)\n - Least Frequently Used (LFU)\n - Most Recently Used (MRU)\n - First In First Out (FIFO)\n - Last In First Out (LIFO)\n - Random Replacement (RR)",
                 "hints": [
-                    "Given a cache and database that you must write to, think of the different order you might share data between the two.",
                     "Think of data structures and their methods of removing elements."
                 ],
                 "question": "List and explain the most popular cache eviction policies."
@@ -146,7 +174,8 @@
             },
             {
                 "answer": "When the user makes a request for some content the CDN is first checked. If the CDN does not have the content, it requests the content and then caches the content based on the time to live HTTP header (behaves just like a cache).",
-                "hints": []
+                "hints": [],
+                "question": "How does content get added to the CDN?"
             }
         ],
         "topic": "cdn",
@@ -165,7 +194,8 @@
             },
             {
                 "answer": "1. Cost: CDNs are typically run by a third party that will charge you for data transfers in and out of the CDN. of use with respect to nature of data requested\n 2. Content expiration time: if content takes too long to expire it will be outdated; if it expires to quickly then content will be repeated loaded from the origin servers\n 3. CDN outage: clients should be able to detect CDN outages and request data from the origin\n 4. File invalidation: files can be invalidated in a CDN in two ways\n     1. CDN API calls provided by CDN vendor\n     2. Object versioning (e.g. image.png?v=2)",
-                "hints": []
+                "hints": [],
+                "question": "When deciding to use a CDN in a system, what considerations should be considered?"
             }
         ],
         "topic": "cdn",
@@ -184,7 +214,8 @@
             },
             {
                 "answer": "If Netflix were about to release a highly anticipated movie, ensuring that their servers are not bogged down with requests that could degrade the user experience would be a priority. Therefore, Netflix could pre-load the movie to CDNs in order to distribute the load of serving all the requests once the movie is made available. Furthermore, users in other countries would also benefit by having the film buffer at a similar speed to other users rather than more slowly due to being distant from Netflix's primary host servers.",
-                "hints": []
+                "hints": [],
+                "question": "How would Netflix use a CDN?"
             }
         ],
         "topic": "cdn",
@@ -195,26 +226,44 @@
         "lesson_title": "Database Introduction",
         "questions": [
             {
-                "answer": "Try to define the data model early, this will help clarify how data will flow among different components. One should be able to identify various entities of the system, how they interact with each other, and different aspect of data management like storage, transportation, encryption. Think relational and non-relational.",
-                "hints": [
-                    "database: an organized collection of data, generally stored and accessed electronically from a computer system."
-                ],
-                "question": "What kind of database are you going to use?"
+                "answer": "1. Understand the problem.\n 2. Define the data model early.\n 3. Explore your options.",
+                "hints": [],
+                "question": "What should you do before choosing a database?"
             },
             {
-                "answer": "If you're working with a schema that allows data to be organized into tables with columns and rows. \n RDBMS are very traditional and have been around the longest, thus they have the biggest support and resources, people likely more familiar. \n Data integrity is a particular concern in relational databases, RDMS use a number of constraints to ensure that the data contained in your tables is reliable and accurate.\n All RDBMS are ACID-compliant.\n     Atomicity\n     Consistency\n     Isolation\n     Durability",
+                "answer": "Relational and non-relational",
+                "hints": [],
+                "question": "What are the two main types of databases?"
+            },
+            {
+                "answer": "If the data is structured and if you're working with a schema that allows data to be organized into tables with columns and rows. \n All RDBMS are ACID-compliant.",
                 "hints": [
-                    "relational database: are also called relational database management system (RDBMS) or SQL database *some popular RDBMS are MySQL, Oracle DB, PostgresSQL"
+                    "Relational database: are also called relational database management system (RDBMS) or SQL database *some popular RDBMS are MySQL, Oracle DB, PostgresSQL"
                 ],
                 "question": "When would one use a relational database?"
             },
             {
-                "answer": "Key-value stores: (Redis, Amazon DynamoDB) simple DBMS that store only key-value pairs and provide basic functionality for retrieving the value associated with a known key\n Wide column stores: (Cassandra, Scylla, HBase) schema-agnostic systems that enable users to store data in column families or tables, a single row of which can be thought as a record -- a multi-dimensional key-value store\n Document stores: (MongoDB, Couchbase) schema-free systems that store data in the form of JSON documents. Document stores are similar to key-value or wide column stores, but the document name is the key and the contents of the document, whatever they are, are the value.\n Graph Database: (Neo4j, Datastax Enterprise Graph) represent data as a network of related nodes or objects in order to facilitate data visualizations and graph analytics\n Search Engines: (Elasticsearch, Spluk, Solr) store data using schema-free JSON documents. Similar to document stores, but with greater emphasis on making your unstructured or semi",
+                "answer": "1. Vertical scaling\n 2. Sharding",
+                "hints": [
+                    "Think of methods to increase performance."
+                ],
+                "question": "What are ways you can scale a relational database?"
+            },
+            {
+                "answer": "Sharding is the process of breaking up large tables into smaller chunks called shards that are spread across multiple servers. Instead of having the data on one node, it is instead a cluster of nodes.",
+                "hints": [
+                    "Break up the database."
+                ],
+                "question": "What is sharding?"
+            },
+            {
+                "answer": "1. Hash: takes a shard key's value and generates a hash value from it. The hash value is then used to determine in which shard the data should reside.\n 2. Range: divides the data based on ranges of the data value. Shard keys with nearby values are more likely to fall into the same range and onto the same shards.",
                 "hints": [],
-                "question": "What are types of non-relational database?"
+                "question": "What are two methods of sharding and how do they work?"
             }
         ],
-        "topic": "db"
+        "topic": "db",
+        "video_url": "https://youtu.be/OVqAdFq4198"
     },
     "concept_load_balancer_1": {
         "lesson_id": "load_balancer_1",
@@ -272,7 +321,8 @@
                 "answer": "Besides performing it's basic function, a load balancer provides three additional benefits: security, scalability, and abstraction.\n 1. Security: users connect to the web servers by using the load balancers IP address, not the servers IP. This improves security by making all the servers behind the load balancer private and restricting access.\n 2. Scalability: the load balancer allows for easy implementation of horizontal scaling to deal with increased usage. Horizontal scaling involves adding more machines to deal with greater load. Without the load balancer, efficiently scaling would be an arduous task.\n 3. Abstraction (separation of concerns): the load balancer removes the burden of managing extra tasks from the servers so that they can concern themselves with their main function. For example, the load balancer might perform SSL termination (decryption of SSL traffic), keeping the web server from having to perform this task itself and improving its performance.",
                 "hints": [
                     "Think of other areas of computing."
-                ]
+                ],
+                "question": "What are other non-load based benefits of load balancing?"
             }
         ],
         "topic": "lb",
@@ -294,7 +344,8 @@
                 "hints": [
                     "Load balancing algorithms depend on on the type of request. Consider different types of requests and algorithms that might correspond.",
                     "What makes persistent connections different from others? What do we know about their connection times?"
-                ]
+                ],
+                "question": "Name some load balancing algorithms. Which one would be effective for persistent connections?"
             }
         ],
         "topic": "lb",
@@ -310,11 +361,21 @@
                 "question": "What is a message queue?"
             },
             {
-                "answer": "Asynchronous processing between multiple components\n     Whenever there is any need to \u201cwait\u201d endlessly for a response, a message queue can be used\n     It is better to respond to the user that there is something not processed rather than continuously wait for that same response, latency is eliminated even though data might not have been processed\n Need for data persistence on tracking incoming messages / outbound consumer messages\n As system components scale out, more and more producer and consumers will also be scaled out. At this point, a message queue is needed to handle the dependency interconnections between the two components\n     It is O(1) for producer/consumer to access the data rather than wait\n In summary you should use a queue if:\n     Your request is indeterministic\n     Long running request by nature (complex calculation)\n     Resource hungry\n         Bad idea to have the web server serving the request do it for you. Instead queue it and have a scalable stateless server handle it.",
+                "answer": "A message queue separates the dependencies between the producers and the consumers. \n Producers are components which generates data and consumers are components that process the data. There can be a many to many relationship between producer and consumer and without a message queue, the dependencies between the many to many relationship can be hard to manage.\n With the introduction of message queue, the relationships are solidly separated where the consumer dependency on the producer no longer is affected by the health of the producer. Instead, that dependency is on the message queue. Similarly, the producer no longer needs to manage the state of which consumers are consuming from it, and can dump its data onto message queue\n The message queue now abstracts the responsibility for managing the states of where each consumer is processing from the producer and the the responsibility of managing where each producer is producing to.https://aws.amazon.com/message-queue/",
                 "hints": [
                     "What is \"decoupling\"? What benefits does it bring?\n Decoupling = \n Seperating a software system\u2019s dependencies so that the components of the system are not tied closely together. \n This is a design pattern that brings several benefits:\n Separating dependencies is higher resilience. Because the components are not as dependent on one another, one component failing would not result in another component downstream failing as well.\n Produces better encapsulation/abstraction through more focused responsibility. This allows for easier modification/expansion of the system as there are not as much moving pieces in the system to worry about"
                 ],
+                "question": "How does a message queue \"decouple\" system components?"
+            },
+            {
+                "answer": "Asynchronous processing between multiple components\n     Whenever there is any need to \u201cwait\u201d endlessly for a response, a message queue can be used\n     It is better to respond to the user that there is something not processed rather than continuously wait for that same response, latency is eliminated even though data might not have been processed\n Need for data persistence on tracking incoming messages / outbound consumer messages\n As system components scale out, more and more producer and consumers will also be scaled out. At this point, a message queue is needed to handle the dependency interconnections between the two components\n     It is O(1) for producer/consumer to access the data rather than wait\n In summary you should use a queue if:\n     Your request is indeterministic\n     Long running request by nature (complex calculation)\n     Resource hungry\n         Bad idea to have the web server serving the request do it for you. Instead queue it and have a scalable stateless server handle it.",
+                "hints": [],
                 "question": "What are some use cases for message queue? What are alternatives?"
+            },
+            {
+                "answer": "RabbitMQ\n Kafka",
+                "hints": [],
+                "question": "What are some implementations of message queues?"
             },
             {
                 "answer": "A pub/sub will not be able to handle the same use cases as message queue",
@@ -340,7 +401,7 @@
             }
         ],
         "topic": "chat",
-        "video_url": "youtube.com"
+        "video_url": "https://youtu.be/KUmMXQhT-DU"
     },
     "problem_chat_2": {
         "lesson_id": "chat_system2",
@@ -354,11 +415,21 @@
                 "question": "What are basic functions that a chat service must support?"
             },
             {
-                "answer": "1. Polling\n 2. Long polling\n 3. WebSocket",
+                "answer": "The client opens a HTTP connection with the chat service and sends the message, the service will then send that message to the receiver. The keep-aliver header allows the client to keep a persistent connection with the chat service. Because HTTP is client-initated, sending messages from the server is harder.",
                 "hints": [
                     "Chat services are handled through client/server applications."
                 ],
+                "question": "What happens when a sender sends a message to a recipient?"
+            },
+            {
+                "answer": "1. Polling\n 2. Long polling\n 3. WebSocket",
+                "hints": [],
                 "question": "What are some techiques to simulate a server-initiated connection?"
+            },
+            {
+                "answer": "A technique where the client periodically asks the server if there are messages available. Polling can be resource intensive as it would cost servers resources to answer \"NO\" a majority of the time.",
+                "hints": [],
+                "question": "What is polling? "
             },
             {
                 "answer": "Long polling establishes an open connection with the server until new messages are available or until a timeout. When new messages are received, the client will immediately send another requestion, continuing this cycle. HTTP servers are usually stateless. Sender and receivers might not be able to connect to the same server. Like polling, it is inefficient if users are not very active.",
@@ -367,11 +438,12 @@
             },
             {
                 "answer": "WebSocket is the most popular method for sending asynchronous updates from server to client. A WebSocket connection begins as an HTTP connection initated by the client and is bi-directional and persistent. The connection, through a series of well-defined handshakes, can transform into a WebSocket connection.",
-                "hints": []
+                "hints": [],
+                "question": "What is WebSocket?"
             }
         ],
         "topic": "chat",
-        "video_url": "youtube.com"
+        "video_url": "https://youtu.be/5LfBcUTJJ2s"
     },
     "problem_chat_3": {
         "lesson_id": "chat_system3",
@@ -385,21 +457,95 @@
                 "question": "What are the high level components that we have to consider for the architecture? "
             },
             {
-                "answer": "The chat service is the stateful service. The client maintains a persistent connection with a chat server that does not switch as long as the server is available.",
+                "answer": "The stateless service are typical request/response services such as login, signup, profiles, authentication that are common across many different applications. These services are usually supported by a load balancer that routes requests to their destination. Many of these services are not required to be built as there are many third party offerings on the market that can be used for your system.",
                 "hints": [
                     "Think of the traditional public-facing request/response services."
                 ],
+                "question": "What is the stateless service?"
+            },
+            {
+                "answer": "The chat service is the stateful service. The client maintains a persistent connection with a chat server that does not switch as long as the server is available.",
+                "hints": [],
                 "question": "What is the stateful service?"
             },
             {
                 "answer": "Push notifications are the most important third party integration for any chat service. Even when the chat service is not in use, push notifications alert the user when there are new messages.",
                 "hints": [
                     "When you're using a chat service, even if the chat service isn't running, what information are you receiving about the chat?"
-                ]
+                ],
+                "question": "What is the third-party integration?"
             }
         ],
         "topic": "chat",
-        "video_url": "youtube.com"
+        "video_url": "https://youtu.be/IihQ4OpxWFU"
+    },
+    "problem_chat_4": {
+        "lesson_id": "chat_system4",
+        "lesson_title": "Design Chat System Data Layer",
+        "questions": [
+            {
+                "answer": "Read/write patterns. In our case:\n 1. Possibly billions of messages a day\n 2. Most frequently accessed are recent chats.\n 3. Take account for random access data such as search.",
+                "hints": [
+                    "Think of the application and what type of data and how the data is accessed."
+                ],
+                "question": "What factors affect our choice for a database?"
+            },
+            {
+                "answer": "The data that we're storing would be chat history, which require frequent read/write access. Users could potentially search for chats. With these in mind, we recommend using key-value stores due to:\n 1. Key-value stores allows for easy horizontal scaling.\n 2. Key-value stores have fast access to data.\n 3. Relational databases do not handle large indexes of data well.",
+                "hints": [
+                    "Relational or non-relational database. Think of the data and data model that we're working with."
+                ],
+                "question": "What kind of database will we use?"
+            }
+        ],
+        "topic": "chat",
+        "video_url": "https://youtu.be/8cfUmeSpXbo"
+    },
+    "problem_chat_5": {
+        "lesson_id": "chat_system4",
+        "lesson_title": "Design Chat System Architecture Continued",
+        "questions": [
+            {
+                "answer": "Users' statuses change when they:\n 1. login\n 2. logout\n 3. disconnect",
+                "hints": [
+                    "Think of a situation where your would appear online/offline."
+                ],
+                "question": "What triggers an online status change for a user?"
+            },
+            {
+                "answer": "We can use a heartbeat mechanic, in which the client periodically sends the server a signal that it is still connected. After a specific amount of time if the server doesn't receive that signal the user's status will change.",
+                "hints": [
+                    "Its a method that sends a signal periodically. (thump thump)"
+                ],
+                "question": "What mechanism is used to detect if a user is disconnected?"
+            },
+            {
+                "answer": "It copies the messages it receives to the message queues of each user.",
+                "hints": [],
+                "question": "How does a chat server send messages to multiple people in a chat?"
+            },
+            {
+                "answer": "The devices are connected through a websocket connection to the same chat server.",
+                "hints": [],
+                "question": "If a user has multiple devices how does the service sync the messages to the user's devices?"
+            },
+            {
+                "answer": "A variable such as *cur_max_message_id*, which you can use to compare the message that's stored in the database with the ones on the devices.",
+                "hints": [
+                    "Something needs to keep track of most recent messages."
+                ],
+                "question": "What variable notifies the chat server if a device needs to be updated with a new message?"
+            },
+            {
+                "answer": "Throw more money at it. Find areas of single points of failure and horizontally scale them. Such as:\n 1. load balancer\n 2. api servers\n 3. databases\n 4. service discovery\n 5. chat servers",
+                "hints": [
+                    "What can cause the service to fail?"
+                ],
+                "question": "What are ways we can scale our system?"
+            }
+        ],
+        "topic": "chat",
+        "video_url": "https://youtu.be/VCcHZFp2g4Y"
     },
     "problem_news_feed_1": {
         "lesson_id": "news_feed_1",
@@ -426,6 +572,11 @@
                 "question": "How many posts can we expect to be made daily?"
             },
             {
+                "answer": "If we have 10 million DAU and each user can have 5000 friends, let us assume each user posts once a day and each user has half the number of friends.\n 10 million * 2500 friends = 2,500,000,000 notifications across all users.",
+                "hints": [],
+                "question": "How many notifications will be sent out daily?"
+            },
+            {
                 "answer": "Considering that a posts can contain text, images, and video ,",
                 "hints": [],
                 "question": "How much storage will be needed to save all the posts for a single day?"
@@ -446,25 +597,46 @@
                 "question": "What API endpoints will the server have?"
             },
             {
+                "answer": "Using a REST API GET request. The GET request could look like:\n `GET/v1/<userId>/feed`\n with a single parameter:\n - auth_token: used to authenticate API request",
+                "hints": [],
+                "question": "How could getting the news feed be handled?"
+            },
+            {
                 "answer": "Using a REST API POST request. The POST request could look like:\n `POST/v1/<userId>/feed`\n with three parameters:\n - content: actual value of the post\n - type: this is the type of media (text, image, video)\n - auth_token: used to authenticate API request\n If the type is not text, we can encode the images or video in base64 in the request body.",
                 "hints": [],
                 "question": "How could publishing a post be handled?"
             },
             {
+                "answer": "Posts could simply be edited using a PATCH operation to modify the content aspect of a post (the ID nor the poster will change so PUT would result in redundancy here).",
+                "hints": [
+                    "Think about the API CRUD methods @link:[](api1)."
+                ],
+                "question": "How could a post be edited?"
+            },
+            {
                 "answer": "A database will be necessary to store content, however not all database options are optimal for a news feed. Because of the friend relationships, a graph database would be best suited.",
                 "hints": [
-                    "Think about the API CRUD methods @link:[](api1).",
                     "How can we categorize the types of relationships in our data? How can we best describe that data?"
                 ],
                 "question": "What kind of storage option would we use for posts?"
             },
             {
-                "answer": "A notification that sends out push notifications to friends when new content is published.",
+                "answer": "Although databases store text with no issues, storing images and video in a database creates a myriad of problems. Consequently, using a distributed object storage system like Amazon's S3 to store the images and video would keep performance optimized, with links to the S3 storage location kept in the database rather the files themselves.",
                 "hints": [
                     "Recall the parameter fields for the POST query",
                     "Remember to consider the different types of media a post can contain (text, images, video)."
                 ],
+                "question": "How will content data be stored?"
+            },
+            {
+                "answer": "A notification that sends out push notifications to friends when new content is published.",
+                "hints": [],
                 "question": "How are friends notified when a new post has been made to their news feeds?"
+            },
+            {
+                "answer": "A fanout service which pushes new content to friends news feeds can be used.",
+                "hints": [],
+                "question": "How will a newly published post be distributed?"
             },
             {
                 "answer": "The two models are:\n - Fanout on write (push): when a post is published, the new news feed is precomputed and written to friend's caches. This ensures that getting a news feed is very quick because the news feed is already created, however it can be very expensive if the user has many friends because every friends news feed must be computed.\n - Fanout on read (pull): when a user loads their news feed, new posts are pulled into the feed. This solves the issue of computing many news feeds if the user has many friends and also prevents unnecessary computation for users who rarely log on; however, loading the news feed will be slower for users because it must be computed when requested.",
@@ -475,7 +647,8 @@
                 "answer": "The optimal approach in this case is the hybrid approach. For most users, we can use the push approach because the negative aspects of the method do not affect users who have smaller numbers of friends. For users who have large amounts of users, such as celebrities, we can use a pull approach to prevent extreme computation overload.",
                 "hints": [
                     "Consider the difference cases between users that have many followers and users that do not."
-                ]
+                ],
+                "question": "Which fanout model should the news feed system use?"
             }
         ],
         "topic": "news",
@@ -496,7 +669,8 @@
             },
             {
                 "answer": "Although using caches inside the system helps with optimization, we can use a CDN to help take the load of serving up images and video to users.",
-                "hints": []
+                "hints": [],
+                "question": "How can we improve news feed performance?"
             }
         ],
         "topic": "news",
@@ -530,11 +704,21 @@
                 "question": "What are some of the capacities, throughput and constraints the system should handle for? i.e. Can you estimate the allocation of resources for our system?"
             },
             {
-                "answer": "Each video could be estimated at ~500mb (half a gigabyte) we will then have 100,000 * 500 = 50,000,000mb => 50,000gb => 50TB daily",
+                "answer": "We need to figure out:\n 1. How many daily active users (DAU) upload \n 2. How many videos uploaded?\n 3. Over what amount of time?\n If we assume 10 million DAU and 10% are uploaders, we will have **100,000** uploaders.\n Let's say each uploader uploads 1 video a day, we will have 100,000 videos.",
                 "hints": [
                     "Remember to use easy to estimate numbers"
                 ],
+                "question": "How many videos would there be?"
+            },
+            {
+                "answer": "Each video could be estimated at ~500mb (half a gigabyte) we will then have 100,000 * 500 = 50,000,000mb => 50,000gb => 50TB daily",
+                "hints": [],
                 "question": "What would be daily storage capacity needed for videos?"
+            },
+            {
+                "answer": "Bandwidth could mean how data is uploaded to our servers every minute.",
+                "hints": [],
+                "question": "We tackled the storage capacity, let's see how we can estimate the daily bandwidth. What does bandwidth entail?"
             },
             {
                 "answer": "Since we have 50TB stored daily, that will be 50/24/60 ~> 50/25/60 ~> 2/60 ~> 1/30 ~= 0.03 TB per minute or 30 GB per minute",
@@ -557,6 +741,11 @@
                 "question": "What API endpoints should the server have?"
             },
             {
+                "answer": "Uploading and streaming videos could be done through REST APIs.\n For general information on rest checkout @link:[](api1).\n Let's look at how we might upload a video.\n The endpoint could be a POST `https://youtube.com/<user_id>/videos`.\n We can have an initial POST to create initial metadata placeholder such as the date, user, title, details, likes/dislikes, tags, category_id etc.\n The header for the POST could contain the api key.\n Then, have a PATCH to the api endpoint with the actual video base64 encoded.",
+                "hints": [],
+                "question": "How do we handle uploading videos?"
+            },
+            {
                 "answer": "The client uploader can upload videos in chunks to help with threading as well as bandwidth and video indexing. This is known as _multi part_ upload. S3 actually [has such feature built in](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingRESTAPImpUpload.html). It works by having the client initiate a request and the api responds with an upload id. The client then begins to chunk the content and send the chunk data, the hash of the data so that the server can validate the integrity of the chunk, and the chunk sequence number.",
                 "hints": [
                     "One strategy is to directly upload the entire file to some sort of storage like Amazon S3. However some videos can be long and as a result the uploaded file can be pretty large. How should this be handled?"
@@ -564,15 +753,25 @@
                 "question": "How do we upload the video file itself?"
             },
             {
+                "answer": "We can view a video with a GET `https://youtube.com/<user_id>/videos/<video_id>`\n It can accept parameters in its url for time offset, video quality",
+                "hints": [],
+                "question": "How do we handle viewing videos?"
+            },
+            {
                 "answer": "The response should include a json body of its metadata such as its current like, dislike, details, author, tags, category, comments\n There could be a separated out request for the binary video itself as that could be in chunks. These would essentially be done through another type of video protocol.",
                 "hints": [],
                 "question": "How should the GET request response look like?"
             },
             {
-                "answer": "We can reuse our endpoint: `https://youtube.com/<user_id>/videos/<video_id>` and do a POST with like disklike metadata to the endpoint.",
+                "answer": "The files will be chunked on the s3 storage. When we initiate the GET request for the video, we can download the chunk one by one.",
                 "hints": [
                     "Thank back to how the video was uploaded. Similarly, we face the same problem of large file download."
                 ],
+                "question": "How does the actual video content get streamed?"
+            },
+            {
+                "answer": "We can reuse our endpoint: `https://youtube.com/<user_id>/videos/<video_id>` and do a POST with like disklike metadata to the endpoint.",
+                "hints": [],
                 "question": "Finally, how should we handle the comment/like/dislike?"
             }
         ],
@@ -595,6 +794,11 @@
                 "question": "What architectural components should we consider?"
             },
             {
+                "answer": "Beacause the image file is too big. Instead, we can store the image url in the database (or key) so that a further query for the image to Dynamo or S3 can be done.",
+                "hints": [],
+                "question": "Why shouldn't we store thumbnail images in database?"
+            },
+            {
                 "answer": "A message queue @link[](mq1) can handle the interactions between the video chunks and the different video formats. Producer will be the chunks of videos and the consumer will be the encoder to encode to specific formats.\n Another benefit of message queue is that should the connection drop, the chunks are still held in the queue and can be easily resumed during upload.",
                 "hints": [
                     "There would be many chunks of videos coming in and many different formats as output. How should we store the data so that this can be managed easily?"
@@ -603,7 +807,8 @@
             },
             {
                 "answer": "Since video files are quite large, we can make use of CDNs and edge nodes so that the user can stream videos faster and more cache is available. Check out @link[](cdn1) for more information.",
-                "hints": []
+                "hints": [],
+                "question": "How can we improve the latency being transmitted by video streaming?"
             }
         ],
         "topic": "youtube",
@@ -621,15 +826,21 @@
                 "question": "What would our database look like?"
             },
             {
-                "answer": "Because a user who is super popular might upload many videos.",
+                "answer": "We can shard based on video id since each video will be unique so the videos will be equally distributed.",
                 "hints": [
                     "We should shard based on something that can be equally distributed."
                 ],
+                "question": "How do we shard the database?"
+            },
+            {
+                "answer": "Because a user who is super popular might upload many videos.",
+                "hints": [],
                 "question": "Why can't we shard based on user id?"
             },
             {
                 "answer": "Since video files are quite large, we can make use of CDNs and edge nodes so that the user can stream videos faster and more cache is available. Check out @link[](cdn1) for more information.",
-                "hints": []
+                "hints": [],
+                "question": "How can we improve the latency being transmitted by video streaming?"
             }
         ],
         "topic": "youtube",
