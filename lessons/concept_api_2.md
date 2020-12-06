@@ -5,7 +5,7 @@ HTTP & REST
 @topic
 api
 @video_url
-https://youtu.be/cK2k_4rD-mQ
+https://youtu.be/G9CFesaKw9g
 
 @question 
 In a typical web application, how does a server and client continue to communicate/transfer data? Explain what HTTP and API is.

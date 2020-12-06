@@ -9,7 +9,7 @@ RUN npm run build --production
 RUN npm install -g serve
 CMD serve -s build
 
-ENV PORT 3000
+EXPOSE 3000
 ENV HOST 0.0.0.0
 
-CMD ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
