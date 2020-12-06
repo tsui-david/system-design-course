@@ -22,16 +22,10 @@ What are the two main types of databases?
 Relational and non-relational
 
 @question
-What are the two main types of databases?
-
-@answer
-Relational (RDBMS) and non-relational
-
-@question
 When would one use a relational database?
 
 @hint
-relational database: are also called relational database management system (RDBMS) or SQL database *some popular RDBMS are MySQL, Oracle DB, PostgresSQL
+Relational database: are also called relational database management system (RDBMS) or SQL database *some popular RDBMS are MySQL, Oracle DB, PostgresSQL
 
 @answer
 If the data is structured and if you're working with a schema that allows data to be organized into tables with columns and rows. 
