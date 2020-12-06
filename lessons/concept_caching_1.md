@@ -13,7 +13,6 @@ Define caching using the Locality of Reference Principle.
 @answer
 Caching takes advantage of the Locality of Reference Principle which states that recently requested data is likely to be requested again. Therefore, caching is the act of storing reusable data responses in order to make subsequent requests faster. When a request is made, caches are checked for the requested data along the way to the origin location of the data.
 
-
 @question
 List and explain different web caching types/layers.
 

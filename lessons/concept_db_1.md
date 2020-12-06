@@ -15,7 +15,8 @@ What should you do before choosing a database?
 2. Define the data model early.
 3. Explore your options.
 
-@What are the two main types of databases?
+@question
+What are the two main types of databases?
 
 @answer
 Relational and non-relational
@@ -57,3 +58,7 @@ Sharding is the process of breaking up large tables into smaller chunks called s
 
 @question
 What are two methods of sharding and how do they work?
+
+@answer
+1. Hash: takes a shard key's value and generates a hash value from it. The hash value is then used to determine in which shard the data should reside.
+2. Range: divides the data based on ranges of the data value. Shard keys with nearby values are more likely to fall into the same range and onto the same shards.

@@ -12,24 +12,16 @@ What operations can exist regarding CRUD on Spotify playlist?
 
 @hint
 What operations can exist regarding CRUD on Spotify playlist?
-
 `Create`: Create new playlist
-
 `Read`: Read songs from playlist, read all playlist
-
 `Update`: Change playlist name, add playlist song
-
 `Delete`: Remove playlist, remove song from playlist
 
 @hint
 What HTTP methods can be used regarding CRUD on Spotify playlist? 
-
 `Create`: POST new playlist
-
 `Read`: GET playlist, GET songs
-
 `Update`: PATCH playlist song, PUT playlist song
-
 `Delete`: DELETE playlist, DELETE song
 
 @hint

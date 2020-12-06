@@ -39,7 +39,6 @@ Why can't we shard based on user id?
 @answer
 Because a user who is super popular might upload many videos.
 
-
 @question
 How can we improve the latency being transmitted by video streaming?
 

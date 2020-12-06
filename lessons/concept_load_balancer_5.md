@@ -23,8 +23,6 @@ The load balancer must consider:
 
 and change route connections accordingly. For health checks, a load balancer will monitor connections to servers, if a server does not respond, it is removed from the pool of available servers. The type of request and duration of tasks are mostly factors taken into consideration by the load balancers routing algorithm.
 
-
-
 @question
 Name some load balancing algorithms. Which one would be effective for persistent connections?
 
@@ -42,6 +40,5 @@ Load balancing algorithms can vary substantially, ranging from "dumb" algorithms
 - Least Connections: directs traffic to the server with the fewest active connections.
 - Least Response Time: a dummy request is sent to the servers and the load balancer keeps track of the time it takes to get a response. Requests are distributed to the server which has the least response time.
 - Consistent hashing: perhaps the most important load balancing algorithm. Ensures that when a hash table is resized, not all keys need to be remapped.
-
 
 Servers that are dealing with persistent connections often have to consider that persistent connections have no set end time and therefore there is no way of predicting when a connection will end. Therefore connections will generally result in unevenly distributed load on the servers. Using the Least Connections works to balance uneven servers.
