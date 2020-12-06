@@ -10,11 +10,15 @@ https://youtu.be/OVqAdFq4198
 @question
 What should you do before choosing a database?
 
-@hint
-database: an organized collection of data, generally stored and accessed electronically from a computer system.
+@answer
+1. Understand the problem.
+2. Define the data model early.
+3. Explore your options.
+
+@What are the two main types of databases?
 
 @answer
-Try to define the data model early, this will help clarify how data will flow among different components. One should be able to identify various entities of the system, how they interact with each other, and different aspect of data management like storage, transportation, encryption.  
+Relational and non-relational
 
 @question
 What are the two main types of databases?
@@ -29,31 +33,27 @@ When would one use a relational database?
 relational database: are also called relational database management system (RDBMS) or SQL database *some popular RDBMS are MySQL, Oracle DB, PostgresSQL
 
 @answer
-If you're working with a schema that allows data to be organized into tables with columns and rows. 
-RDBMS are very traditional and have been around the longest, thus they have the biggest support and resources, people likely more familiar. 
-Data integrity is a particular concern in relational databases, RDMS use a number of constraints to ensure that the data contained in your tables is reliable and accurate.
+If the data is structured and if you're working with a schema that allows data to be organized into tables with columns and rows. 
 All RDBMS are ACID-compliant.
-    Atomicity
-    Consistency
-    Isolation
-    Durability
 
 @question
-When would you use a non-relational database?
+What are ways you can scale a relational database?
+
+@hint
+Think of methods to increase performance.
 
 @answer
-Your application requires super-low latency
-Schema can be agnostic, allowing unstructured and semi-structured data to be stored and manipulated
-You only need to serialize and deserialize data (JSON, XML, YAML, etc)
-You need to store a massive amount of data
+1. Vertical scaling
+2. Sharding
 
 @question
-What are types of non-relational database?
+What is sharding?
+
+@hint
+Break up the database.
 
 @answer
-Key-value stores: (Redis, Amazon DynamoDB) simple DBMS that store only key-value pairs and provide basic functionality for retrieving the value associated with a known key
-Wide column stores: (Cassandra, Scylla, HBase) schema-agnostic systems that enable users to store data in column families or tables, a single row of which can be thought as a record -- a multi-dimensional key-value store
-Document stores: (MongoDB, Couchbase) schema-free systems that store data in the form of JSON documents. Document stores are similar to key-value or wide column stores, but the document name is the key and the contents of the document, whatever they are, are the value.
-Graph Database: (Neo4j, Datastax Enterprise Graph) represent data as a network of related nodes or objects in order to facilitate data visualizations and graph analytics
-Search Engines: (Elasticsearch, Spluk, Solr) store data using schema-free JSON documents. Similar to document stores, but with greater emphasis on making your unstructured or semi 
+Sharding is the process of breaking up large tables into smaller chunks called shards that are spread across multiple servers. Instead of having the data on one node, it is instead a cluster of nodes. 
 
+@question
+What are two methods of sharding and how do they work?
