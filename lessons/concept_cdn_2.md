@@ -22,7 +22,6 @@ Although this is highly dependent on the needs of a site (as we will later see) 
 
 You might notice virtually all of these are similar to the benefits offered by the generic definition of a cache.
 
-
 @question
 When deciding to use a CDN in a system, what considerations should be considered?
 

@@ -24,7 +24,6 @@ Caches are most optimal when they remain consistent and don't have to reach back
 
 This type of ***static*** content is excellent for caching because it changes very infrequently.
 
-
 @question
 Explain the benefits of caching.
 

@@ -88,7 +88,6 @@ For PUT/POST it means the server properly accepted the input, could also be 201
 `502: Bad Gateway`: The server acting as a gateway was not able to get a response needed to handle the request. This is usually a network issue with the gateway load balancer that accepted the request and the actual server.
 For more information on gateways, look up load balancer
 
-
 @question
 Follow Up: What’s the difference between authentication vs authorization?
 
