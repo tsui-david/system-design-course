@@ -1,7 +1,7 @@
 @lesson_id
 db1.1
 @lesson_title
-Database Introduction
+Database Relational Databases
 @topic
 db
 @video_url
