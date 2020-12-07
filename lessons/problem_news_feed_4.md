@@ -5,7 +5,7 @@ News Feed: Architecture/Details
 @topic
 news
 @video_url
-???
+https://youtu.be/9aeE0CzNTkY
 
 @question
 What architectural components should we consider?
@@ -33,7 +33,7 @@ There are two major architectural components. The first is the publishing archit
 The second would be the fetching architecture for getting the news feed, which would generally consist of:
 1. A **load balancer** to distribute traffic from users among the web servers
 2. The **web servers** route GET requests to news feed service
-3. The **news feed servce** which:
+3. The **news feed service** which:
     1. Pulls the post ID from a **cache**
     2. Hydrates the post by pulling the necessary data from other **caches, databases, and distributed object storage systems (S3)**
     3. Returns the data to the client in JSON

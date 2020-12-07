@@ -5,7 +5,7 @@ News Feed: Capacity Estimation
 @topic
 news
 @video_url
-???
+https://youtu.be/o0P_z9Q2ocg
 
 @question
 How many posts can we expect to be made daily?
@@ -17,11 +17,11 @@ In order to answer this we simply need to know the number of daily active users 
 How many notifications will be sent out daily?
 
 @answer
-If we have 10 million DAU and each user can have 5000 friends, let us assume each user posts once a day and each user has half the number of friends.
+If we have 10 million DAU (Daily Active Users) and each user can have 5000 friends, let us assume each user posts once a day and each user has half the number of friends.
 10 million * 2500 friends = 2,500,000,000 notifications across all users.
 
 @question
-How much storage will be needed to save all the posts for a single day?
+What type of content can a post be made up of?
 
 @answer
-Considering that a posts can contain text, images, and video , 
+A post can contain text, images, and video.

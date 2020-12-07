@@ -5,7 +5,7 @@ News Feed: Interface
 @topic
 news
 @video_url
-???
+https://youtu.be/zbLv8BWdZbU
 
 @question
 What API endpoints will the server have?
@@ -73,7 +73,7 @@ Recall the parameter fields for the POST query
 Remember to consider the different types of media a post can contain (text, images, video).
 
 @answer
-Although databases store text with no issues, storing images and video in a database creates a myriad of problems. Consequently, using a distributed object storage system like Amazon's S3 to store the images and video would keep performance optimized, with links to the S3 storage location kept in the database rather the files themselves.
+Although databases store text with no issues, storing images and video in a database creates a myriad of problems. Consequently, using a distributed object storage system like Amazon's S3 to store the images and video would keep performance optimized, with links to the S3 storage location kept in the database rather then the files themselves.
 
 @question
 How are friends notified when a new post has been made to their news feeds?

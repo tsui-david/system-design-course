@@ -5,7 +5,7 @@ Designing a News Feed: Requirements
 @topic
 news
 @video_url
-???
+https://youtu.be/z3ONIfEN08o
 
 @question
 What are the requirements and goals of the system?
