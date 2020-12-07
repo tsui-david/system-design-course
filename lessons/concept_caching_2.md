@@ -1,11 +1,11 @@
 @lesson_id
 caching_2
 @lesson_title
-Advantages of Caching
+Advantages of Caching (And What to Store)
 @topic
 caching
 @video_url
-???
+https://youtu.be/fYKK5DXQZY0
 
 @question
 What is stored in a cache?

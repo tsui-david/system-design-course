@@ -5,7 +5,7 @@ Cache Invalidation and It's Friends
 @topic
 caching
 @video_url
-???
+https://youtu.be/ZwcnD64pm9Y
 
 @question
 What are some considerations to take into account when caching?

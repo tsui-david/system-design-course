@@ -5,7 +5,7 @@ CDNs IRL
 @topic
 cdn
 @video_url
-???
+https://youtu.be/60IcNmjRIjY
 
 @question
 When would you use a CDN?

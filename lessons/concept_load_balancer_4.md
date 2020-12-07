@@ -15,7 +15,7 @@ Very generally, load balancing distributes incoming traffic among the servers be
 
 Load balancing solves the single point of failure problem by routing requests to other servers when a server is down. Without load balancing, dealing with a downed server falls on the person making the request to find another available server. With a load balancer the user need not be aware that they are being routed to another server.
 
-Load balancing also resolves overloaded servers by evenly distributing load over all the available servers. Without a load balancer, traffic can become concentrated on a single server, causing the server to process requests more slowly or even drop requests due to overloading. With a load balancer the load on each server is managed through distribution algorithms and health checks. This ensures each server is doing an equal amount of work therefore resulting in an optimal performance across all severs.
+Load balancing also resolves overloaded servers by evenly distributing load over all the available servers. Without a load balancer, traffic can become concentrated on a single server, causing the server to process requests more slowly or even drop requests due to overloading. With a load balancer the load on each server is managed through distribution algorithms and health checks. This ensures each server is doing an equal amount of work therefore resulting in an optimal performance across all servers.
 
 @question
 What are other non-load based benefits of load balancing?

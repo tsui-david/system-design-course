@@ -5,7 +5,7 @@ CDN Benefits and Considerations
 @topic
 cdn
 @video_url
-???
+https://youtu.be/dhGs77fNHUo
 
 @question
 Name some benefits of using a CDN?
@@ -26,8 +26,8 @@ You might notice virtually all of these are similar to the benefits offered by t
 When deciding to use a CDN in a system, what considerations should be considered?
 
 @answer
-1. Cost: CDNs are typically run by a third party that will charge you for data transfers in and out of the CDN. of use with respect to nature of data requested
-2. Content expiration time: if content takes too long to expire it will be outdated; if it expires to quickly then content will be repeated loaded from the origin servers
+1. Cost: CDNs are typically run by a third party that will charge for data transfers in and out of the CDN.
+2. Content expiration time: if content takes too long to expire it will be outdated; if it expires too quickly then content will be repeatedly loaded from the origin servers
 3. CDN outage: clients should be able to detect CDN outages and request data from the origin
 4. File invalidation: files can be invalidated in a CDN in two ways
     1. CDN API calls provided by CDN vendor

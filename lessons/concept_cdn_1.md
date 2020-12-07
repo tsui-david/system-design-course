@@ -5,7 +5,7 @@ Content Delivery Network Introduction
 @topic
 cdn
 @video_url
-???
+https://youtu.be/eQcATvKqIPk
 
 @question
 What is a CDN?
@@ -17,4 +17,4 @@ A CDN, or Content Delivery Network, is a overlay network of geographically distr
 How does content get added to the CDN?
 
 @answer
-When the user makes a request for some content the CDN is first checked. If the CDN does not have the content, it requests the content and then caches the content based on the time to live HTTP header (behaves just like a cache).
+If a website is subscribed to a CDN providers service, when the user makes a request for some content the CDN is first checked. If the CDN does not have the content, it requests the content and then caches it based on the time to live HTTP header (behaves just like a cache).
